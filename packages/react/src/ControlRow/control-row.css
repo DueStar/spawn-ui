@@ -1,0 +1,9 @@
+/* spawn's .chat-ctrl (chat.css 298–310) */
+.sp-ctrl { display: flex; align-items: center; gap: 2px; min-width: 0; margin-top: 6px; font-size: var(--t-meta); color: var(--ink-3); }
+.sp-ctrl__item { display: inline-flex; align-items: center; gap: 4px; min-width: 0; padding: 3px 6px; white-space: nowrap; }
+.sp-ctrl__item b { font-weight: 400; color: var(--ink-2); overflow: hidden; text-overflow: ellipsis; }
+button.sp-ctrl__item { font: inherit; color: inherit; background: none; border: 0; border-radius: var(--r-s); cursor: pointer; }
+button.sp-ctrl__item:hover:not(:disabled), button.sp-ctrl__item[data-popup-open] { background: var(--hover); color: var(--ink-2); }
+button.sp-ctrl__item:focus-visible { outline: 2px solid var(--ink-2); outline-offset: 1px; }
+.sp-ctrl__sep { flex: none; width: 1px; height: 12px; margin: 0 4px; background: var(--line); }
+.sp-ctrl .sp-meter { flex: none; width: 56px; }

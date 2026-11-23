@@ -76,8 +76,8 @@ describe('the calm look, on every stylesheet', () => {
   })
 
   it('var(--accent) appears only in switch.css (the allow-list later plans extend: send, chosen row, picked cell)', () => {
-    // spawn's own yellow, by file: switch.css (.set-switch.on), session-row.css (.w-row.chosen::before), rail.css (.w-rail-session.on::before), drop-zone.css (.w-pane-drop), update-button.css (.w-update), mon-cell.css (.dex-cell.picked, .box-cell.picked)
-    const ACCENT_OK = ['switch.css', 'session-row.css', 'rail.css', 'drop-zone.css', 'update-button.css', 'mon-cell.css']
+    // spawn's own yellow, by file: switch.css (.set-switch.on), session-row.css (.w-row.chosen::before), rail.css (.w-rail-session.on::before), drop-zone.css (.w-pane-drop), update-button.css (.w-update), mon-cell.css (.dex-cell.picked, .box-cell.picked), composer.css (.chat-send: the one yellow in the chat)
+    const ACCENT_OK = ['switch.css', 'session-row.css', 'rail.css', 'drop-zone.css', 'update-button.css', 'mon-cell.css', 'composer.css']
     for (const d of decls()) if (/var\(--accent(?:-hover)?\)/.test(d.value)) expect(ACCENT_OK, `${d.file} ${d.sel} uses yellow`).toContain(d.file)
   })
 

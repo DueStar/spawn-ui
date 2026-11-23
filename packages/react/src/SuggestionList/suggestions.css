@@ -1,0 +1,11 @@
+/* spawn's .chat-menu / .chat-mi (chat.css 336–341): over the composer, driven by its field */
+.sp-sugg { position: absolute; left: 0; bottom: calc(100% + 6px); z-index: 20; max-width: 100%; box-sizing: border-box; padding: 4px; background: var(--card); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: var(--r-l); box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45); }
+.sp-sugg--300 { width: 300px; }
+.sp-sugg--460 { width: 460px; }
+.sp-sugg__list { max-height: 268px; overflow-y: auto; }
+.sp-sugg__title { padding: 6px 8px 4px; font-size: var(--t-meta); color: var(--ink-3); }
+.sp-sugg__item { display: flex; align-items: center; gap: 10px; min-height: 26px; padding: 4px 8px; box-sizing: border-box; border-radius: var(--r-s); color: var(--ink-3); cursor: pointer; }
+.sp-sugg__item[aria-selected="true"], .sp-sugg__item:hover { background: var(--sel-bg); }
+.sp-sugg__label { flex: none; min-width: 0; max-width: 60%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-family: 'Monaspace Neon Var', Consolas, 'SF Mono', Menlo, monospace; font-weight: var(--w-mono); font-size: var(--t-meta); color: var(--ink); }
+.sp-sugg__desc { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: var(--t-meta); color: var(--ink-3); }
+.sp-sugg__empty { padding: 6px 8px; font-size: var(--t-meta); color: var(--ink-3); }

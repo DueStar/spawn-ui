@@ -1,0 +1,22 @@
+/* spawn's composer (chat.css 256–296, 505–510). The send button is the one yellow */
+.sp-composer { flex: none; padding: 0 32px 14px; position: relative; }
+/* a narrow chat (its own container, as spawn's .chat): the composer's sides 16 */
+@container (max-width: 900px) { .sp-composer { padding: 0 16px 12px; } }
+.sp-composer__in { max-width: var(--read-w); margin: 0 auto; position: relative; }
+.sp-composer__note { display: flex; align-items: center; flex-wrap: wrap; gap: 4px 8px; padding: 0 4px 8px; font-size: var(--t-ui); line-height: 1.5; color: var(--ink-2); }
+.sp-composer__box { position: relative; display: flex; flex-direction: column; gap: 6px; padding: 8px 8px 8px 12px; background: var(--card); border: 1px solid var(--line); border-radius: var(--r-l); }
+.sp-composer__box:focus-within { border-color: rgba(255, 255, 255, 0.16); }
+.sp-composer__chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.sp-composer__input { display: block; width: 100%; min-height: 22px; max-height: 160px; margin: 0; padding: 2px 0; box-sizing: border-box; border: 0; outline: 1px solid transparent; resize: none; overflow-y: auto; background: none; color: var(--ink); font-family: 'W Pretendard', 'Pretendard Variable', 'Malgun Gothic', 'Apple SD Gothic Neo', 'Hiragino Sans', system-ui, sans-serif; font-size: var(--t-prose); line-height: 1.6; }
+.sp-composer__input::placeholder { color: var(--ink-3); opacity: 1; }
+.sp-composer__input[readonly] { color: var(--ink-3); }
+.sp-composer__input[aria-busy="true"] { color: var(--ink-2); }
+.sp-composer__bar { display: flex; align-items: center; gap: 2px; margin: 0 -2px 0 -6px; }
+.sp-composer__bar .sp-icon-button { width: 28px; height: 28px; }
+.sp-composer__send { flex: none; display: grid; place-items: center; width: 30px; height: 30px; margin-left: auto; padding: 0; border: 0; border-radius: var(--r-m); background: var(--accent); color: var(--accent-ink); cursor: pointer; }
+.sp-composer__send:hover { background: var(--accent-hover); }
+.sp-composer__send:focus-visible { outline: 2px solid var(--ink-2); outline-offset: 1px; }
+.sp-composer__send--empty, .sp-composer__send--empty:hover { background: rgba(255, 255, 255, 0.06); color: var(--ink-3); cursor: default; }
+.sp-composer__hint { padding: 6px 4px 0; font-size: var(--t-meta); line-height: 1.5; color: var(--ink-3); }
+.sp-composer__box--shell { border-color: rgba(255, 255, 255, 0.22); }
+.sp-composer__box--shell .sp-composer__input { font-family: 'Monaspace Neon Var', Consolas, 'SF Mono', Menlo, monospace; font-weight: var(--w-mono); font-size: var(--t-code); }

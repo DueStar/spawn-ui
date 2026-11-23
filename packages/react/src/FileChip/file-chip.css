@@ -1,0 +1,19 @@
+/* spawn's file chips merged: .fchip (prose, chat.css 32), .chat-fref (inline, 498), .chat-sent-file / user files (pill, 502, 524), .chat-fchip (draft, 494) */
+.sp-fchip { display: inline-flex; align-items: center; max-width: 100%; vertical-align: 0; }
+.sp-fchip__open { display: inline-flex; align-items: center; min-width: 0; max-width: 100%; padding: 0; border: 0; background: none; color: inherit; font: inherit; line-height: inherit; border-radius: var(--r-xs); }
+button.sp-fchip__open { cursor: pointer; }
+button.sp-fchip__open:focus-visible, .sp-fchip__x:focus-visible { outline: 2px solid var(--ink-2); outline-offset: 1px; }
+.sp-fchip__in { display: inline-flex; align-items: center; gap: 4px; min-width: 0; }
+.sp-fchip__in svg { flex: none; opacity: 0.7; }
+.sp-fchip__name { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-family: 'Monaspace Neon Var', Consolas, 'SF Mono', Menlo, monospace; font-weight: var(--w-mono); }
+/* a file named in the prose: 3px taller above and below than the chip it draws (a 22px target), no effect on the line */
+.sp-fchip--prose .sp-fchip__open { padding: 3px 0; margin: -3px 0; color: var(--ink-2); }
+.sp-fchip--prose .sp-fchip__in { padding: 0 6px; border-radius: var(--r-xs); font-size: calc(var(--t-prose) - 2px); background: rgba(255, 255, 255, 0.05); }
+.sp-fchip--prose .sp-fchip__open:hover { color: var(--ink); }
+.sp-fchip--prose .sp-fchip__open:hover .sp-fchip__in { background: rgba(255, 255, 255, 0.09); }
+.sp-fchip--inline { margin: 0 1px; padding: 0 6px; border-radius: var(--r-xs); background: rgba(255, 255, 255, 0.06); color: var(--ink); font-size: calc(var(--t-code) - 1px); }
+.sp-fchip--pill { padding: 3px 8px; border: 1px solid var(--line); border-radius: var(--r-xs); background: none; color: var(--ink); font-size: var(--t-meta); }
+.sp-fchip--pill:hover { border-color: var(--line-hover); background: rgba(255, 255, 255, 0.04); }
+.sp-fchip--draft { gap: 5px; height: 26px; max-width: 220px; padding: 0 2px 0 8px; box-sizing: border-box; border: 1px solid var(--line); border-radius: var(--r-s); font-size: var(--t-meta); color: var(--ink-2); }
+.sp-fchip__x { flex: none; display: grid; place-items: center; width: 22px; height: 22px; padding: 0; border: 0; border-radius: var(--r-xs); background: none; color: var(--ink-3); cursor: pointer; }
+.sp-fchip__x:hover { color: var(--ink); background: var(--hover); }
