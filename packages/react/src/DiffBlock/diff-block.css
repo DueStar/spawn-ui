@@ -1,0 +1,33 @@
+/* spawn's .chat-diff / .chat-dl (chat.css 123–151), in a card (.chat-card-diff, 377–388) and the changes panel (.chat-ch-lines, 467) */
+.sp-diff { border: 1px solid var(--line); border-radius: var(--r-m); overflow: hidden; background: var(--term-bg); min-width: 0; margin: 2px 0; }
+.sp-diff__head { display: flex; align-items: center; gap: 8px; min-height: 30px; padding: 2px 10px; font-size: var(--t-meta); color: var(--ink-3); border-bottom: 1px solid var(--line); min-width: 0; }
+.sp-diff__kind { color: var(--ink-2); white-space: nowrap; flex: none; }
+.sp-diff__file { min-width: 0; min-height: 24px; padding: 0 4px; margin-left: -4px; border: 0; border-radius: var(--r-s); background: none; font-family: 'Monaspace Neon Var', Consolas, 'SF Mono', Menlo, monospace; font-weight: var(--w-mono); font-size: var(--t-meta); color: var(--ink-2); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; text-align: left; }
+span.sp-diff__file { display: inline-block; line-height: 24px; }
+button.sp-diff__file { cursor: pointer; }
+button.sp-diff__file:hover { color: var(--ink); background: var(--hover); }
+button.sp-diff__file:focus-visible, .sp-diff__more:focus-visible { outline: 2px solid var(--ink-2); outline-offset: -2px; }
+.sp-diff__counts { margin-left: auto; display: inline-flex; gap: 6px; font-family: 'Monaspace Neon Var', Consolas, 'SF Mono', Menlo, monospace; font-weight: var(--w-mono); font-size: var(--t-meta); white-space: nowrap; flex: none; }
+.sp-diff__a { color: var(--green); }
+.sp-diff__d { color: var(--red-text); }
+.sp-diff__lines { font-family: 'Monaspace Neon Var', Consolas, 'SF Mono', Menlo, monospace; font-weight: var(--w-mono); font-size: calc(var(--t-code) - 1px); line-height: 1.6; padding: 4px 0; overflow-x: auto; }
+.sp-diff__line { display: grid; grid-template-columns: 36px 16px minmax(0, 1fr); white-space: pre; color: var(--ink-2); min-width: max-content; }
+.sp-diff__no { color: var(--ink-3); text-align: right; padding-right: 8px; }
+.sp-diff__sign { color: var(--ink-3); }
+.sp-diff__line--add { background: var(--add-bg); color: var(--ink); }
+.sp-diff__line--add .sp-diff__sign { color: var(--green); }
+.sp-diff__line--del { background: var(--del-bg); color: var(--ink-2); }
+.sp-diff__line--del .sp-diff__sign { color: var(--red-text); }
+.sp-diff__line--gap { color: var(--ink-3); }
+.sp-diff__line--nonum { grid-template-columns: 22px minmax(0, 1fr); }
+.sp-diff__line--nonum .sp-diff__sign { text-align: center; }
+.sp-diff__more { display: flex; align-items: center; width: 100%; min-height: 26px; padding: 0 12px 0 52px; border: 0; border-top: 1px solid var(--line); background: none; color: var(--ink-3); font: inherit; font-size: var(--t-meta); text-align: left; cursor: pointer; }
+.sp-diff__more:hover { color: var(--ink); background: var(--hover); }
+/* in a card: the whole path wrapped, every line wrapped in the box (nothing out of sight to the right) */
+.sp-diff--card { margin: 0; }
+.sp-diff--card .sp-diff__head { flex-wrap: wrap; align-items: flex-start; padding: 4px 10px; }
+.sp-diff--card .sp-diff__file { flex: 1 1 0; white-space: pre-wrap; overflow-wrap: anywhere; overflow: visible; line-height: 1.6; padding: 1px 4px; }
+.sp-diff--card .sp-diff__lines { max-height: 220px; overflow-x: hidden; overflow-y: auto; }
+.sp-diff--card .sp-diff__line, .sp-diff--panel .sp-diff__line { white-space: pre-wrap; overflow-wrap: anywhere; min-width: 0; }
+.sp-diff--panel .sp-diff__lines { padding: 2px 0; font-size: var(--t-meta); line-height: 1.55; }
+.sp-diff--panel .sp-diff__line { grid-template-columns: 32px 14px minmax(0, 1fr); }
