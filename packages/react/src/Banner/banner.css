@@ -1,0 +1,16 @@
+/* spawn's amber notices merged: .chat-banner (card), .w-ask / .w-setup (compact), .w-row-ask (row), .fb-bar (floating).
+   One border for all: amber at 38 % (spawn writes it as rgba(255,181,74,.38) and as this color-mix; the same value) */
+.sp-banner { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 12px; min-width: 0; box-sizing: border-box; border: 1px solid color-mix(in srgb, var(--amber) 38%, transparent); }
+.sp-banner--card { padding: 10px 12px; border-radius: var(--r-l); background: var(--card); }
+.sp-banner--compact { padding: 8px 10px; border-radius: var(--r-l); background: var(--card); gap: 6px; }
+.sp-banner--row { padding: 8px 10px; border-radius: var(--r-m); background: none; gap: 8px; }
+.sp-banner--floating { position: fixed; left: 50%; top: 12px; transform: translateX(-50%); z-index: 9010; max-width: calc(100vw - 24px); padding: 6px 6px 6px 14px; border-radius: var(--r-l); background: var(--card); color: var(--ink); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); flex-wrap: nowrap; }
+.sp-banner__icon { color: var(--amber); flex: none; display: inline-flex; }
+.sp-banner__text { flex: 1 1 240px; min-width: 0; display: flex; flex-direction: column; gap: 2px; font-size: var(--t-meta); color: var(--ink-2); line-height: 1.5; overflow-wrap: anywhere; }
+.sp-banner__head { display: flex; align-items: center; gap: 4px; min-width: 0; }
+.sp-banner__title { font-size: var(--t-ui); font-weight: 500; color: var(--ink); }
+.sp-banner__actions { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+/* something waits on the person (.w-ask-dot) */
+.sp-banner__dot { width: 7px; height: 7px; border-radius: 50%; background: var(--amber); margin-right: 3px; flex: none; animation: sp-banner-pulse 1.4s ease-in-out infinite; }
+@keyframes sp-banner-pulse { 50% { opacity: 0.45; } }
+@media (prefers-reduced-motion: reduce) { .sp-banner__dot { animation: none; } }

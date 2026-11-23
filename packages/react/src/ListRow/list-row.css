@@ -1,0 +1,15 @@
+/* spawn's list rows merged: .set-row / .set-text / .set-actions (setting), .resume-item (item) */
+.sp-list-row { display: flex; align-items: center; min-width: 0; }
+.sp-list-row__text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.sp-list-row__title { font-size: var(--t-name); font-weight: var(--w-name); color: var(--ink); }
+.sp-list-row__desc { font-size: var(--t-meta); color: var(--ink-3); line-height: 1.45; overflow-wrap: anywhere; }
+.sp-list-row--setting { justify-content: space-between; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+.sp-list-row__control { display: flex; gap: 6px; flex: none; }
+.sp-list-row--item { gap: 8px; padding: 9px 11px; margin-bottom: 2px; border: 1px solid transparent; border-radius: var(--r-s); }
+.sp-list-row--item:hover { border-color: var(--line-hover); background: var(--hover); }
+.sp-list-row__main { flex: 1; min-width: 0; display: flex; padding: 0; border: 0; background: none; color: inherit; font: inherit; text-align: left; cursor: pointer; border-radius: var(--r-s); }
+div.sp-list-row__main { cursor: default; }
+.sp-list-row__main:disabled { opacity: 0.45; cursor: default; }
+.sp-list-row__main .sp-list-row__text { gap: 3px; width: 100%; }
+.sp-list-row__trailing { display: flex; gap: 4px; flex: none; opacity: 0; }
+.sp-list-row--item:hover .sp-list-row__trailing, .sp-list-row--item:focus-within .sp-list-row__trailing { opacity: 1; }
