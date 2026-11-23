@@ -1,0 +1,39 @@
+/* spawn's windows merged: .resume-backdrop/.resume-modal (picker: ResumePicker, PartyPickers, PatchNotes),
+   .set-backdrop/.set-modal (settings), .chat-full (full), .chat-lightbox (lightbox), .fb-pop (popover) */
+.sp-dialog__backdrop { position: fixed; inset: 0; z-index: 50; background: rgba(6, 7, 10, 0.55); }
+.sp-dialog__viewport { position: fixed; inset: 0; z-index: 50; display: flex; align-items: center; justify-content: center; box-sizing: border-box; }
+.sp-dialog__popup { position: relative; display: flex; flex-direction: column; min-height: 0; overflow: hidden; box-sizing: border-box; background: var(--card); border: 1px solid var(--line); border-radius: var(--r-l); color: var(--ink); }
+.sp-dialog__head { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 11px 14px; font-size: var(--t-name); font-weight: var(--w-head); color: var(--ink); border-bottom: 1px solid var(--line); }
+.sp-dialog__title { flex: 1; min-width: 0; margin: 0; font: inherit; }
+.sp-dialog__body { flex: 1; min-height: 0; overflow: auto; }
+.sp-dialog__foot { display: flex; justify-content: flex-end; gap: 8px; padding: 10px 14px; border-top: 1px solid var(--line); }
+.sp-dialog__corner { position: absolute; top: 8px; right: 8px; }
+
+.sp-dialog--picker .sp-dialog__backdrop { background: rgba(6, 7, 10, 0.55); }
+.sp-dialog--picker .sp-dialog__popup { width: min(520px, 94vw); max-height: 80vh; box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5); }
+
+.sp-dialog--settings .sp-dialog__backdrop { z-index: 60; background: rgba(6, 7, 10, 0.6); }
+.sp-dialog--settings .sp-dialog__viewport { z-index: 60; padding: 16px; }
+.sp-dialog--settings .sp-dialog__popup { width: min(760px, 100%); height: min(560px, 100%); box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5); }
+.sp-dialog__split { flex: 1; min-height: 0; display: flex; }
+.sp-dialog__sidebar { flex: none; width: 148px; box-sizing: border-box; padding: 16px 8px; display: flex; flex-direction: column; gap: 2px; border-right: 1px solid var(--line); }
+@media (max-width: 560px) {
+  .sp-dialog--settings .sp-dialog__viewport { padding: 6px; }
+  .sp-dialog__split { flex-direction: column; }
+  .sp-dialog__sidebar { width: auto; flex-direction: row; flex-wrap: wrap; align-items: center; padding: 10px; border-right: 0; border-bottom: 1px solid var(--line); }
+}
+
+.sp-dialog--full .sp-dialog__backdrop { z-index: 40; background: rgba(0, 0, 0, 0.55); }
+.sp-dialog--full .sp-dialog__viewport { z-index: 40; align-items: stretch; padding: 24px; }
+.sp-dialog--full .sp-dialog__popup { width: 100%; max-width: var(--read-w); box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5); }
+.sp-dialog--full .sp-dialog__head { padding: 8px 10px 8px 16px; font-size: var(--t-ui); font-weight: var(--w-name); }
+.sp-dialog--full .sp-dialog__body { padding: 16px 20px; }
+
+.sp-dialog--lightbox .sp-dialog__backdrop { z-index: 8000; background: rgba(6, 7, 10, 0.86); }
+.sp-dialog--lightbox .sp-dialog__viewport { z-index: 8000; }
+.sp-dialog--lightbox .sp-dialog__popup { background: none; border: 0; box-shadow: none; overflow: visible; max-width: 92vw; }
+
+.sp-dialog--popover .sp-dialog__backdrop { z-index: 9020; background: transparent; }
+.sp-dialog--popover .sp-dialog__viewport { z-index: 9020; }
+.sp-dialog--popover .sp-dialog__popup { width: 340px; max-width: calc(100vw - 24px); max-height: calc(100vh - 24px); padding: 14px; border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 18px 48px rgba(0, 0, 0, 0.55); }
+.sp-dialog--popover .sp-dialog__head { padding: 0 0 10px; border-bottom: 0; font-size: var(--t-head); font-weight: inherit; }
