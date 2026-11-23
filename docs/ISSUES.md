@@ -10,6 +10,9 @@
 
 ## 접근성
 
+- [ ] 질문 카드 선택지: spawn은 그냥 버튼 줄, spawn-ui는 키보드로 고를 수 있게 동그라미·네모 표시가 있는 줄이에요. 적용할 때 표시를 그릴지 정하기. (plan 4, Task 5)
+- [ ] 일하는 줄의 멈추기 버튼: spawn 26px, spawn-ui Button xs 24px. (plan 4, Task 2)
+
 - [ ] 세션 탭의 × 버튼들이 `role="tablist"` 안에서 Tab 이동에 끼어들어요(안 보이는 탭 것까지). `tabIndex={-1}` + Delete 키로, 또는 목록 밖으로. (plan 2 review)
 - [ ] 메뉴 제목이 `role="menu"` 안의 그냥 `div`라 화면 읽기에서 빠져요. `Menu.Group` + `GroupLabel`로. (plan 2 review)
 - [ ] 툴팁 내용을 화면 읽기가 읽지 않아요(Base UI 1.9가 `aria-describedby`를 안 붙여요). 문서에 "트리거에 이름이 따로 있어야 한다"고 적거나 직접 연결. (plan 2 review)
