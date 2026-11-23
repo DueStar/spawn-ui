@@ -1,0 +1,23 @@
+---
+title: Card
+description: '무언가를 담는 상자. 위젯 카드, 채팅 카드, 코드·diff를 담는 칸.'
+---
+
+import Demo from '../../../../components/Demo'
+import PropsTable from '../../../../components/PropsTable.astro'
+
+무언가를 담는 상자. 위젯 카드, 채팅 카드, 코드·diff를 담는 칸.
+
+<Demo client:load name="card-looks" />
+
+## 속성
+
+<PropsTable of="Card" />
+
+## 접근성
+
+담는 것만이라 역할이 없어요. 확인이 필요한 카드(attention)는 주황 선과 함께 글로도 말해요.
+
+## spawn에서 합친 것
+
+.w-card · .chat-card(.ask) · .sys-spec · .rank-me · .chat-code · .chat-diff · .chat-mddoc

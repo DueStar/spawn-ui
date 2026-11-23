@@ -1,0 +1,23 @@
+---
+title: Banner
+description: '사람이 봐야 할 것. 언제나 주황 가는 선이고, 노랑은 쓰지 않아요.'
+---
+
+import Demo from '../../../../components/Demo'
+import PropsTable from '../../../../components/PropsTable.astro'
+
+사람이 봐야 할 것. 언제나 주황 가는 선이고, 노랑은 쓰지 않아요.
+
+<Demo client:load name="banner-layouts" />
+
+## 속성
+
+<PropsTable of="Banner" />
+
+## 접근성
+
+`role="status"`. 깜빡이는 점은 움직임 줄이기 설정에서 멈춰요.
+
+## spawn에서 합친 것
+
+.chat-banner · .w-ask · .w-setup · .w-row-ask · .fb-bar

@@ -1,0 +1,23 @@
+---
+title: TextInput
+description: 'spawn의 글 입력란. 포커스는 테두리가 밝아지는 것으로 보여요.'
+---
+
+import Demo from '../../../../components/Demo'
+import PropsTable from '../../../../components/PropsTable.astro'
+
+spawn의 글 입력란. 포커스는 테두리가 밝아지는 것으로 보여요.
+
+<Demo client:load name="textinput-looks" />
+
+## 속성
+
+<PropsTable of="TextInput" />
+
+## 접근성
+
+한글을 조합하는 중의 Enter는 보내지 않아요. 여러 줄이면 Ctrl/⌘+Enter로 보내요.
+
+## spawn에서 합친 것
+
+.w-row-rename · .w-sess-head-rename · .set-times input · .set-tool-form input · .rank-field input · .chat-card-field · .fb-text

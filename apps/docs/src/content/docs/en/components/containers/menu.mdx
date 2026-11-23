@@ -1,0 +1,25 @@
+---
+title: Menu
+description: "Choices that open from a button: arrows move, Enter picks, Esc closes."
+---
+
+import Demo from '../../../../../components/Demo'
+import PropsTable from '../../../../../components/PropsTable.astro'
+
+Choices that open from a button: arrows move, Enter picks, Esc closes.
+
+<Demo client:load name="menu-popover" />
+
+<Demo client:load name="menu-control" />
+
+## Props
+
+<PropsTable of="Menu" lang="en" />
+
+## Accessibility
+
+Choices are `menuitemradio` with `aria-checked`. A disabled item can be reached but not chosen.
+
+## What merges in spawn
+
+.w-dens-menu · .w-textsize-menu · .chat-menu · .chat-ctrl-menu

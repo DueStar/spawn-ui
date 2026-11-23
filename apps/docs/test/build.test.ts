@@ -21,7 +21,7 @@ describe('the docs site', () => {
   })
   it('every exported component has a Korean and an English page', () => {
     const index = readFileSync(join(root, '..', '..', 'packages', 'react', 'src', 'index.ts'), 'utf8')
-    const names = [...index.matchAll(/export \{ ([A-Z]\w+)/g)].map(m => m[1]).filter(n => n !== 'VisuallyHidden')
+    const names = [...index.matchAll(/export \{ ([A-Z]\w+)/g)].map(m => m[1]).filter(n => n !== 'VisuallyHidden' && n !== 'PortalProvider' && n !== 'TabPanel')
     const slug = (n: string) => n.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase()
     const pages = (lang: string) => {
       const base = join(dist, lang, 'components')
@@ -38,5 +38,11 @@ describe('the docs site', () => {
       expect(html(`releases/${pkg}/index.html`), pkg).toContain(v)
       expect(html(`en/releases/${pkg}/index.html`), pkg).toContain(v)
     }
+  })
+  it('the Containers group is in the sidebar, and the scrollbar has a page, in each language', () => {
+    expect(html('getting-started/introduction/index.html')).toContain('담는 것')
+    expect(html('en/getting-started/introduction/index.html')).toContain('Containers')
+    expect(existsSync(join(dist, 'components', 'foundations', 'scrollbar', 'index.html'))).toBe(true)
+    expect(existsSync(join(dist, 'en', 'components', 'foundations', 'scrollbar', 'index.html'))).toBe(true)
   })
 })

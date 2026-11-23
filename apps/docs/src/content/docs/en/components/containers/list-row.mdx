@@ -1,0 +1,23 @@
+---
+title: ListRow
+description: "One row of a list: a setting with its control, or an item to pick."
+---
+
+import Demo from '../../../../../components/Demo'
+import PropsTable from '../../../../../components/PropsTable.astro'
+
+One row of a list: a setting with its control, or an item to pick.
+
+<Demo client:load name="listrow-looks" />
+
+## Props
+
+<PropsTable of="ListRow" lang="en" />
+
+## Accessibility
+
+An item that opens is a button; its trailing buttons sit beside it, never inside. They show on keyboard focus too.
+
+## What merges in spawn
+
+.set-row · .set-text · .set-actions · .resume-item

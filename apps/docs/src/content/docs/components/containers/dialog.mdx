@@ -1,0 +1,25 @@
+---
+title: Dialog
+description: '앱 위에 뜨는 창. Tab이 안에서만 돌고, Esc나 바깥을 누르면 닫히고, 닫히면 연 버튼으로 포커스가 돌아가요.'
+---
+
+import Demo from '../../../../components/Demo'
+import PropsTable from '../../../../components/PropsTable.astro'
+
+앱 위에 뜨는 창. Tab이 안에서만 돌고, Esc나 바깥을 누르면 닫히고, 닫히면 연 버튼으로 포커스가 돌아가요.
+
+<Demo client:load name="dialog-picker" />
+
+<Demo client:load name="dialog-kinds" />
+
+## 속성
+
+<PropsTable of="Dialog" />
+
+## 접근성
+
+제목이 이름이에요(`hideTitle`이어도 읽어 줘요). 문서 미리보기처럼 다른 곳에 띄우려면 `PortalProvider`로 감싸요.
+
+## spawn에서 합친 것
+
+.resume-backdrop · .resume-modal · .set-backdrop · .set-modal · .chat-full · .chat-lightbox · .fb-pop

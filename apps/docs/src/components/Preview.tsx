@@ -1,3 +1,4 @@
+import { PortalProvider } from '@spawn-ui/react'
 import React, { useState } from 'react'
 
 const SCALES = [80, 90, 100, 110, 120, 130] as const
@@ -9,6 +10,8 @@ const SCALES = [80, 90, 100, 110, 120, 130] as const
 export default function Preview({ children, code, surface = 'bg' }: { children: React.ReactNode; code?: string; surface?: 'bg' | 'card' | 'side-bg' }) {
   const [scale, setScale] = useState<(typeof SCALES)[number]>(100)
   const [showCode, setShowCode] = useState(false)
+  // dialogs, menus and tooltips open inside the stage: the text size reaches them
+  const [stage, setStage] = useState<HTMLDivElement | null>(null)
   return (
     <div className="dsp-preview not-content">
       <div className="dsp-preview__bar">
@@ -19,8 +22,8 @@ export default function Preview({ children, code, surface = 'bg' }: { children: 
         </div>
         {code && <button type="button" className="dsp-preview__code-toggle" aria-expanded={showCode} onClick={() => setShowCode(v => !v)}>{'</>'}</button>}
       </div>
-      <div className={`dsp-preview__stage sp-root${scale === 100 ? '' : ` sp-ts-${scale}`}`} style={{ background: `var(--${surface})` }}>
-        {children}
+      <div ref={setStage} className={`dsp-preview__stage sp-root${scale === 100 ? '' : ` sp-ts-${scale}`}`} style={{ background: `var(--${surface})` }}>
+        <PortalProvider container={stage}>{children}</PortalProvider>
       </div>
       {code && showCode && <pre className="dsp-preview__code"><code>{code.trim()}</code></pre>}
     </div>

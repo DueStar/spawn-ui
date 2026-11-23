@@ -38,6 +38,7 @@ export default defineConfig({
           group('기초', 'Foundations', [{ autogenerate: { directory: 'components/foundations' } }]),
           group('동작', 'Actions', [{ autogenerate: { directory: 'components/actions' } }]),
           group('상태', 'Status', [{ autogenerate: { directory: 'components/status' } }]),
+          group('담는 것', 'Containers', [{ autogenerate: { directory: 'components/containers' } }]),
         ]),
         group('릴리스', 'Releases', [
           page('@spawn-ui/tokens', '@spawn-ui/tokens', 'releases/tokens'),

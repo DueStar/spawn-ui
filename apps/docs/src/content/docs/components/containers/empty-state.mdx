@@ -1,0 +1,23 @@
+---
+title: EmptyState
+description: '아직 아무것도 없을 때(또는 불러오는 중일 때) 그 자리에 보이는 것.'
+---
+
+import Demo from '../../../../components/Demo'
+import PropsTable from '../../../../components/PropsTable.astro'
+
+아직 아무것도 없을 때(또는 불러오는 중일 때) 그 자리에 보이는 것.
+
+<Demo client:load name="empty-sizes" />
+
+## 속성
+
+<PropsTable of="EmptyState" />
+
+## 접근성
+
+불러오는 중이면 `role="status"`로 조용히 알려요.
+
+## spawn에서 합친 것
+
+.chat-empty · .w-term-empty · .dex-empty · .w-empty · .resume-empty · .chat-loading

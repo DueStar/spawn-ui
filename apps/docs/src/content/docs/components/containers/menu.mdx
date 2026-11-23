@@ -1,0 +1,25 @@
+---
+title: Menu
+description: '버튼에서 열리는 선택지 목록. 화살표로 움직이고, Enter로 고르고, Esc로 닫아요.'
+---
+
+import Demo from '../../../../components/Demo'
+import PropsTable from '../../../../components/PropsTable.astro'
+
+버튼에서 열리는 선택지 목록. 화살표로 움직이고, Enter로 고르고, Esc로 닫아요.
+
+<Demo client:load name="menu-popover" />
+
+<Demo client:load name="menu-control" />
+
+## 속성
+
+<PropsTable of="Menu" />
+
+## 접근성
+
+고르는 항목은 `menuitemradio`와 `aria-checked`. 쓸 수 없는 항목도 화살표로 닿지만 고를 수는 없어요.
+
+## spawn에서 합친 것
+
+.w-dens-menu · .w-textsize-menu · .chat-menu · .chat-ctrl-menu

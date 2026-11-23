@@ -15,10 +15,47 @@
       "description": ""
     }
   ],
+  "Banner": [
+    {
+      "name": "layout",
+      "type": "\"card\" | \"compact\" | \"row\" | \"floating\"",
+      "required": false,
+      "default": "card",
+      "description": "card: the chat's banner (the default) · compact: the widget's ask · row: inside a session row · floating: fixed at the top"
+    },
+    {
+      "name": "icon",
+      "type": "Icon",
+      "required": false,
+      "default": null,
+      "description": "An amber glyph before the words"
+    },
+    {
+      "name": "title",
+      "type": "ReactNode",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "actions",
+      "type": "ReactNode",
+      "required": false,
+      "default": null,
+      "description": "Buttons after the words"
+    },
+    {
+      "name": "pulse",
+      "type": "boolean",
+      "required": false,
+      "default": null,
+      "description": "A pulsing amber dot before the title (something waits on the person)"
+    }
+  ],
   "Button": [
     {
       "name": "variant",
-      "type": "\"solid\" | \"outline\" | \"ghost\" | \"link\"",
+      "type": "\"link\" | \"solid\" | \"outline\" | \"ghost\"",
       "required": false,
       "default": "outline",
       "description": "outline: a hairline (the default) · solid: filled with ink, the one strong action · ghost: no line · link: underlined words"
@@ -29,6 +66,36 @@
       "required": false,
       "default": "sm",
       "description": "xs 24px (the chat's buttons) · sm 28px (a card's buttons, the default) · md (dialogs and settings)"
+    }
+  ],
+  "Card": [
+    {
+      "name": "look",
+      "type": "\"well\" | \"surface\" | \"flat\" | \"section\"",
+      "required": false,
+      "default": "surface",
+      "description": "surface: a filled card (the default) · flat: a hairline, no fill · well: holds code or a diff · section: the side panel's band"
+    },
+    {
+      "name": "pad",
+      "type": "\"widget\" | \"chat\" | \"system\"",
+      "required": false,
+      "default": "widget",
+      "description": "widget 10px 12px (the default) · chat 12px 14px with a 10px gap · system 16px (surface and flat)"
+    },
+    {
+      "name": "well",
+      "type": "\"card\" | \"term\"",
+      "required": false,
+      "default": "card",
+      "description": "A well's fill: card, or term (the terminal's black, under code and diffs)"
+    },
+    {
+      "name": "attention",
+      "type": "boolean",
+      "required": false,
+      "default": null,
+      "description": "Asks for the person: an amber edge and a bar inside the left side (spawn's asking card)"
     }
   ],
   "Checkbox": [
@@ -59,6 +126,201 @@
       "required": false,
       "default": null,
       "description": ""
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    }
+  ],
+  "Dialog": [
+    {
+      "name": "open",
+      "type": "boolean",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "onClose",
+      "type": "() => void",
+      "required": true,
+      "default": null,
+      "description": "Esc, the backdrop, or the close button"
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "description": "Its name (shown in the head unless hideTitle)"
+    },
+    {
+      "name": "kind",
+      "type": "\"picker\" | \"settings\" | \"full\" | \"lightbox\" | \"popover\"",
+      "required": false,
+      "default": "picker",
+      "description": "picker: the resume list (the default) · settings: two columns · full: a reading view · lightbox: a picture · popover: a small form"
+    },
+    {
+      "name": "hideTitle",
+      "type": "boolean",
+      "required": false,
+      "default": null,
+      "description": "Keep the title for screen readers only"
+    },
+    {
+      "name": "head",
+      "type": "ReactNode",
+      "required": false,
+      "default": null,
+      "description": "More in the head, after the title"
+    },
+    {
+      "name": "foot",
+      "type": "ReactNode",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "sidebar",
+      "type": "ReactNode",
+      "required": false,
+      "default": null,
+      "description": "settings: the left column (its tabs)"
+    },
+    {
+      "name": "closeLabel",
+      "type": "string",
+      "required": false,
+      "default": "Close",
+      "description": "The close button's name"
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    }
+  ],
+  "EmptyState": [
+    {
+      "name": "size",
+      "type": "\"inline\" | \"hero\" | \"pane\"",
+      "required": true,
+      "default": null,
+      "description": "hero: a whole page (the chat's first screen) · pane: fills its pane · inline: a row in a list or grid"
+    },
+    {
+      "name": "picture",
+      "type": "ReactNode",
+      "required": false,
+      "default": null,
+      "description": "A picture or a large glyph above the words"
+    },
+    {
+      "name": "title",
+      "type": "ReactNode",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "hint",
+      "type": "ReactNode",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "actions",
+      "type": "ReactNode",
+      "required": false,
+      "default": null,
+      "description": "Buttons under the words"
+    },
+    {
+      "name": "loading",
+      "type": "boolean",
+      "required": false,
+      "default": null,
+      "description": "Still loading: said politely to screen readers"
+    }
+  ],
+  "FindBar": [
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "description": "The field's name for screen readers"
+    },
+    {
+      "name": "value",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "onChange",
+      "type": "(value: string) => void",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "count",
+      "type": "{ current: number; total: number; }",
+      "required": false,
+      "default": null,
+      "description": "Which hit is shown, of how many"
+    },
+    {
+      "name": "onNext",
+      "type": "() => void",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "onPrev",
+      "type": "() => void",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "onClose",
+      "type": "() => void",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "note",
+      "type": "ReactNode",
+      "required": false,
+      "default": null,
+      "description": "A line under it (the chat's: what it searches)"
+    },
+    {
+      "name": "size",
+      "type": "\"term\" | \"chat\"",
+      "required": false,
+      "default": "chat",
+      "description": "chat (the default) · term: the terminal's"
+    },
+    {
+      "name": "labels",
+      "type": "{ next: string; prev: string; close: string; }",
+      "required": false,
+      "default": "{ next: 'Next', prev: 'Previous', close: 'Close' }",
+      "description": "The buttons' names"
     },
     {
       "name": "className",
@@ -131,6 +393,143 @@
       "description": "Shown while pressed (a toggle): aria-pressed"
     }
   ],
+  "ListRow": [
+    {
+      "name": "look",
+      "type": "\"setting\" | \"item\"",
+      "required": false,
+      "default": "setting",
+      "description": "setting: a settings row, its control at the right (the default) · item: a picked row in a list (the resume list)"
+    },
+    {
+      "name": "title",
+      "type": "ReactNode",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "description",
+      "type": "ReactNode",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "control",
+      "type": "ReactNode",
+      "required": false,
+      "default": null,
+      "description": "The setting's control (a switch, buttons)"
+    },
+    {
+      "name": "trailing",
+      "type": "ReactNode",
+      "required": false,
+      "default": null,
+      "description": "An item's extra buttons, shown on hover or keyboard focus"
+    },
+    {
+      "name": "onClick",
+      "type": "(() => void)",
+      "required": false,
+      "default": null,
+      "description": "An item opens something: the row is a button"
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    }
+  ],
+  "Menu": [
+    {
+      "name": "trigger",
+      "type": "ReactElement<any, string | JSXElementConstructor<any>>",
+      "required": true,
+      "default": null,
+      "description": "The button that opens it"
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "description": "Its name for screen readers"
+    },
+    {
+      "name": "items",
+      "type": "MenuItem[]",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "onSelect",
+      "type": "(value: string) => void",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "title",
+      "type": "ReactNode",
+      "required": false,
+      "default": null,
+      "description": "A quiet word over the items"
+    },
+    {
+      "name": "look",
+      "type": "\"popover\" | \"control\"",
+      "required": false,
+      "default": "popover",
+      "description": "popover: the density, text size and chat menus (the default) · control: the composer's control row"
+    },
+    {
+      "name": "placement",
+      "type": "\"up\" | \"down\"",
+      "required": false,
+      "default": "down",
+      "description": "Opens below (the default) or above the trigger"
+    },
+    {
+      "name": "align",
+      "type": "\"start\" | \"end\"",
+      "required": false,
+      "default": "end",
+      "description": ""
+    },
+    {
+      "name": "width",
+      "type": "number",
+      "required": false,
+      "default": null,
+      "description": "A width in px"
+    },
+    {
+      "name": "open",
+      "type": "boolean",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "onOpenChange",
+      "type": "((open: boolean) => void)",
+      "required": false,
+      "default": null,
+      "description": ""
+    }
+  ],
   "meterTone": [],
   "Meter": [
     {
@@ -160,6 +559,71 @@
       "required": false,
       "default": null,
       "description": ""
+    }
+  ],
+  "Notice": [
+    {
+      "name": "tone",
+      "type": "\"plain\" | \"warn\" | \"ok\"",
+      "required": false,
+      "default": "plain",
+      "description": "plain (the default) · warn: amber · ok: green"
+    },
+    {
+      "name": "size",
+      "type": "\"meta\" | \"ui\"",
+      "required": false,
+      "default": "meta",
+      "description": "meta (the default, the small line) · ui"
+    },
+    {
+      "name": "ink",
+      "type": "2 | 3",
+      "required": false,
+      "default": "3",
+      "description": "The grey: 3 (the default, quiet) · 2"
+    },
+    {
+      "name": "align",
+      "type": "\"start\" | \"center\"",
+      "required": false,
+      "default": "start",
+      "description": ""
+    },
+    {
+      "name": "boxed",
+      "type": "boolean",
+      "required": false,
+      "default": null,
+      "description": "In a hairline box, entering softly (the widget's note)"
+    },
+    {
+      "name": "divider",
+      "type": "boolean",
+      "required": false,
+      "default": null,
+      "description": "A centered word between the days of a conversation"
+    },
+    {
+      "name": "action",
+      "type": "{ label: string; onClick(): void; }",
+      "required": false,
+      "default": null,
+      "description": "One link button after the words"
+    },
+    {
+      "name": "onDismiss",
+      "type": "(() => void)",
+      "required": false,
+      "default": null,
+      "description": "Shows a × that calls this"
+    },
+    {
+      "name": "dismissLabel",
+      "type": "string",
+      "required": false,
+      "default": "Dismiss",
+      "description": "The ×'s name for screen readers"
     }
   ],
   "Pill": [
@@ -218,6 +682,57 @@
       "name": "options",
       "type": "{ value: T; label: ReactNode; disabled?: boolean | undefined; }[]",
       "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    }
+  ],
+  "SearchField": [
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "description": "Its name for screen readers"
+    },
+    {
+      "name": "value",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "onChange",
+      "type": "(value: string) => void",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "width",
+      "type": "120 | 150 | 170",
+      "required": false,
+      "default": "150",
+      "description": "150 (the Pokédex's, the default) · 170 (the Box's, with its icon) · 120 (the swap list's)"
+    },
+    {
+      "name": "icon",
+      "type": "boolean",
+      "required": false,
+      "default": null,
+      "description": "The magnifier at the right"
+    },
+    {
+      "name": "placeholder",
+      "type": "string",
+      "required": false,
       "default": null,
       "description": ""
     },
@@ -340,6 +855,87 @@
       "description": ""
     }
   ],
+  "Tabs": [
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "description": "The tab list's name for screen readers"
+    },
+    {
+      "name": "value",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "onValueChange",
+      "type": "(value: string) => void",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "items",
+      "type": "TabItem[]",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "orientation",
+      "type": "\"vertical\" | \"top\"",
+      "required": false,
+      "default": "top",
+      "description": "top: session tabs over the panes (the default) · vertical: the settings' left column"
+    },
+    {
+      "name": "onClose",
+      "type": "((value: string) => void)",
+      "required": false,
+      "default": null,
+      "description": "Shows a × beside each tab"
+    },
+    {
+      "name": "closeLabel",
+      "type": "((item: TabItem) => string)",
+      "required": false,
+      "default": null,
+      "description": "The ×'s name for each tab"
+    },
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": false,
+      "default": null,
+      "description": "TabPanel elements"
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    }
+  ],
+  "TabPanel": [
+    {
+      "name": "value",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    }
+  ],
   "Tag": [
     {
       "name": "tier",
@@ -361,6 +957,145 @@
       "required": false,
       "default": null,
       "description": ""
+    }
+  ],
+  "TextInput": [
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": "Its name for screen readers (left out when a <label> points at it)"
+    },
+    {
+      "name": "look",
+      "type": "\"card\" | \"form\" | \"note\" | \"rename\"",
+      "required": false,
+      "default": "form",
+      "description": "form: a settings field (the default) · rename: a name edited in place · card: a field on a chat card · note: a feedback box"
+    },
+    {
+      "name": "size",
+      "type": "\"times\" | \"tool\" | \"rank\"",
+      "required": false,
+      "default": "tool",
+      "description": "A form field's padding: times 4px 6px · tool 6px 9px (the default) · rank 6px 10px, 180 wide"
+    },
+    {
+      "name": "multiline",
+      "type": "boolean",
+      "required": false,
+      "default": null,
+      "description": "Several lines (a textarea); the note look is always one"
+    },
+    {
+      "name": "mono",
+      "type": "boolean",
+      "required": false,
+      "default": null,
+      "description": "Monospace (a command, a path)"
+    },
+    {
+      "name": "width",
+      "type": "number",
+      "required": false,
+      "default": null,
+      "description": "A width in px"
+    },
+    {
+      "name": "onSubmit",
+      "type": "((value: string) => void)",
+      "required": false,
+      "default": null,
+      "description": "Enter (Ctrl/⌘+Enter when multiline), never while composing"
+    },
+    {
+      "name": "onCancel",
+      "type": "(() => void)",
+      "required": false,
+      "default": null,
+      "description": "Esc, never while composing"
+    }
+  ],
+  "Toolbar": [
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "description": "Its name for screen readers"
+    },
+    {
+      "name": "pad",
+      "type": "\"rank\" | \"dex\" | \"box\"",
+      "required": false,
+      "default": null,
+      "description": "dex 14px 20px 12px (the Pokédex's top) · box 8px 20px (the Box's toolbar, the default) · rank 12px 20px"
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    }
+  ],
+  "Tooltip": [
+    {
+      "name": "content",
+      "type": "ReactNode",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "children",
+      "type": "ReactElement<any, string | JSXElementConstructor<any>>",
+      "required": true,
+      "default": null,
+      "description": "The thing it describes (focusable)"
+    },
+    {
+      "name": "look",
+      "type": "\"note\" | \"tab\"",
+      "required": false,
+      "default": "note",
+      "description": "note: beside a control (the default) · tab: a wider note over the panes"
+    },
+    {
+      "name": "placement",
+      "type": "\"top\" | \"bottom\" | \"left\" | \"right\"",
+      "required": false,
+      "default": "bottom",
+      "description": ""
+    },
+    {
+      "name": "open",
+      "type": "boolean",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "onOpenChange",
+      "type": "((open: boolean) => void)",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "timeout",
+      "type": "number",
+      "required": false,
+      "default": null,
+      "description": "A controlled note that closes itself after this many ms (the view switch's note)"
+    },
+    {
+      "name": "delay",
+      "type": "number",
+      "required": false,
+      "default": "600",
+      "description": "ms before it shows on hover (default 600)"
     }
   ]
 }

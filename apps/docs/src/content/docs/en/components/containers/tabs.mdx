@@ -1,0 +1,25 @@
+---
+title: Tabs
+description: "Tabs: arrows move between them; the chosen one shows its panel."
+---
+
+import Demo from '../../../../../components/Demo'
+import PropsTable from '../../../../../components/PropsTable.astro'
+
+Tabs: arrows move between them; the chosen one shows its panel.
+
+<Demo client:load name="tabs-top" />
+
+<Demo client:load name="tabs-vertical" />
+
+## Props
+
+<PropsTable of="Tabs" lang="en" />
+
+## Accessibility
+
+The × is a separate button beside its tab, never inside it.
+
+## What merges in spawn
+
+.w-sess-tab(s) · .set-nav

@@ -1,0 +1,23 @@
+---
+title: FindBar
+description: "Find in a conversation or a terminal, floating at the top right."
+---
+
+import Demo from '../../../../../components/Demo'
+import PropsTable from '../../../../../components/PropsTable.astro'
+
+Find in a conversation or a terminal, floating at the top right.
+
+<Demo client:load name="findbar-basic" />
+
+## Props
+
+<PropsTable of="FindBar" lang="en" />
+
+## Accessibility
+
+Enter next, Shift+Enter previous, Esc closes. The count is read politely. An Enter during a Korean composition does nothing.
+
+## What merges in spawn
+
+.chat-find · .term-search

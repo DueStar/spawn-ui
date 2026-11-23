@@ -1,0 +1,23 @@
+---
+title: ListRow
+description: '목록의 한 줄. 컨트롤이 붙은 설정 줄, 또는 골라서 여는 줄.'
+---
+
+import Demo from '../../../../components/Demo'
+import PropsTable from '../../../../components/PropsTable.astro'
+
+목록의 한 줄. 컨트롤이 붙은 설정 줄, 또는 골라서 여는 줄.
+
+<Demo client:load name="listrow-looks" />
+
+## 속성
+
+<PropsTable of="ListRow" />
+
+## 접근성
+
+여는 줄은 버튼이고, 뒤쪽 버튼은 그 옆에 따로 있어요(버튼 안에 버튼을 넣지 않아요). 뒤쪽 버튼은 키보드로 들어와도 보여요.
+
+## spawn에서 합친 것
+
+.set-row · .set-text · .set-actions · .resume-item

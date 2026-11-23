@@ -1,0 +1,25 @@
+---
+title: Tabs
+description: '탭. 화살표로 움직이고, 고른 탭의 내용을 보여 줘요.'
+---
+
+import Demo from '../../../../components/Demo'
+import PropsTable from '../../../../components/PropsTable.astro'
+
+탭. 화살표로 움직이고, 고른 탭의 내용을 보여 줘요.
+
+<Demo client:load name="tabs-top" />
+
+<Demo client:load name="tabs-vertical" />
+
+## 속성
+
+<PropsTable of="Tabs" />
+
+## 접근성
+
+닫기 ×는 탭 옆의 따로 된 버튼이에요(탭 안에 넣지 않아요).
+
+## spawn에서 합친 것
+
+.w-sess-tab(s) · .set-nav

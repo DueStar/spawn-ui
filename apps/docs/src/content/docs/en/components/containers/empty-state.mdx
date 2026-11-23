@@ -1,0 +1,23 @@
+---
+title: EmptyState
+description: "What a place shows while it has nothing yet, or is loading it."
+---
+
+import Demo from '../../../../../components/Demo'
+import PropsTable from '../../../../../components/PropsTable.astro'
+
+What a place shows while it has nothing yet, or is loading it.
+
+<Demo client:load name="empty-sizes" />
+
+## Props
+
+<PropsTable of="EmptyState" lang="en" />
+
+## Accessibility
+
+Loading, it is a polite `role="status"`.
+
+## What merges in spawn
+
+.chat-empty · .w-term-empty · .dex-empty · .w-empty · .resume-empty · .chat-loading

@@ -1,0 +1,23 @@
+---
+title: FindBar
+description: '대화나 터미널에서 찾기. 오른쪽 위에 떠요.'
+---
+
+import Demo from '../../../../components/Demo'
+import PropsTable from '../../../../components/PropsTable.astro'
+
+대화나 터미널에서 찾기. 오른쪽 위에 떠요.
+
+<Demo client:load name="findbar-basic" />
+
+## 속성
+
+<PropsTable of="FindBar" />
+
+## 접근성
+
+Enter 다음, Shift+Enter 이전, Esc 닫기. 몇 번째인지는 조용히 읽어 줘요. 한글 조합 중 Enter는 무시해요.
+
+## spawn에서 합친 것
+
+.chat-find · .term-search

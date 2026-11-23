@@ -1,0 +1,23 @@
+---
+title: Card
+description: "A box that holds things: the widget card, the chat card, the well under code and diffs."
+---
+
+import Demo from '../../../../../components/Demo'
+import PropsTable from '../../../../../components/PropsTable.astro'
+
+A box that holds things: the widget card, the chat card, the well under code and diffs.
+
+<Demo client:load name="card-looks" />
+
+## Props
+
+<PropsTable of="Card" lang="en" />
+
+## Accessibility
+
+It holds things and has no role. A card that asks (attention) says so in words too, besides its amber edge.
+
+## What merges in spawn
+
+.w-card · .chat-card(.ask) · .sys-spec · .rank-me · .chat-code · .chat-diff · .chat-mddoc

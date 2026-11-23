@@ -1,0 +1,25 @@
+---
+title: Dialog
+description: "A window over the app: Tab stays inside, Esc or the backdrop closes it, and the focus goes back on close."
+---
+
+import Demo from '../../../../../components/Demo'
+import PropsTable from '../../../../../components/PropsTable.astro'
+
+A window over the app: Tab stays inside, Esc or the backdrop closes it, and the focus goes back on close.
+
+<Demo client:load name="dialog-picker" />
+
+<Demo client:load name="dialog-kinds" />
+
+## Props
+
+<PropsTable of="Dialog" lang="en" />
+
+## Accessibility
+
+Its title is its name (still read with `hideTitle`). Wrap it in `PortalProvider` to open it somewhere else, as these previews do.
+
+## What merges in spawn
+
+.resume-backdrop · .resume-modal · .set-backdrop · .set-modal · .chat-full · .chat-lightbox · .fb-pop

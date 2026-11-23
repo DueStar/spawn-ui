@@ -6,6 +6,8 @@ import { ArrowsClockwise, Gear, Minus, Square, X } from '@phosphor-icons/react'
 import {
   Badge, Button, Checkbox, Icon, IconButton, Meter, Pill, RadioGroup, SegmentedControl, StatusDot, Switch, Tag,
 } from '@spawn-ui/react'
+import { Warning } from '@phosphor-icons/react'
+import { Banner, Card, Dialog, EmptyState, FindBar, ListRow, Menu, Notice, SearchField, Switch as Sw, TabPanel, Tabs, TextInput, Toolbar, Tooltip, Button as Btn } from '@spawn-ui/react'
 import React, { useState } from 'react'
 import Preview from './Preview'
 
@@ -134,6 +136,82 @@ export const DEMOS: Record<string, Entry> = {
     surface: 'side-bg',
   },
 }
+
+// ---------------------------------------------------------------- Containers (plan 2)
+function DialogDemo({ kind }: { kind: 'picker' | 'settings' | 'full' | 'popover' }) {
+  const [open, setOpen] = useState(false)
+  const words = { picker: '세션 이어하기', settings: '설정', full: '전체 보기', popover: '피드백' }[kind]
+  return <>
+    <Btn onClick={() => setOpen(true)}>{words} 열기</Btn>
+    <Dialog open={open} kind={kind} title={words} onClose={() => setOpen(false)} closeLabel="닫기"
+      sidebar={kind === 'settings' ? <><Btn variant="ghost">일반</Btn><Btn variant="ghost">세션</Btn></> : undefined}>
+      <div style={{ padding: kind === 'popover' ? 0 : 14, color: 'var(--ink-2)', fontSize: 'var(--t-ui)' }}>Esc나 바깥을 누르면 닫혀요.</div>
+    </Dialog>
+  </>
+}
+function MenuDemo({ look }: { look: 'popover' | 'control' }) {
+  const [v, setV] = useState('100')
+  const items = look === 'popover'
+    ? [{ value: '90', label: '작게', checked: v === '90' }, { value: '100', label: '보통', checked: v === '100' }, { value: '110', label: '크게', checked: v === '110' }]
+    : [{ value: 'default', label: '기본', checked: v === 'default' }, { value: 'plan', label: '계획 모드', checked: v === 'plan' }, { value: 'auto', label: '자동 승인', checked: v === 'auto', disabled: true }]
+  return <Menu trigger={<Btn>{look === 'popover' ? '글자 크기' : '권한 모드'}</Btn>} label={look === 'popover' ? '글자 크기' : '권한 모드'} title={look === 'popover' ? '글자 크기' : undefined} look={look} items={items} onSelect={setV} placement={look === 'control' ? 'up' : 'down'} />
+}
+function TabsDemo({ orientation }: { orientation: 'top' | 'vertical' }) {
+  const [v, setV] = useState('a')
+  const [items, setItems] = useState([{ value: 'a', label: '로그인 리다이렉트' }, { value: 'b', label: 'README 번역' }, { value: 'c', label: '결제 테스트' }])
+  return <div style={{ width: 460, maxWidth: '100%' }}>
+    <Tabs label="세션" value={v} onValueChange={setV} items={orientation === 'vertical' ? [{ value: 'a', label: '일반' }, { value: 'b', label: '세션' }, { value: 'c', label: '고급' }] : items} orientation={orientation}
+      onClose={orientation === 'top' ? x => setItems(cur => cur.filter(i => i.value !== x)) : undefined} closeLabel={it => `${it.label} 닫기`}>
+      {['a', 'b', 'c'].map(k => <TabPanel key={k} value={k}><div style={{ padding: 12, color: 'var(--ink-3)', fontSize: 'var(--t-meta)' }}>{k} 내용</div></TabPanel>)}
+    </Tabs>
+  </div>
+}
+function FieldDemo() {
+  const [v, setV] = useState('')
+  return col(<><TextInput label="세션 이름" look="rename" defaultValue="로그인 리다이렉트 고치기" /><TextInput label="명령" size="tool" mono placeholder="npm test" /><TextInput label="답" look="card" placeholder="직접 입력" /><TextInput label="피드백" look="note" placeholder="무엇이 불편했나요?" value={v} onChange={e => setV(e.target.value)} /></>, 320)
+}
+function SearchDemo() {
+  const [a, setA] = useState('')
+  const [b, setB] = useState('')
+  return row(<><SearchField label="도감 검색" value={a} onChange={setA} placeholder="이름 · 번호" /><SearchField label="박스 검색" value={b} onChange={setB} width={170} icon /></>)
+}
+function FindDemo() {
+  const [v, setV] = useState('강')
+  const [i, setI] = useState(1)
+  return <div style={{ position: 'relative', width: 420, height: 90, maxWidth: '100%' }}>
+    <FindBar label="대화에서 찾기" value={v} onChange={setV} count={v ? { current: i, total: 5 } : undefined} onNext={() => setI(x => (x % 5) + 1)} onPrev={() => setI(x => ((x + 3) % 5) + 1)} onClose={() => setV('')} note="펼친 내용만 찾아요" labels={{ next: '다음', prev: '이전', close: '닫기' }} />
+  </div>
+}
+function NoticeDemo() {
+  const [shown, setShown] = useState(true)
+  return col(<><Notice>세션 기록을 읽는 중이에요</Notice><Notice tone="warn">랭킹에 이름이 겹쳐요</Notice><Notice tone="ok">보냈어요</Notice><Notice divider>오늘</Notice>{shown && <Notice boxed size="ui" ink={2} onDismiss={() => setShown(false)} dismissLabel="닫기">새 버전이 나왔어요</Notice>}</>, 320)
+}
+function ListRowDemo() {
+  const [on, setOn] = useState(true)
+  return col(<><ListRow title="소리" description="세션이 기다릴 때 알려요" control={<Sw label="소리" checked={on} onCheckedChange={setOn} />} /><ListRow look="item" title="로그인 리다이렉트 고치기" description="shop-web · 2시간 전" onClick={() => {}} trailing={<Btn size="xs" variant="ghost">지우기</Btn>} /></>, 380)
+}
+function TooltipDemo() {
+  return row(<><Tooltip content="채팅으로 보기 (Ctrl+Shift+V)" delay={200}><Btn>채팅</Btn></Tooltip><Tooltip content="지금 보는 칸과 바꿔요" look="tab" delay={200}><Btn>칸 바꾸기</Btn></Tooltip></>)
+}
+Object.assign(DEMOS, {
+  'card-looks': { code: `<Card>위젯 카드</Card>\n<Card pad="chat" attention>확인이 필요해요</Card>\n<Card look="flat">내 순위</Card>\n<Card look="well" well="term">npm test</Card>`, render: () => col(<><Card>위젯 카드</Card><Card pad="chat" attention>확인이 필요해요</Card><Card look="flat">내 순위</Card><Card look="well" well="term"><div style={{ padding: '8px 12px', fontFamily: 'monospace', fontSize: 'var(--t-code)', color: 'var(--ink-2)' }}>npm test</div></Card></>, 320) },
+  'notice-tones': { code: `<Notice>세션 기록을 읽는 중이에요</Notice>\n<Notice tone="warn">…</Notice>\n<Notice tone="ok">보냈어요</Notice>\n<Notice divider>오늘</Notice>\n<Notice boxed onDismiss={…}>새 버전이 나왔어요</Notice>`, render: () => <NoticeDemo /> },
+  'empty-sizes': { code: `<EmptyState size="hero" title="새 대화" hint="무엇이든 물어보세요" />\n<EmptyState size="inline" title="아직 잡은 포켓몬이 없어요" />\n<EmptyState size="pane" loading title="불러오는 중" />`, render: () => col(<><EmptyState size="hero" title="새 대화" hint="무엇이든 물어보세요" /><EmptyState size="inline" title="아직 잡은 포켓몬이 없어요" /><EmptyState size="pane" loading title="불러오는 중" /></>, 360) },
+  'banner-layouts': { code: `<Banner icon={Warning} title="세션을 채팅으로 읽지 못하고 있어요" actions={<Button>다시 읽기</Button>}>…</Banner>\n<Banner layout="compact" pulse title="확인 필요">npm test를 실행해도 될까요?</Banner>\n<Banner layout="row">…</Banner>`, render: () => col(<><Banner icon={Warning} title="세션을 채팅으로 읽지 못하고 있어요" actions={<Btn>다시 읽기</Btn>}>방금 끝난 답이 세션 기록에서 보이지 않아요</Banner><Banner layout="compact" pulse title="확인 필요">npm test를 실행해도 될까요?</Banner><Banner layout="row">Bash · npm test</Banner></>, 420) },
+  'listrow-looks': { code: `<ListRow title="소리" description="…" control={<Switch … />} />\n<ListRow look="item" title="로그인 리다이렉트 고치기" onClick={…} trailing={<Button>지우기</Button>} />`, render: () => <ListRowDemo /> },
+  'toolbar-basic': { code: `<Toolbar label="박스 도구">\n  <Toolbar.Label>정렬</Toolbar.Label>\n  …\n</Toolbar>`, render: () => <div style={{ width: 480, maxWidth: '100%' }}><Toolbar label="박스 도구"><Toolbar.Label>정렬</Toolbar.Label><Btn size="xs">최근</Btn><Btn size="xs">번호</Btn><span style={{ marginLeft: 'auto' }}><SearchField label="박스 검색" value="" onChange={() => {}} width={120} /></span></Toolbar></div> },
+  'textinput-looks': { code: `<TextInput label="세션 이름" look="rename" … />\n<TextInput label="명령" size="tool" mono />\n<TextInput label="답" look="card" />\n<TextInput label="피드백" look="note" />`, render: () => <FieldDemo /> },
+  'searchfield-widths': { code: `<SearchField label="도감 검색" value={v} onChange={setV} />\n<SearchField label="박스 검색" width={170} icon … />`, render: () => <SearchDemo /> },
+  'findbar-basic': { code: `<FindBar label="대화에서 찾기" value={v} onChange={setV} count={{ current: 1, total: 5 }}\n  onNext={…} onPrev={…} onClose={…} note="펼친 내용만 찾아요" />`, render: () => <FindDemo /> },
+  'dialog-picker': { code: `<Dialog open={open} title="세션 이어하기" onClose={() => setOpen(false)}>…</Dialog>`, render: () => <DialogDemo kind="picker" /> },
+  'dialog-kinds': { code: `<Dialog kind="settings" sidebar={…} … />\n<Dialog kind="full" … />\n<Dialog kind="popover" … />`, render: () => row(<><DialogDemo kind="settings" /><DialogDemo kind="full" /><DialogDemo kind="popover" /></>) },
+  'menu-popover': { code: `<Menu trigger={<Button>글자 크기</Button>} label="글자 크기" title="글자 크기"\n  items={[{ value: '90', label: '작게', checked: false }, …]} onSelect={setV} />`, render: () => <MenuDemo look="popover" /> },
+  'menu-control': { code: `<Menu look="control" placement="up" … />`, render: () => <MenuDemo look="control" /> },
+  'tooltip-basic': { code: `<Tooltip content="채팅으로 보기"><Button>채팅</Button></Tooltip>`, render: () => <TooltipDemo /> },
+  'tabs-top': { code: `<Tabs label="세션" value={v} onValueChange={setV} items={…} onClose={…}>\n  <TabPanel value="a">…</TabPanel>\n</Tabs>`, render: () => <TabsDemo orientation="top" /> },
+  'tabs-vertical': { code: `<Tabs orientation="vertical" … />`, render: () => <TabsDemo orientation="vertical" /> },
+  'scroll-sizes': { code: `<div className="sp-scroll--8">…</div>  {/* 6, 8, 10, 0 */}`, render: () => row(<>{[6, 8, 10, 0].map(n => <div key={n} className={`sp-scroll--${n}`} style={{ width: 120, height: 90, overflowY: 'auto', border: '1px solid var(--line)', borderRadius: 'var(--r-m)', padding: 8, color: 'var(--ink-3)', fontSize: 'var(--t-meta)' }}>{`${n}px`}<br />{'줄 '.repeat(60)}</div>)}</>) },
+} satisfies Record<string, Entry>)
 
 /** One named example, live, with its code */
 export default function Demo({ name }: { name: string }) {
