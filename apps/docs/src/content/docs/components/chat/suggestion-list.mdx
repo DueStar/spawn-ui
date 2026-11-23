@@ -1,0 +1,23 @@
+---
+title: SuggestionList
+description: "@멘션과 /명령 목록. 입력창이 움직여요."
+---
+
+import Demo from '../../../../components/Demo'
+import PropsTable from '../../../../components/PropsTable.astro'
+
+@멘션과 /명령 목록. 입력창이 움직여요.
+
+<Demo client:load name="suggestions-basic" />
+
+## 속성
+
+<PropsTable of="SuggestionList" />
+
+## 접근성
+
+`listbox`, 입력창이 `aria-activedescendant`로 가리켜요.
+
+## spawn에서 합친 것
+
+.chat-menu · .chat-mi

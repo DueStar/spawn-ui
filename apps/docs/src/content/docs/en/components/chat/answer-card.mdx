@@ -1,0 +1,27 @@
+---
+title: AnswerCard
+description: "What Claude asks in the chat: permission, a question, a plan. Amber while it waits."
+---
+
+import Demo from '../../../../../components/Demo'
+import PropsTable from '../../../../../components/PropsTable.astro'
+
+What Claude asks in the chat: permission, a question, a plan. Amber while it waits.
+
+<Demo client:load name="answer-permission" />
+
+<Demo client:load name="answer-question" />
+
+<Demo client:load name="answer-plan" />
+
+## Props
+
+<PropsTable of="AnswerCard" lang="en" />
+
+## Accessibility
+
+A group named by what it asks; options by arrows or Space.
+
+## What merges in spawn
+
+.chat-card-* (PermissionCard, QuestionCard, PlanCard, DialogCard)

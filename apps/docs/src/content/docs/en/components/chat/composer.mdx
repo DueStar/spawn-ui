@@ -1,0 +1,23 @@
+---
+title: Composer
+description: "Where you write: Enter sends, Shift+Enter a new line, IME Enter never sends. Send is the one yellow."
+---
+
+import Demo from '../../../../../components/Demo'
+import PropsTable from '../../../../../components/PropsTable.astro'
+
+Where you write: Enter sends, Shift+Enter a new line, IME Enter never sends. Send is the one yellow.
+
+<Demo client:load name="composer-basic" />
+
+## Props
+
+<PropsTable of="Composer" lang="en" />
+
+## Accessibility
+
+Esc stops while it works.
+
+## What merges in spawn
+
+.chat-composer · .chat-cbox · .chat-input · .chat-send

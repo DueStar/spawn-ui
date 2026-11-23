@@ -36,6 +36,183 @@
       "description": ""
     }
   ],
+  "AgentChip": [
+    {
+      "name": "name",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "state",
+      "type": "\"run\" | \"wait\" | \"done\"",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "stateLabel",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "description": "The state in words (said with the name)"
+    },
+    {
+      "name": "last",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": "Its last line, quiet"
+    },
+    {
+      "name": "time",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "on",
+      "type": "boolean",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "onOpen",
+      "type": "() => void",
+      "required": true,
+      "default": null,
+      "description": ""
+    }
+  ],
+  "AnswerCard": [
+    {
+      "name": "kind",
+      "type": "\"permission\" | \"question\" | \"plan\" | \"dialog\"",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "title",
+      "type": "ReactNode",
+      "required": true,
+      "default": null,
+      "description": "What it asks (its name)"
+    },
+    {
+      "name": "kindLabel",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "description": "The kind in words, at the right (권한, 질문, 계획)"
+    },
+    {
+      "name": "actions",
+      "type": "ReactNode",
+      "required": false,
+      "default": null,
+      "description": "Buttons: Button size=\"sm\", the strong one solid"
+    },
+    {
+      "name": "hint",
+      "type": "ReactNode",
+      "required": false,
+      "default": null,
+      "description": "A quiet word at the actions' end"
+    },
+    {
+      "name": "answered",
+      "type": "ReactNode",
+      "required": false,
+      "default": null,
+      "description": "Answered: these words take the actions' place; the amber edge goes"
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    }
+  ],
+  "PermissionBody": [
+    {
+      "name": "command",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "facts",
+      "type": "{ text: ReactNode; warn?: boolean; }[]",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "rule",
+      "type": "ReactNode",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "diff",
+      "type": "ReactNode",
+      "required": false,
+      "default": null,
+      "description": ""
+    }
+  ],
+  "QuestionBody": [
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "options",
+      "type": "QuestionOption[]",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "multi",
+      "type": "boolean",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "value",
+      "type": "string[]",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "onChange",
+      "type": "(value: string[]) => void",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "other",
+      "type": "{ label: string; value: string; onChange(v: string): void; placeholder?: string; }",
+      "required": false,
+      "default": null,
+      "description": "A row for a written answer"
+    }
+  ],
+  "PlanBody": [],
   "AppHeader": [
     {
       "name": "brand",
@@ -332,6 +509,225 @@
       "description": ""
     }
   ],
+  "CodeBlock": [
+    {
+      "name": "lang",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "code",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "onCopy",
+      "type": "(() => void)",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "copyLabel",
+      "type": "string",
+      "required": false,
+      "default": "Copy",
+      "description": ""
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    }
+  ],
+  "Composer": [
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "description": "The field's name for screen readers"
+    },
+    {
+      "name": "value",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "onChange",
+      "type": "(value: string) => void",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "onSend",
+      "type": "() => void",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "sendLabel",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "placeholder",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "busy",
+      "type": "boolean",
+      "required": false,
+      "default": null,
+      "description": "Claude is working: Esc stops it"
+    },
+    {
+      "name": "onStop",
+      "type": "(() => void)",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "stopLabel",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "mode",
+      "type": "\"prompt\" | \"shell\"",
+      "required": false,
+      "default": "prompt",
+      "description": "A `!` command: the box's edge brighter, the text in mono"
+    },
+    {
+      "name": "chips",
+      "type": "ReactNode",
+      "required": false,
+      "default": null,
+      "description": "Picture and file chips above the text"
+    },
+    {
+      "name": "tools",
+      "type": "ReactNode",
+      "required": false,
+      "default": null,
+      "description": "Buttons in the bar (attach, mention)"
+    },
+    {
+      "name": "note",
+      "type": "ReactNode",
+      "required": false,
+      "default": null,
+      "description": "A quiet line above the box (why a send did not go)"
+    },
+    {
+      "name": "hint",
+      "type": "ReactNode",
+      "required": false,
+      "default": null,
+      "description": "A quiet line under the box (a / command's hint)"
+    },
+    {
+      "name": "extra",
+      "type": "ReactNode",
+      "required": false,
+      "default": null,
+      "description": "Beside the send (a suggestion key, the shell badge)"
+    },
+    {
+      "name": "readOnly",
+      "type": "boolean",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "controls",
+      "type": "ReactNode",
+      "required": false,
+      "default": null,
+      "description": "The control row, under the box"
+    },
+    {
+      "name": "suggestions",
+      "type": "ReactNode",
+      "required": false,
+      "default": null,
+      "description": "The listbox the field drives (mentions, commands)"
+    },
+    {
+      "name": "onFieldKeyDown",
+      "type": "((e: KeyboardEvent<HTMLTextAreaElement>) => void)",
+      "required": false,
+      "default": null,
+      "description": "The field's keys, before the composer's own (a suggestion list takes ↑ ↓ Enter first)"
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    }
+  ],
+  "ControlRow": [
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    }
+  ],
+  "ControlSep": [],
+  "ControlItem": [
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "description": "Its word, said with the value"
+    },
+    {
+      "name": "value",
+      "type": "((string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | null) & (string | ... 1 more ... | readonly string[]))",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "icon",
+      "type": "ReactNode",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "onClick",
+      "type": "((() => void) & MouseEventHandler<HTMLButtonElement>)",
+      "required": false,
+      "default": null,
+      "description": "A button when given (it opens a Menu: wrap it as the Menu's trigger)"
+    }
+  ],
   "DexDetailCard": [
     {
       "name": "art",
@@ -555,6 +951,99 @@
       "description": ""
     }
   ],
+  "DiffBlock": [
+    {
+      "name": "file",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "kind",
+      "type": "ReactNode",
+      "required": false,
+      "default": null,
+      "description": "수정, 새 파일 …"
+    },
+    {
+      "name": "lines",
+      "type": "DiffLine[]",
+      "required": true,
+      "default": null,
+      "description": "Already split (spawn-ui does not diff)"
+    },
+    {
+      "name": "added",
+      "type": "number",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "removed",
+      "type": "number",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "countsLabel",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": "The counts in words (+1 −1 is not enough for a screen reader)"
+    },
+    {
+      "name": "look",
+      "type": "\"card\" | \"inline\" | \"panel\"",
+      "required": false,
+      "default": "inline",
+      "description": "inline: in the conversation, scrolls sideways · card: in a permission card, wraps, max 220 · panel: the changes panel, wraps"
+    },
+    {
+      "name": "numbers",
+      "type": "boolean",
+      "required": false,
+      "default": "true",
+      "description": ""
+    },
+    {
+      "name": "maxLines",
+      "type": "number",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "moreLabel",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "onMore",
+      "type": "(() => void)",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "onOpenFile",
+      "type": "(() => void)",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    }
+  ],
   "DragCard": [
     {
       "name": "picture",
@@ -657,6 +1146,50 @@
       "required": false,
       "default": null,
       "description": "Still loading: said politely to screen readers"
+    }
+  ],
+  "FileChip": [
+    {
+      "name": "path",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "look",
+      "type": "\"inline\" | \"prose\" | \"pill\" | \"draft\"",
+      "required": true,
+      "default": null,
+      "description": "prose: a file named in an answer · inline: in a sent message · pill: the files a message carried · draft: attached in the composer"
+    },
+    {
+      "name": "onOpen",
+      "type": "(() => void)",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "onRemove",
+      "type": "(() => void)",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "removeLabel",
+      "type": "string",
+      "required": false,
+      "default": "Remove",
+      "description": ""
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
     }
   ],
   "FindBar": [
@@ -801,6 +1334,64 @@
       "description": "Shown while pressed (a toggle): aria-pressed"
     }
   ],
+  "ImageChip": [
+    {
+      "name": "src",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "look",
+      "type": "\"text\" | \"chip\" | \"thumb\"",
+      "required": true,
+      "default": null,
+      "description": "chip: attached in the composer · thumb: a picture over a sent message or in an answer · text: a name only"
+    },
+    {
+      "name": "onOpen",
+      "type": "(() => void)",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "openLabel",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "onRemove",
+      "type": "(() => void)",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "removeLabel",
+      "type": "string",
+      "required": false,
+      "default": "Remove",
+      "description": ""
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    }
+  ],
   "Launcher": [
     {
       "name": "newLabel",
@@ -908,6 +1499,94 @@
       "required": false,
       "default": null,
       "description": ""
+    }
+  ],
+  "Lightbox": [
+    {
+      "name": "pictures",
+      "type": "{ src: string; alt: string; caption?: ReactNode; }[]",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "index",
+      "type": "number",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "onIndex",
+      "type": "(index: number) => void",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "onClose",
+      "type": "() => void",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "labels",
+      "type": "{ title: string; prev: string; next: string; close: string; }",
+      "required": true,
+      "default": null,
+      "description": ""
+    }
+  ],
+  "LinkCard": [
+    {
+      "name": "url",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "desc",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "site",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": "The link's host"
+    },
+    {
+      "name": "image",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": "A picture the app made (a blob: URL)"
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "description": "The link's name (링크 미리보기: {title})"
+    },
+    {
+      "name": "onOpen",
+      "type": "() => void",
+      "required": true,
+      "default": null,
+      "description": "The app opens the address (http/https only)"
     }
   ],
   "ListHead": [
@@ -1054,6 +1733,57 @@
       "name": "label",
       "type": "string",
       "required": true,
+      "default": null,
+      "description": ""
+    }
+  ],
+  "MdDoc": [
+    {
+      "name": "title",
+      "type": "ReactNode",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "view",
+      "type": "\"doc\" | \"raw\"",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "onView",
+      "type": "(view: \"doc\" | \"raw\") => void",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "folded",
+      "type": "boolean",
+      "required": false,
+      "default": null,
+      "description": "Long: cut at 420px with a fade (the app offers more)"
+    },
+    {
+      "name": "labels",
+      "type": "{ group: string; doc: string; raw: string; }",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true,
+      "default": null,
+      "description": "The rendered document (a Prose) or the raw text"
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
       "default": null,
       "description": ""
     }
@@ -1487,6 +2217,15 @@
       "default": null,
       "description": "Hard pixels: only the wild row"
     },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    }
+  ],
+  "Prose": [
     {
       "name": "className",
       "type": "string",
@@ -1941,7 +2680,7 @@
   "SessionPicture": [
     {
       "name": "kind",
-      "type": "\"picture\" | \"glyph\" | \"shell\"",
+      "type": "\"shell\" | \"picture\" | \"glyph\"",
       "required": true,
       "default": null,
       "description": "picture: the session's Pokémon · glyph: a terminal mark (work mode, or no Pokémon) · shell: a plain shell (>_)"
@@ -2194,6 +2933,108 @@
       "description": ""
     }
   ],
+  "ShellRow": [
+    {
+      "name": "command",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "output",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "error",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "running",
+      "type": "boolean",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "runningLabel",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    }
+  ],
+  "SidePanel": [
+    {
+      "name": "title",
+      "type": "ReactNode",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": "Its name (when the title is not plain words)"
+    },
+    {
+      "name": "extra",
+      "type": "ReactNode",
+      "required": false,
+      "default": null,
+      "description": "After the title (counts)"
+    },
+    {
+      "name": "sub",
+      "type": "ReactNode",
+      "required": false,
+      "default": null,
+      "description": "A quiet line under the head"
+    },
+    {
+      "name": "width",
+      "type": "320 | 380",
+      "required": true,
+      "default": null,
+      "description": "320 (changes) · 380 (an agent)"
+    },
+    {
+      "name": "over",
+      "type": "boolean",
+      "required": false,
+      "default": null,
+      "description": "No room beside the chat: it lies over it, with a shadow"
+    },
+    {
+      "name": "onClose",
+      "type": "() => void",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "closeLabel",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "description": ""
+    }
+  ],
   "StatTile": [
     {
       "name": "label",
@@ -2280,6 +3121,64 @@
       "name": "label",
       "type": "string",
       "required": true,
+      "default": null,
+      "description": ""
+    }
+  ],
+  "SuggestionList": [
+    {
+      "name": "id",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "description": "For the field's aria-controls / aria-activedescendant (`${id}-${index}`)"
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "title",
+      "type": "ReactNode",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "items",
+      "type": "Suggestion[]",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "active",
+      "type": "number",
+      "required": true,
+      "default": null,
+      "description": "The option the field's ↑ ↓ have reached"
+    },
+    {
+      "name": "onPick",
+      "type": "(value: string) => void",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "width",
+      "type": "300 | 460",
+      "required": false,
+      "default": "300",
+      "description": "300 (mentions) · 460 (commands)"
+    },
+    {
+      "name": "empty",
+      "type": "ReactNode",
+      "required": false,
       "default": null,
       "description": ""
     }
@@ -2412,7 +3311,7 @@
     },
     {
       "name": "tone",
-      "type": "\"plain\" | \"badge\" | \"run\"",
+      "type": "\"run\" | \"plain\" | \"badge\"",
       "required": false,
       "default": "plain",
       "description": "plain: the wild row's tag (the default) · badge: a hairline in --ink-2 at the size of its line (the resume list) · run: amber (실행 중)"
@@ -2527,6 +3426,38 @@
       "description": ""
     }
   ],
+  "ThinkingRow": [
+    {
+      "name": "head",
+      "type": "ReactNode",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    }
+  ],
+  "LiveBubble": [
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    }
+  ],
   "TierLabel": [
     {
       "name": "tier",
@@ -2572,6 +3503,92 @@
       "required": false,
       "default": null,
       "description": "dex 14px 20px 12px (the Pokédex's top) · box 8px 20px (the Box's toolbar, the default) · rank 12px 20px"
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    }
+  ],
+  "ToolRow": [
+    {
+      "name": "icon",
+      "type": "Icon",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "description": "The tool (Bash, Read …)"
+    },
+    {
+      "name": "detail",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": "What it worked on (a command, a path)"
+    },
+    {
+      "name": "mono",
+      "type": "boolean",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "meta",
+      "type": "ReactNode",
+      "required": false,
+      "default": null,
+      "description": "At the right (a time, counts)"
+    },
+    {
+      "name": "error",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": "An error line beside the label"
+    },
+    {
+      "name": "state",
+      "type": "\"wait\" | \"done\" | \"fail\"",
+      "required": false,
+      "default": "done",
+      "description": ""
+    },
+    {
+      "name": "open",
+      "type": "boolean",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "onToggle",
+      "type": "(() => void)",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "action",
+      "type": "ReactNode",
+      "required": false,
+      "default": null,
+      "description": "A button at the head's end (open in the terminal), shown on hover or focus"
+    },
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": false,
+      "default": null,
+      "description": "The body: output, a diff, nested rows"
     },
     {
       "name": "className",
@@ -2637,6 +3654,59 @@
       "required": false,
       "default": "600",
       "description": "ms before it shows on hover (default 600)"
+    }
+  ],
+  "TurnHead": [
+    {
+      "name": "picture",
+      "type": "ReactNode",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "time",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    }
+  ],
+  "TurnFoot": [
+    {
+      "name": "items",
+      "type": "ReactNode[]",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "action",
+      "type": "ReactNode",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
     }
   ],
   "TypeTag": [
@@ -2722,6 +3792,50 @@
       "description": ""
     }
   ],
+  "UserMessage": [
+    {
+      "name": "text",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "time",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "attachments",
+      "type": "ReactNode",
+      "required": false,
+      "default": null,
+      "description": "Pictures and files above the bubble"
+    },
+    {
+      "name": "state",
+      "type": "\"sent\" | \"pending\" | \"queued\"",
+      "required": false,
+      "default": "sent",
+      "description": "pending: sent, not yet in the record · queued: waiting while Claude works (faded)"
+    },
+    {
+      "name": "stateLabel",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": "The state in words (보내는 중, 대기 중)"
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    }
+  ],
   "WildRow": [
     {
       "name": "sprite",
@@ -2789,6 +3903,73 @@
     {
       "name": "className",
       "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    }
+  ],
+  "WorkingLine": [
+    {
+      "name": "picture",
+      "type": "ReactNode",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "text",
+      "type": "ReactNode",
+      "required": true,
+      "default": null,
+      "description": "일하는 중 · 12초"
+    },
+    {
+      "name": "waiting",
+      "type": "boolean",
+      "required": false,
+      "default": null,
+      "description": "Waiting on you: the words a little brighter, the picture still"
+    },
+    {
+      "name": "onStop",
+      "type": "(() => void)",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "stopLabel",
+      "type": "string",
+      "required": false,
+      "default": "Stop",
+      "description": ""
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    }
+  ],
+  "JumpPill": [
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "onClick",
+      "type": "() => void",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "waiting",
+      "type": "boolean",
       "required": false,
       "default": null,
       "description": ""

@@ -1,0 +1,23 @@
+---
+title: DiffBlock
+description: "파일의 변경: 이름, 줄 수, 색 띠 줄."
+---
+
+import Demo from '../../../../components/Demo'
+import PropsTable from '../../../../components/PropsTable.astro'
+
+파일의 변경: 이름, 줄 수, 색 띠 줄.
+
+<Demo client:load name="diff-looks" />
+
+## 속성
+
+<PropsTable of="DiffBlock" />
+
+## 접근성
+
++/− 수는 글로도 말해요(`countsLabel`).
+
+## spawn에서 합친 것
+
+.chat-diff · .chat-dl · .chat-card-diff · .chat-ch-lines

@@ -1,0 +1,23 @@
+---
+title: UserMessage
+description: "보낸 메시지. 대기 중이면 흐리게, 글로도."
+---
+
+import Demo from '../../../../components/Demo'
+import PropsTable from '../../../../components/PropsTable.astro'
+
+보낸 메시지. 대기 중이면 흐리게, 글로도.
+
+<Demo client:load name="usermessage-states" />
+
+## 속성
+
+<PropsTable of="UserMessage" />
+
+## 접근성
+
+상태가 글로 있어요.
+
+## spawn에서 합친 것
+
+.chat-user · .chat-bubble · .chat-time · .chat-pending

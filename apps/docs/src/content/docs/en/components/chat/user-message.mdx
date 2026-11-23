@@ -1,0 +1,23 @@
+---
+title: UserMessage
+description: "What you sent; queued, faded and said in words."
+---
+
+import Demo from '../../../../../components/Demo'
+import PropsTable from '../../../../../components/PropsTable.astro'
+
+What you sent; queued, faded and said in words.
+
+<Demo client:load name="usermessage-states" />
+
+## Props
+
+<PropsTable of="UserMessage" lang="en" />
+
+## Accessibility
+
+Its state is in words.
+
+## What merges in spawn
+
+.chat-user · .chat-bubble · .chat-time · .chat-pending

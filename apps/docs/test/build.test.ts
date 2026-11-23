@@ -21,7 +21,7 @@ describe('the docs site', () => {
   })
   it('every exported component has a Korean and an English page', () => {
     const index = readFileSync(join(root, '..', '..', 'packages', 'react', 'src', 'index.ts'), 'utf8')
-    const names = [...index.matchAll(/export \{ ([A-Z]\w+)/g)].map(m => m[1]).filter(n => n !== 'VisuallyHidden' && n !== 'PortalProvider' && n !== 'TabPanel')
+    const names = [...index.matchAll(/export \{ ([A-Z]\w+)/g)].map(m => m[1]).filter(n => !['VisuallyHidden', 'PortalProvider', 'useConfirm'].includes(n)) // (an export line's first name: helpers after it share its page)
     const slug = (n: string) => n.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase()
     const pages = (lang: string) => {
       const base = join(dist, lang, 'components')
@@ -50,5 +50,9 @@ describe('the docs site', () => {
     for (const g of ['spawn · 세션', 'spawn · 게임']) expect(ko, g).toContain(g)
     const en = html('en/getting-started/introduction/index.html')
     for (const g of ['spawn · sessions', 'spawn · game']) expect(en, g).toContain(g)
+  })
+  it('the chat group is in the sidebar, in each language', () => {
+    expect(html('getting-started/introduction/index.html')).toContain('spawn · 채팅')
+    expect(html('en/getting-started/introduction/index.html')).toContain('spawn · chat')
   })
 })

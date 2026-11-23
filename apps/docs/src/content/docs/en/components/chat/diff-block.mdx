@@ -1,0 +1,23 @@
+---
+title: DiffBlock
+description: "A file's change: its name, the counts, the tinted lines."
+---
+
+import Demo from '../../../../../components/Demo'
+import PropsTable from '../../../../../components/PropsTable.astro'
+
+A file's change: its name, the counts, the tinted lines.
+
+<Demo client:load name="diff-looks" />
+
+## Props
+
+<PropsTable of="DiffBlock" lang="en" />
+
+## Accessibility
+
+The counts are said in words (`countsLabel`).
+
+## What merges in spawn
+
+.chat-diff · .chat-dl · .chat-card-diff · .chat-ch-lines

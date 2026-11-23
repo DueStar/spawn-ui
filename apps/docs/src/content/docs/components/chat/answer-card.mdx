@@ -1,0 +1,27 @@
+---
+title: AnswerCard
+description: "Claude가 채팅에서 묻는 것: 권한, 질문, 계획. 기다리는 동안 주황."
+---
+
+import Demo from '../../../../components/Demo'
+import PropsTable from '../../../../components/PropsTable.astro'
+
+Claude가 채팅에서 묻는 것: 권한, 질문, 계획. 기다리는 동안 주황.
+
+<Demo client:load name="answer-permission" />
+
+<Demo client:load name="answer-question" />
+
+<Demo client:load name="answer-plan" />
+
+## 속성
+
+<PropsTable of="AnswerCard" />
+
+## 접근성
+
+묻는 것이 이름인 묶음이에요. 선택지는 화살표·Space로 골라요.
+
+## spawn에서 합친 것
+
+.chat-card-* (PermissionCard, QuestionCard, PlanCard, DialogCard)

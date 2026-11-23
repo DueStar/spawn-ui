@@ -75,3 +75,26 @@ spawn-ui is taking in every component spawn's screens use. This is stage one (fo
 - [StepCount](./game/step-count/) — The steps a turn walked.
 - [DexDetailCard](./game/dex-detail-card/) — A Pokémon's page: art, name, facts.
 - [PatchNotes](./game/patch-notes/) — What changed: releases that open and close.
+
+## spawn · chat
+
+- [Prose](./chat/prose/) — The app's rendered Markdown in spawn's reading type.
+- [CodeBlock](./chat/code-block/) — Code in a well with its language and a copy button.
+- [MdDoc](./chat/md-doc/) — A Markdown file shown in the chat: the document or its source.
+- [UserMessage](./chat/user-message/) — What you sent; queued, faded and said in words.
+- [TurnHead](./chat/turn-head/) — A turn's head (who answers) and foot (time, tools, copy). TurnFoot lives here.
+- [ThinkingRow](./chat/thinking-row/) — Thinking, and an answer as it streams (LiveBubble).
+- [WorkingLine](./chat/working-line/) — The working / waiting line and the new-messages pill (JumpPill).
+- [ToolRow](./chat/tool-row/) — One tool call; it opens to what it did.
+- [ShellRow](./chat/shell-row/) — A `!` command: a small terminal block.
+- [DiffBlock](./chat/diff-block/) — A file's change: its name, the counts, the tinted lines.
+- [AnswerCard](./chat/answer-card/) — What Claude asks in the chat: permission, a question, a plan. Amber while it waits.
+- [Composer](./chat/composer/) — Where you write: Enter sends, Shift+Enter a new line, IME Enter never sends. Send is the one yellow.
+- [ControlRow](./chat/control-row/) — The line under the composer: model, thinking, mode.
+- [FileChip](./chat/file-chip/) — A file chip: the name shows, the whole path in its title.
+- [ImageChip](./chat/image-chip/) — A picture chip or thumbnail; a click shows it large.
+- [SuggestionList](./chat/suggestion-list/) — The mention and command lists the field drives.
+- [LinkCard](./chat/link-card/) — A link's preview card.
+- [AgentChip](./chat/agent-chip/) — A sub-agent at work, as a chip.
+- [SidePanel](./chat/side-panel/) — The chat's right column (changes, an agent).
+- [Lightbox](./chat/lightbox/) — A picture, large; ← → move.

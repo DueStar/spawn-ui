@@ -14,6 +14,11 @@ import {
   TierLabel, TopBar, TypeTag, UpdateButton, UsageBars, WildRow, IconButton as IBtn, Button as B2,
 } from '@spawn-ui/react'
 import { Gear as GearIcon, Plus as PlusIcon } from '@phosphor-icons/react'
+import {
+  AgentChip, AnswerCard, CodeBlock, Composer, ControlItem, ControlRow, ControlSep, DiffBlock, FileChip, ImageChip, JumpPill, Lightbox, LinkCard, LiveBubble, MdDoc, PermissionBody, PlanBody, Prose,
+  QuestionBody, ShellRow, SidePanel, SuggestionList, ThinkingRow, ToolRow, TurnFoot, TurnHead, UserMessage, WorkingLine,
+} from '@spawn-ui/react'
+import { Terminal as TermIcon, Paperclip, At } from '@phosphor-icons/react'
 import React, { useState } from 'react'
 import Preview from './Preview'
 
@@ -293,6 +298,83 @@ Object.assign(DEMOS, {
   'steps-basic': { code: `<StepCount steps={8} label="8걸음" />`, render: () => <span style={{ color: 'var(--ink-3)', fontSize: 'var(--t-meta)' }}><StepCount steps={8} label="8걸음" /></span> },
   'dexcard-basic': { code: `<DexDetailCard art={…} name="피카츄" no="#0025" facts={[{ label: '키', value: '0.4m' }, …]} flavor="…" />`, render: () => <div style={{ width: 300 }}><DexDetailCard art={<PokemonSprite src={MON} size={120} />} name="피카츄" no="#0025" nameExtra={<TierLabel tier="rare">희귀</TierLabel>} tags={<TypeTag type="electric">전기</TypeTag>} flavor="볼에 전기 주머니가 있어요." facts={[{ label: '키', value: '0.4m' }, { label: '몸무게', value: '6.0kg' }]} /></div> },
   'patchnotes-basic': { code: `<PatchNotes open={open} onClose={…} title="새로워진 점" okLabel="확인" releases={[…]} />`, render: () => <NotesDemo /> },
+} satisfies Record<string, Entry>)
+
+// ---------------------------------------------------------------- spawn · chat (plan 4)
+const IMG = 'data:image/svg+xml;utf8,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 100"><rect width="160" height="100" fill="#e9ecf2"/><rect x="12" y="14" width="80" height="8" fill="#9aa1b0"/><rect x="12" y="30" width="120" height="6" fill="#c3c8d2"/><rect x="12" y="42" width="100" height="6" fill="#c3c8d2"/></svg>')
+function ComposerDemo() {
+  const [v, setV] = useState('README도 고쳐 줘')
+  const [sent, setSent] = useState<string | null>(null)
+  return <div style={{ width: 560, maxWidth: '100%' }}>
+    {sent && <div style={{ marginBottom: 8, color: 'var(--ink-3)', fontSize: 'var(--t-meta)' }}>보냄: {sent}</div>}
+    <Composer label="메시지" placeholder="모래두지에게 지시하기…" value={v} onChange={setV} onSend={() => { setSent(v); setV('') }} sendLabel="보내기"
+      tools={<><IconButton label="파일 붙이기" icon={Paperclip} /><IconButton label="파일 언급" icon={At} /></>}
+      controls={<ControlRow><ControlItem label="모델" value="Opus 5.5" onClick={() => {}} /><ControlSep /><ControlItem label="생각 정도" value="보통" onClick={() => {}} /><ControlItem label="권한 모드" value="기본" onClick={() => {}} /></ControlRow>} />
+  </div>
+}
+function QuestionDemo() {
+  const [v, setV] = useState<string[]>([])
+  const [other, setOther] = useState('')
+  const [done, setDone] = useState<string | null>(null)
+  return <div style={{ width: 520, maxWidth: '100%' }}><AnswerCard kind="question" title="어떤 방식으로 고칠까요?" kindLabel="질문" answered={done ?? undefined}
+    actions={<><Button variant="solid" disabled={!v.length && !other} onClick={() => setDone(`${v[0] ?? other}을(를) 골랐어요`)}>보내기</Button><Button>터미널에서 답하기</Button></>}>
+    <QuestionBody label="방식" value={v} onChange={setV} options={[{ value: 'A안', label: 'A안: 리다이렉트를 서버에서', description: '빠르지만 설정 파일이 바뀌어요' }, { value: 'B안', label: 'B안: 클라이언트에서' }]} other={{ label: '직접 입력', value: other, onChange: setOther }} />
+  </AnswerCard></div>
+}
+function PermissionDemo() {
+  const [done, setDone] = useState<string | null>(null)
+  return <div style={{ width: 520, maxWidth: '100%' }}><AnswerCard kind="permission" title="명령 실행" kindLabel="권한" answered={done ?? undefined}
+    actions={<><Button variant="solid" onClick={() => setDone('허용했어요')}>허용</Button><Button onClick={() => setDone('항상 허용했어요')}>항상 허용</Button><Button onClick={() => setDone('거절했어요')}>거절</Button></>}>
+    <PermissionBody command="npm run build && npm test" facts={[{ text: '샌드박스 밖에서 실행해요', warn: true }]} rule={<>허용하면 <code>Bash(npm run build:*)</code> 규칙이 생겨요</>} />
+  </AnswerCard></div>
+}
+function ToolDemo() {
+  const [open, setOpen] = useState(true)
+  return <div style={{ width: 520 }}><ToolRow icon={TermIcon} label="Bash" detail="npm test" mono meta="1.2초" open={open} onToggle={() => setOpen(v => !v)}><pre className="sp-tool__out">✓ 271 passed</pre></ToolRow><ToolRow label="Read" detail="src/middleware.ts" mono meta="48줄" /><ToolRow label="Edit" detail="src/lib/safe.ts" state="fail" error="파일이 바뀌었어요" /></div>
+}
+function MdDemo() {
+  const [v, setV] = useState<'doc' | 'raw'>('doc')
+  return <div style={{ width: 520 }}><MdDoc title="PLAN.md" view={v} onView={setV} labels={{ group: '보기', doc: '문서', raw: '원문' }}>{v === 'doc' ? <Prose><h2>계획</h2><p>로그인 뒤 원래 페이지로 돌아가요.</p></Prose> : '## 계획\n로그인 뒤 원래 페이지로 돌아가요.'}</MdDoc></div>
+}
+function LightboxDemo() {
+  const [i, setI] = useState<number | null>(null)
+  return <><ImageChip look="thumb" src={IMG} name="화면.png" openLabel="크게 보기" onOpen={() => setI(0)} />{i !== null && <Lightbox pictures={[{ src: IMG, alt: '화면 1' }, { src: IMG, alt: '화면 2' }]} index={i} onIndex={setI} onClose={() => setI(null)} labels={{ title: '사진', prev: '이전 사진', next: '다음 사진', close: '닫기' }} />}</>
+}
+function PanelDemo() {
+  const [open, setOpen] = useState(true)
+  return <div style={{ position: 'relative', width: 560, height: 220, border: '1px solid var(--line)', borderRadius: 'var(--r-m)', overflow: 'hidden' }}>
+    {!open && <Button onClick={() => setOpen(true)}>변경 사항 열기</Button>}
+    {open && <SidePanel title="변경 사항" width={320} onClose={() => setOpen(false)} closeLabel="닫기" sub="파일 2개 · +12 −3"><DiffBlock look="panel" file="src/a.ts" lines={[{ type: 'del', text: 'return next', old: 4 }, { type: 'add', text: 'return safe(next)', new: 4 }]} /></SidePanel>}
+  </div>
+}
+function SuggDemo() {
+  const [a, setA] = useState(0)
+  return <div style={{ position: 'relative', width: 460, height: 150, display: 'flex', alignItems: 'flex-end' }}><div style={{ position: 'relative', width: '100%' }} onKeyDown={e => { if (e.key === 'ArrowDown') setA(x => Math.min(2, x + 1)); if (e.key === 'ArrowUp') setA(x => Math.max(0, x - 1)) }}>
+    <SuggestionList id="sugg-demo" label="명령" title="명령" width={460} active={a} onPick={() => {}} items={[{ value: '/clear', label: '/clear', desc: '대화 지우기' }, { value: '/model', label: '/model', desc: '모델 바꾸기' }, { value: '/remote-control', label: '/remote-control', desc: '휴대폰에서 이어 하기' }]} />
+  </div></div>
+}
+Object.assign(DEMOS, {
+  'prose-basic': { code: `<Prose>{rendered markdown}</Prose>`, render: () => <div style={{ width: 520 }}><Prose><h2>로그인 리다이렉트</h2><p>로그인 뒤 <code>next</code>로 돌아가요. <a href="#">문서</a>를 보세요.</p><ul><li>서버에서 검사</li><li>밖의 주소는 막기</li></ul><blockquote>같은 사이트 안만 허용해요.</blockquote></Prose></div> },
+  'codeblock-basic': { code: `<CodeBlock lang="ts" code="…" onCopy={…} copyLabel="복사" />`, render: () => <div style={{ width: 520 }}><CodeBlock lang="ts" code={"export function safe(next: string | null) {\n  return next?.startsWith('/') ? next : '/'\n}"} onCopy={() => {}} copyLabel="복사" /></div> },
+  'mddoc-basic': { code: `<MdDoc title="PLAN.md" view={v} onView={setV} labels={…}>…</MdDoc>`, render: () => <MdDemo /> },
+  'usermessage-states': { code: `<UserMessage text="로그인 고쳐 줘" time="오후 2:10" />\n<UserMessage text="README도" state="queued" stateLabel="대기 중" />`, render: () => <div style={{ width: 520, display: 'grid', gap: 12 }}><UserMessage text="로그인하고 나면 원래 보던 페이지로 돌아가게 고쳐 줘" time="오후 2:10" /><UserMessage text="README도 고쳐 줘" state="queued" stateLabel="대기 중" /></div> },
+  'turn-basic': { code: `<TurnHead picture={…} name="모래두지" time="오후 2:10" />\n…\n<TurnFoot items={['13초', '도구 3회']} action={<Button size="xs" variant="ghost">복사</Button>} />`, render: () => <div style={{ width: 520 }}><TurnHead name="모래두지" time="오후 2:10" /><Prose><p>로그인 뒤 이동 경로를 확인해 볼게요.</p></Prose><TurnFoot items={['13초', '도구 3회']} action={<Button size="xs" variant="ghost">복사</Button>} /></div> },
+  'thinking-basic': { code: `<ThinkingRow head="생각 · 4초">…</ThinkingRow>\n<LiveBubble label="받는 중">…</LiveBubble>`, render: () => <div style={{ width: 520, display: 'grid', gap: 12 }}><ThinkingRow head="생각 · 4초"><Prose><p>리다이렉트 값을 먼저 검사해야 해요.</p></Prose></ThinkingRow><LiveBubble label="받는 중"><Prose><p>미들웨어를 고치는 중…</p></Prose></LiveBubble></div> },
+  'working-basic': { code: `<WorkingLine picture={…} text="일하는 중 · 12초" onStop={…} stopLabel="멈추기" />`, render: () => <div style={{ width: 520, position: 'relative', height: 90 }}><WorkingLine text="일하는 중 · 12초" onStop={() => {}} stopLabel="멈추기" /><JumpPill label="새 메시지 3개" onClick={() => {}} /></div> },
+  'toolrow-basic': { code: `<ToolRow icon={Terminal} label="Bash" detail="npm test" mono meta="1.2초" open={open} onToggle={…}>…</ToolRow>`, render: () => <ToolDemo /> },
+  'shellrow-basic': { code: `<ShellRow command="git status" output="nothing to commit" />`, render: () => <div style={{ width: 520 }}><ShellRow command="git status" output="On branch main\nnothing to commit, working tree clean" /></div> },
+  'diff-looks': { code: `<DiffBlock file="src/middleware.ts" kind="수정" lines={…} added={2} removed={2} countsLabel="…" />\n<DiffBlock look="card" … />`, render: () => <div style={{ width: 520, display: 'grid', gap: 12 }}><DiffBlock file="src/middleware.ts" kind="수정" added={1} removed={1} countsLabel="추가 1줄, 삭제 1줄" onOpenFile={() => {}} lines={[{ type: 'ctx', text: 'export function middleware(req) {', old: 39, new: 39 }, { type: 'del', text: '  return NextResponse.redirect(new URL(next))', old: 40 }, { type: 'add', text: '  return NextResponse.redirect(new URL(next, req.url))', new: 40 }]} /><DiffBlock look="card" file="src/lib/safe-redirect.ts" kind="새 파일" added={2} lines={[{ type: 'add', text: '/** 같은 사이트 안의 경로만 돌려준다 */', new: 1 }, { type: 'add', text: 'export function safeRedirect(next: string | null, fallback = "/"): string {', new: 2 }]} /></div> },
+  'answer-permission': { code: `<AnswerCard kind="permission" title="명령 실행" kindLabel="권한" actions={…}>\n  <PermissionBody command="npm test" facts={[…]} rule={…} />\n</AnswerCard>`, render: () => <PermissionDemo /> },
+  'answer-question': { code: `<AnswerCard kind="question" title="어떤 방식으로 고칠까요?" kindLabel="질문" actions={…}>\n  <QuestionBody label="방식" value={v} onChange={setV} options={…} other={…} />\n</AnswerCard>`, render: () => <QuestionDemo /> },
+  'answer-plan': { code: `<AnswerCard kind="plan" title="계획" kindLabel="계획" actions={…}><PlanBody>…</PlanBody></AnswerCard>`, render: () => <div style={{ width: 520 }}><AnswerCard kind="plan" title="이렇게 고칠게요" kindLabel="계획" actions={<><Button variant="solid">진행</Button><Button>고치기</Button></>}><PlanBody><Prose><ol><li>미들웨어에서 next 검사</li><li>밖의 주소는 / 로</li><li>테스트 추가</li></ol></Prose></PlanBody></AnswerCard></div> },
+  'composer-basic': { code: `<Composer label="메시지" value={v} onChange={setV} onSend={…} sendLabel="보내기" tools={…} controls={<ControlRow>…</ControlRow>} />`, render: () => <ComposerDemo /> },
+  'filechip-looks': { code: `<FileChip look="prose" path="src/a.ts" onOpen={…} />  <FileChip look="pill" … />  <FileChip look="draft" onRemove={…} … />`, render: () => row(<><FileChip look="prose" path="src/middleware.ts" onOpen={() => {}} /><FileChip look="inline" path="README.md" /><FileChip look="pill" path="docs/plan.md" onOpen={() => {}} /><FileChip look="draft" path="src/lib/safe-redirect.ts" onRemove={() => {}} removeLabel="빼기" /></>) },
+  'imagechip-looks': { code: `<ImageChip look="chip" src={…} name="화면.png" onRemove={…} />\n<ImageChip look="thumb" src={…} name="화면.png" onOpen={…} />`, render: () => row(<><ImageChip look="chip" src={IMG} name="화면.png" onOpen={() => {}} onRemove={() => {}} removeLabel="빼기" openLabel="크게 보기" /><LightboxDemo /><ImageChip look="text" name="사진 2장" /></>) },
+  'suggestions-basic': { code: `<SuggestionList id="cmd" label="명령" items={…} active={i} onPick={…} width={460} />`, render: () => <SuggDemo /> },
+  'linkcard-basic': { code: `<LinkCard url="https://…" site="example.com" title="…" desc="…" image={…} label="링크 미리보기: …" onOpen={…} />`, render: () => <LinkCard url="https://example.com/guide" site="example.com" title="로그인 리다이렉트 안내" desc="로그인 뒤 원래 페이지로 안전하게 돌아가는 방법과 막아야 할 주소들을 설명해요." image={IMG} label="링크 미리보기: 로그인 리다이렉트 안내" onOpen={() => {}} /> },
+  'agentchip-basic': { code: `<AgentChip name="리뷰어" state="run" stateLabel="일하는 중" time="12초" onOpen={…} />`, render: () => row(<><AgentChip name="리뷰어" state="run" stateLabel="일하는 중" last="테스트 읽는 중" time="12초" onOpen={() => {}} /><AgentChip name="탐색" state="wait" stateLabel="기다리는 중" time="40초" onOpen={() => {}} /></>) },
+  'sidepanel-basic': { code: `<SidePanel title="변경 사항" width={320} onClose={…} closeLabel="닫기" sub="…">…</SidePanel>`, render: () => <PanelDemo /> },
+  'lightbox-basic': { code: `<Lightbox pictures={…} index={i} onIndex={setI} onClose={…} labels={…} />`, render: () => <LightboxDemo /> },
 } satisfies Record<string, Entry>)
 
 /** One named example, live, with its code */
