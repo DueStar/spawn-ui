@@ -32,4 +32,11 @@ describe('the docs site', () => {
       expect(pages('en'), `en page for ${n}`).toContain(slug(n))
     }
   })
+  it('the releases pages show each package\'s current version', () => {
+    for (const pkg of ['tokens', 'react']) {
+      const v = JSON.parse(readFileSync(join(root, '..', '..', 'packages', pkg, 'package.json'), 'utf8')).version
+      expect(html(`releases/${pkg}/index.html`), pkg).toContain(v)
+      expect(html(`en/releases/${pkg}/index.html`), pkg).toContain(v)
+    }
+  })
 })
