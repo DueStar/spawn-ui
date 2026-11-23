@@ -1,0 +1,25 @@
+---
+title: MonCell
+description: "도감·박스·고르기의 포켓몬 칸. 고른 칸은 1px 노란 테두리."
+---
+
+import Demo from '../../../../components/Demo'
+import PropsTable from '../../../../components/PropsTable.astro'
+
+도감·박스·고르기의 포켓몬 칸. 고른 칸은 1px 노란 테두리.
+
+<Demo client:load name="moncell-dex" />
+
+<Demo client:load name="moncell-looks" />
+
+## 속성
+
+<PropsTable of="MonCell" />
+
+## 접근성
+
+칸마다 이름이 있고, 고른 칸은 `aria-pressed`. 못 만난 포켓몬은 그렇다고 말해요.
+
+## spawn에서 합친 것
+
+.dex-cell · .box-cell · .w-swap-cell · .rank-partners button

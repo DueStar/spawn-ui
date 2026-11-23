@@ -1,4 +1,87 @@
 {
+  "Account": [
+    {
+      "name": "user",
+      "type": "{ name: string; email?: string; photo?: string; } | undefined",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "signInLabel",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "onSignIn",
+      "type": "() => void",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "onOpen",
+      "type": "(() => void)",
+      "required": false,
+      "default": null,
+      "description": "Opens the account card (signed in)"
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    }
+  ],
+  "AppHeader": [
+    {
+      "name": "brand",
+      "type": "ReactNode",
+      "required": true,
+      "default": null,
+      "description": "The wordmark"
+    },
+    {
+      "name": "actions",
+      "type": "ReactNode",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "windowControls",
+      "type": "ReactNode",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "platform",
+      "type": "\"win\" | \"mac\"",
+      "required": false,
+      "default": "win",
+      "description": "mac leaves room at the left for the traffic lights"
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    }
+  ],
+  "TopBar": [
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    }
+  ],
   "Badge": [
     {
       "name": "tone",
@@ -98,6 +181,120 @@
       "description": "Asks for the person: an amber edge and a bar inside the left side (spawn's asking card)"
     }
   ],
+  "CatchToast": [
+    {
+      "name": "kind",
+      "type": "\"catch\" | \"flee\" | \"levelup\"",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "sprite",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "eyebrow",
+      "type": "ReactNode",
+      "required": true,
+      "default": null,
+      "description": "The small line on top (잡았어요)"
+    },
+    {
+      "name": "title",
+      "type": "ReactNode",
+      "required": true,
+      "default": null,
+      "description": "The Pokémon's name"
+    },
+    {
+      "name": "titleNote",
+      "type": "ReactNode",
+      "required": false,
+      "default": null,
+      "description": "After the title, small (Lv.12)"
+    },
+    {
+      "name": "meta",
+      "type": "ReactNode",
+      "required": false,
+      "default": null,
+      "description": "The line under (the ball, where)"
+    },
+    {
+      "name": "via",
+      "type": "ReactNode",
+      "required": false,
+      "default": null,
+      "description": "Who caught it (a session), quiet; warn turns it amber"
+    },
+    {
+      "name": "viaWarn",
+      "type": "boolean",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "tier",
+      "type": "Tier",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "tierLabel",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "shiny",
+      "type": "boolean",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "badge",
+      "type": "ReactNode",
+      "required": false,
+      "default": null,
+      "description": "NEW, +N … beside the eyebrow"
+    },
+    {
+      "name": "onClose",
+      "type": "(() => void)",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "closeLabel",
+      "type": "string",
+      "required": false,
+      "default": "Close",
+      "description": ""
+    },
+    {
+      "name": "leaving",
+      "type": "boolean",
+      "required": false,
+      "default": null,
+      "description": "Leaving: it slides out"
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    }
+  ],
   "Checkbox": [
     {
       "name": "label",
@@ -124,6 +321,136 @@
       "name": "disabled",
       "type": "boolean",
       "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    }
+  ],
+  "DexDetailCard": [
+    {
+      "name": "art",
+      "type": "ReactNode",
+      "required": true,
+      "default": null,
+      "description": "The big picture (a PokemonSprite, ≤130)"
+    },
+    {
+      "name": "name",
+      "type": "ReactNode",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "no",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "nameExtra",
+      "type": "ReactNode",
+      "required": false,
+      "default": null,
+      "description": "Beside the name: a 34px icon, the tier, the English name"
+    },
+    {
+      "name": "tags",
+      "type": "ReactNode",
+      "required": false,
+      "default": null,
+      "description": "Types, genus"
+    },
+    {
+      "name": "facts",
+      "type": "{ label: ReactNode; value: ReactNode; }[]",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "flavor",
+      "type": "ReactNode",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "owned",
+      "type": "ReactNode",
+      "required": false,
+      "default": null,
+      "description": "The Pokémon you own (rows with their buttons)"
+    },
+    {
+      "name": "actions",
+      "type": "ReactNode",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    }
+  ],
+  "DexStrip": [
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "description": "도감"
+    },
+    {
+      "name": "count",
+      "type": "number",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "total",
+      "type": "number",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "recent",
+      "type": "{ key: string; sprite: ReactNode; }[]",
+      "required": true,
+      "default": null,
+      "description": "The latest catches (PokemonSprites), newest first; the oldest fold away when there is no room"
+    },
+    {
+      "name": "isNew",
+      "type": "boolean",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "newLabel",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": "The new dot's words"
+    },
+    {
+      "name": "onOpen",
+      "type": "() => void",
+      "required": true,
       "default": null,
       "description": ""
     },
@@ -226,6 +553,66 @@
       "required": false,
       "default": null,
       "description": ""
+    }
+  ],
+  "DragCard": [
+    {
+      "name": "picture",
+      "type": "ReactNode",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "x",
+      "type": "number",
+      "required": true,
+      "default": null,
+      "description": "The pointer, in px"
+    },
+    {
+      "name": "y",
+      "type": "number",
+      "required": true,
+      "default": null,
+      "description": ""
+    }
+  ],
+  "DropZone": [
+    {
+      "name": "left",
+      "type": "number",
+      "required": true,
+      "default": null,
+      "description": "Its left edge and width, as fractions (0–1) of the area it lights"
+    },
+    {
+      "name": "width",
+      "type": "number",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "hint",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "description": "What a drop does there"
+    },
+    {
+      "name": "full",
+      "type": "boolean",
+      "required": false,
+      "default": null,
+      "description": "There is no room: the hint turns red"
     }
   ],
   "EmptyState": [
@@ -414,6 +801,152 @@
       "description": "Shown while pressed (a toggle): aria-pressed"
     }
   ],
+  "Launcher": [
+    {
+      "name": "newLabel",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "onNew",
+      "type": "() => void",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "folderLabel",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "onFolder",
+      "type": "(() => void)",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "resumeLabel",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "onResume",
+      "type": "(() => void)",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    }
+  ],
+  "LeaderboardRow": [
+    {
+      "name": "place",
+      "type": "number",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "icon",
+      "type": "ReactNode",
+      "required": false,
+      "default": null,
+      "description": "A 30px picture"
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "value",
+      "type": "ReactNode",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "unit",
+      "type": "ReactNode",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "me",
+      "type": "boolean",
+      "required": false,
+      "default": null,
+      "description": "The person's own row"
+    },
+    {
+      "name": "meLabel",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": "The 나 tag's words"
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    }
+  ],
+  "ListHead": [
+    {
+      "name": "mode",
+      "type": "\"compact\" | \"detail\"",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "onMode",
+      "type": "(mode: \"compact\" | \"detail\") => void",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "labels",
+      "type": "{ compact: string; detail: string; group: string; }",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "actions",
+      "type": "ReactNode",
+      "required": false,
+      "default": null,
+      "description": "At the right: a new shell, a new session"
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    }
+  ],
   "ListRow": [
     {
       "name": "look",
@@ -468,6 +1001,59 @@
       "name": "className",
       "type": "string",
       "required": false,
+      "default": null,
+      "description": ""
+    }
+  ],
+  "LogRow": [
+    {
+      "name": "time",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "icon",
+      "type": "ReactNode",
+      "required": false,
+      "default": null,
+      "description": "A 32px picture"
+    },
+    {
+      "name": "text",
+      "type": "ReactNode",
+      "required": true,
+      "default": null,
+      "description": "The line (the name in <b>)"
+    },
+    {
+      "name": "sub",
+      "type": "ReactNode",
+      "required": false,
+      "default": null,
+      "description": "The line under"
+    },
+    {
+      "name": "kind",
+      "type": "\"catch\" | \"flee\" | \"levelup\"",
+      "required": false,
+      "default": "catch",
+      "description": ""
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    }
+  ],
+  "LogDay": [
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
       "default": null,
       "description": ""
     }
@@ -575,6 +1161,113 @@
       "description": "Its name for screen readers"
     },
     {
+      "name": "full",
+      "type": "boolean",
+      "required": false,
+      "default": null,
+      "description": "hp: the context is full — the bar fades (spawn's hp-full)"
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    }
+  ],
+  "MonCell": [
+    {
+      "name": "look",
+      "type": "\"picker\" | \"dex\" | \"box\" | \"box-icon\" | \"partner\"",
+      "required": true,
+      "default": null,
+      "description": "dex: the Pokédex's square · box: the Box (96) · box-icon: the Box's icon look · picker: choosing a Pokémon · partner: the ranking's partner"
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "description": "Its name for screen readers (an unknown one says so)"
+    },
+    {
+      "name": "sprite",
+      "type": "ReactNode",
+      "required": false,
+      "default": null,
+      "description": "A PokemonSprite"
+    },
+    {
+      "name": "picked",
+      "type": "boolean",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "unknown",
+      "type": "boolean",
+      "required": false,
+      "default": null,
+      "description": "Not met yet: a ? on the unknown grey"
+    },
+    {
+      "name": "no",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": "The number in the top-left corner"
+    },
+    {
+      "name": "shiny",
+      "type": "ReactNode",
+      "required": false,
+      "default": null,
+      "description": "A mark in the bottom-left corner (shiny)"
+    },
+    {
+      "name": "count",
+      "type": "number",
+      "required": false,
+      "default": null,
+      "description": "How many, bottom-right"
+    },
+    {
+      "name": "working",
+      "type": "boolean",
+      "required": false,
+      "default": null,
+      "description": "Working on a session: a green dot"
+    },
+    {
+      "name": "dragging",
+      "type": "boolean",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "caption",
+      "type": "ReactNode",
+      "required": false,
+      "default": null,
+      "description": "A word under the sprite (the picker)"
+    },
+    {
+      "name": "onClick",
+      "type": "(() => void)",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "onPointerDown",
+      "type": "((e: PointerEvent<HTMLButtonElement>) => void)",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
       "name": "className",
       "type": "string",
       "required": false,
@@ -647,6 +1340,73 @@
       "description": "The ×'s name for screen readers"
     }
   ],
+  "PaneHead": [
+    {
+      "name": "on",
+      "type": "boolean",
+      "required": false,
+      "default": null,
+      "description": "The pane in view"
+    },
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true,
+      "default": null,
+      "description": "Its SessionHeader"
+    },
+    {
+      "name": "more",
+      "type": "ReactNode",
+      "required": false,
+      "default": null,
+      "description": "A button at its end (more)"
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    }
+  ],
+  "PatchNotes": [
+    {
+      "name": "open",
+      "type": "boolean",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "onClose",
+      "type": "() => void",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "okLabel",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "releases",
+      "type": "{ version: string; range?: ReactNode; items: ReactNode[]; }[]",
+      "required": true,
+      "default": null,
+      "description": "Newest first; the first is open"
+    }
+  ],
   "Pill": [
     {
       "name": "mood",
@@ -673,6 +1433,101 @@
       "name": "className",
       "type": "string",
       "required": false,
+      "default": null,
+      "description": ""
+    }
+  ],
+  "PokemonSprite": [
+    {
+      "name": "src",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "alt",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "description": "Its name for screen readers; left out, the picture is decorative (the name is beside it)"
+    },
+    {
+      "name": "size",
+      "type": "number",
+      "required": true,
+      "default": null,
+      "description": "px"
+    },
+    {
+      "name": "max",
+      "type": "boolean",
+      "required": false,
+      "default": null,
+      "description": "Never larger than its natural size, up to `size` (the box icon look)"
+    },
+    {
+      "name": "silhouette",
+      "type": "boolean",
+      "required": false,
+      "default": null,
+      "description": "Not caught yet: a grey shape"
+    },
+    {
+      "name": "faded",
+      "type": "boolean",
+      "required": false,
+      "default": null,
+      "description": "Faded in the log"
+    },
+    {
+      "name": "pixelated",
+      "type": "boolean",
+      "required": false,
+      "default": null,
+      "description": "Hard pixels: only the wild row"
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    }
+  ],
+  "QueueStrip": [
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "description": "How many wait, in words (대기 중 2)"
+    },
+    {
+      "name": "first",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "description": "The first one waiting, on the strip"
+    },
+    {
+      "name": "items",
+      "type": "ReactNode[]",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "open",
+      "type": "boolean",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "onToggle",
+      "type": "() => void",
+      "required": true,
       "default": null,
       "description": ""
     }
@@ -705,6 +1560,166 @@
       "required": true,
       "default": null,
       "description": ""
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    }
+  ],
+  "RailButton": [
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "description": "Its name (a session: its name)"
+    },
+    {
+      "name": "icon",
+      "type": "Icon",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "picture",
+      "type": "ReactNode",
+      "required": false,
+      "default": null,
+      "description": "A session's picture (a SessionPicture at 26)"
+    },
+    {
+      "name": "mood",
+      "type": "SessionMood",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "moodLabel",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": "The mood in words (said with the label)"
+    },
+    {
+      "name": "chosen",
+      "type": "boolean",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "onClick",
+      "type": "() => void",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "onPointerDown",
+      "type": "((e: PointerEvent<HTMLButtonElement>) => void)",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    }
+  ],
+  "Rail": [
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    }
+  ],
+  "ResizeHandle": [
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "description": "Its name for screen readers (what it resizes)"
+    },
+    {
+      "name": "edge",
+      "type": "\"left\" | \"right\"",
+      "required": true,
+      "default": null,
+      "description": "The edge of the thing it resizes: dragging right grows a left-edge … right-edge panel"
+    },
+    {
+      "name": "hit",
+      "type": "7 | 22",
+      "required": false,
+      "default": "7",
+      "description": "7 (a panel's edge, the default) or 22 (the changes panel)"
+    },
+    {
+      "name": "lineAtRest",
+      "type": "boolean",
+      "required": false,
+      "default": null,
+      "description": "The 1px line shows at rest (between panes)"
+    },
+    {
+      "name": "value",
+      "type": "number",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "min",
+      "type": "number",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "max",
+      "type": "number",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "step",
+      "type": "number",
+      "required": false,
+      "default": "10",
+      "description": "← / → change by this"
+    },
+    {
+      "name": "onResize",
+      "type": "(value: number) => void",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "onReset",
+      "type": "(() => void)",
+      "required": false,
+      "default": null,
+      "description": "Home, or a double-click"
     },
     {
       "name": "className",
@@ -796,10 +1811,389 @@
     },
     {
       "name": "size",
-      "type": "\"sm\" | \"md\"",
+      "type": "\"xs\" | \"sm\" | \"md\"",
       "required": false,
       "default": "sm",
       "description": "sm: the Pokédex's filters (24px) · md: a little roomier"
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    }
+  ],
+  "SessionHeader": [
+    {
+      "name": "picture",
+      "type": "ReactNode",
+      "required": true,
+      "default": null,
+      "description": "A SessionPicture at 22"
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "project",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "branch",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "tools",
+      "type": "ReactNode",
+      "required": false,
+      "default": null,
+      "description": "The chat's tools (the density menu, the changes button)"
+    },
+    {
+      "name": "lens",
+      "type": "ReactNode",
+      "required": false,
+      "default": null,
+      "description": "채팅 · 터미널"
+    },
+    {
+      "name": "onRename",
+      "type": "(() => void)",
+      "required": false,
+      "default": null,
+      "description": "A double-click on the name"
+    },
+    {
+      "name": "renaming",
+      "type": "ReactNode",
+      "required": false,
+      "default": null,
+      "description": "Shown in place of the name while renaming (a TextInput look=\"rename\")"
+    },
+    {
+      "name": "onClose",
+      "type": "(() => void)",
+      "required": false,
+      "default": null,
+      "description": "The × asks once, then closes"
+    },
+    {
+      "name": "closeLabel",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "closeConfirmLabel",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    }
+  ],
+  "SessionPicture": [
+    {
+      "name": "kind",
+      "type": "\"picture\" | \"glyph\" | \"shell\"",
+      "required": true,
+      "default": null,
+      "description": "picture: the session's Pokémon · glyph: a terminal mark (work mode, or no Pokémon) · shell: a plain shell (>_)"
+    },
+    {
+      "name": "src",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "size",
+      "type": "22 | 18 | 20 | 24 | 26 | 64 | 96",
+      "required": true,
+      "default": null,
+      "description": "18/20 tabs and compact rows · 22 headers · 24 rows · 26 the rail · 64/96 the chat's first screen"
+    },
+    {
+      "name": "hop",
+      "type": "boolean",
+      "required": false,
+      "default": null,
+      "description": "The session waits on you: it hops in place"
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": "Said to screen readers (left out: decorative, the name is beside it)"
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    }
+  ],
+  "SessionRow": [
+    {
+      "name": "name",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "mood",
+      "type": "SessionMood",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "moodLabel",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "description": "The mood in words (said with the name; shown beside the dot in the detailed look)"
+    },
+    {
+      "name": "picture",
+      "type": "ReactNode",
+      "required": true,
+      "default": null,
+      "description": "A SessionPicture (or the app's own)"
+    },
+    {
+      "name": "project",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "branch",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "tool",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": "The AI tool, when not the default one"
+    },
+    {
+      "name": "lv",
+      "type": "number",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "helpers",
+      "type": "ReactNode",
+      "required": false,
+      "default": null,
+      "description": "The helpers' pictures, on line 1 before the mood"
+    },
+    {
+      "name": "hp",
+      "type": "number",
+      "required": false,
+      "default": null,
+      "description": "Context left, 0–1 (left out: no bar, as a plain shell)"
+    },
+    {
+      "name": "hpFull",
+      "type": "boolean",
+      "required": false,
+      "default": null,
+      "description": "The context is full: the bar fades"
+    },
+    {
+      "name": "hpLabel",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": "The bar's word (HP, or 컨텍스트 in work mode)"
+    },
+    {
+      "name": "hpTitle",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": "The bar's name for screen readers"
+    },
+    {
+      "name": "model",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "tokens",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": "Tokens left, as words (124K)"
+    },
+    {
+      "name": "chosen",
+      "type": "boolean",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "compact",
+      "type": "boolean",
+      "required": false,
+      "default": null,
+      "description": "간략: one line"
+    },
+    {
+      "name": "lifted",
+      "type": "boolean",
+      "required": false,
+      "default": null,
+      "description": "Picked up by the pointer"
+    },
+    {
+      "name": "widget",
+      "type": "boolean",
+      "required": false,
+      "default": null,
+      "description": "In the floating widget card: the chosen bar sits 4px in, not 8"
+    },
+    {
+      "name": "asking",
+      "type": "ReactNode",
+      "required": false,
+      "default": null,
+      "description": "A question asked in the row (a Banner layout=\"row\")"
+    },
+    {
+      "name": "onOpen",
+      "type": "() => void",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "onRename",
+      "type": "(() => void)",
+      "required": false,
+      "default": null,
+      "description": "F2, or the ✎ button"
+    },
+    {
+      "name": "renameLabel",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "onClose",
+      "type": "(() => void)",
+      "required": false,
+      "default": null,
+      "description": "The × asks once, then closes"
+    },
+    {
+      "name": "closeLabel",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "closeConfirmLabel",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "tools",
+      "type": "ReactNode",
+      "required": false,
+      "default": null,
+      "description": "More buttons beside ✎ and × on hover (the swap)"
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    }
+  ],
+  "StatTile": [
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "value",
+      "type": "number",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "of",
+      "type": "number",
+      "required": false,
+      "default": null,
+      "description": "Of how many"
+    },
+    {
+      "name": "pct",
+      "type": "number",
+      "required": false,
+      "default": null,
+      "description": "0–1, shown as % and as the bar"
+    },
+    {
+      "name": "tier",
+      "type": "Tier",
+      "required": false,
+      "default": null,
+      "description": "A tier's column: its word and bar in the tier's colour"
     },
     {
       "name": "className",
@@ -835,6 +2229,22 @@
       "name": "className",
       "type": "string",
       "required": false,
+      "default": null,
+      "description": ""
+    }
+  ],
+  "StepCount": [
+    {
+      "name": "steps",
+      "type": "number",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
       "default": null,
       "description": ""
     }
@@ -966,6 +2376,13 @@
       "description": "A tier: its dot beside the word, the word in the tier's colour (never a filled chip)"
     },
     {
+      "name": "tone",
+      "type": "\"plain\" | \"badge\" | \"run\"",
+      "required": false,
+      "default": "plain",
+      "description": "plain: the wild row's tag (the default) · badge: a hairline in --ink-2 at the size of its line (the resume list) · run: amber (실행 중)"
+    },
+    {
       "name": "title",
       "type": "string",
       "required": false,
@@ -1038,6 +2455,74 @@
       "description": "Esc, never while composing"
     }
   ],
+  "TextSizeControl": [
+    {
+      "name": "step",
+      "type": "number",
+      "required": true,
+      "default": null,
+      "description": "The step in use"
+    },
+    {
+      "name": "steps",
+      "type": "{ value: number; label: string; }[]",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "onStep",
+      "type": "(value: number) => void",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "compact",
+      "type": "boolean",
+      "required": false,
+      "default": null,
+      "description": "A narrow bar: one 가 button opening the steps"
+    },
+    {
+      "name": "labels",
+      "type": "{ smaller: string; larger: string; menu: string; }",
+      "required": true,
+      "default": null,
+      "description": ""
+    }
+  ],
+  "TierLabel": [
+    {
+      "name": "tier",
+      "type": "Tier",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true,
+      "default": null,
+      "description": "The word (always there: colour is never alone)"
+    },
+    {
+      "name": "gap",
+      "type": "4 | 5",
+      "required": false,
+      "default": "5",
+      "description": "5 (the Pokédex, the toast; the default) · 4 (the log, the wild row)"
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    }
+  ],
+  "TIER_WORDS": [],
   "Toolbar": [
     {
       "name": "label",
@@ -1048,7 +2533,7 @@
     },
     {
       "name": "pad",
-      "type": "\"rank\" | \"dex\" | \"box\"",
+      "type": "\"dex\" | \"box\" | \"rank\"",
       "required": false,
       "default": null,
       "description": "dex 14px 20px 12px (the Pokédex's top) · box 8px 20px (the Box's toolbar, the default) · rank 12px 20px"
@@ -1085,7 +2570,7 @@
     },
     {
       "name": "placement",
-      "type": "\"top\" | \"bottom\" | \"left\" | \"right\"",
+      "type": "\"left\" | \"right\" | \"top\" | \"bottom\"",
       "required": false,
       "default": "bottom",
       "description": ""
@@ -1117,6 +2602,161 @@
       "required": false,
       "default": "600",
       "description": "ms before it shows on hover (default 600)"
+    }
+  ],
+  "TypeTag": [
+    {
+      "name": "type",
+      "type": "\"ghost\" | \"normal\" | \"fire\" | \"water\" | \"grass\" | \"electric\" | \"psychic\" | \"ice\" | \"dragon\" | \"dark\" | \"fairy\" | \"fighting\" | \"poison\" | \"ground\" | \"flying\" | \"bug\" | \"rock\" | \"steel\"",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true,
+      "default": null,
+      "description": "The type's name"
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    }
+  ],
+  "UpdateButton": [
+    {
+      "name": "state",
+      "type": "\"available\" | \"downloading\" | \"ready\" | \"failed\"",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "progress",
+      "type": "number",
+      "required": false,
+      "default": null,
+      "description": "downloading: 0–1"
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "description": "The state in words (업데이트 · 받는 중 · 재시작 · 업데이트 실패)"
+    },
+    {
+      "name": "onClick",
+      "type": "() => void",
+      "required": true,
+      "default": null,
+      "description": ""
+    }
+  ],
+  "UsageBars": [
+    {
+      "name": "limits",
+      "type": "UsageLimit[]",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "loading",
+      "type": "boolean",
+      "required": false,
+      "default": null,
+      "description": "Waiting for the first numbers: the bars shimmer"
+    },
+    {
+      "name": "idle",
+      "type": "ReactNode",
+      "required": false,
+      "default": null,
+      "description": "Before any session: this hint instead"
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    }
+  ],
+  "WildRow": [
+    {
+      "name": "sprite",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "result",
+      "type": "\"caught\" | \"fled\"",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "resultLabel",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "description": "The result in words"
+    },
+    {
+      "name": "tier",
+      "type": "Tier",
+      "required": false,
+      "default": null,
+      "description": "A tier at rare or above, with its word"
+    },
+    {
+      "name": "tierLabel",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "ball",
+      "type": "ReactNode",
+      "required": false,
+      "default": null,
+      "description": "The ball (14px)"
+    },
+    {
+      "name": "tag",
+      "type": "ReactNode",
+      "required": false,
+      "default": null,
+      "description": "A small tag (NEW)"
+    },
+    {
+      "name": "appear",
+      "type": "boolean",
+      "required": false,
+      "default": null,
+      "description": "Met while watching: the picture comes in once"
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
     }
   ]
 }

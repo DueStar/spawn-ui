@@ -1,0 +1,23 @@
+---
+title: Rail
+description: "The folded side panel: a 56px column of buttons and sessions."
+---
+
+import Demo from '../../../../../components/Demo'
+import PropsTable from '../../../../../components/PropsTable.astro'
+
+The folded side panel: a 56px column of buttons and sessions.
+
+<Demo client:load name="rail-basic" />
+
+## Props
+
+<PropsTable of="Rail" lang="en" />
+
+## Accessibility
+
+A named `nav`; a session says its name and state; the one in view is `aria-current`.
+
+## What merges in spawn
+
+.w-rail · .w-rail-btn · .w-rail-session · .w-rail-sep · .w-rail-dot

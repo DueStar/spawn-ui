@@ -45,4 +45,10 @@ describe('the docs site', () => {
     expect(existsSync(join(dist, 'components', 'foundations', 'scrollbar', 'index.html'))).toBe(true)
     expect(existsSync(join(dist, 'en', 'components', 'foundations', 'scrollbar', 'index.html'))).toBe(true)
   })
+  it('the spawn groups (sessions, game) are in the sidebar, in each language', () => {
+    const ko = html('getting-started/introduction/index.html')
+    for (const g of ['spawn · 세션', 'spawn · 게임']) expect(ko, g).toContain(g)
+    const en = html('en/getting-started/introduction/index.html')
+    for (const g of ['spawn · sessions', 'spawn · game']) expect(en, g).toContain(g)
+  })
 })

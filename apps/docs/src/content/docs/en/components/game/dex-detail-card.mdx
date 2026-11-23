@@ -1,0 +1,23 @@
+---
+title: DexDetailCard
+description: "A Pokémon's page: art, name, facts."
+---
+
+import Demo from '../../../../../components/Demo'
+import PropsTable from '../../../../../components/PropsTable.astro'
+
+A Pokémon's page: art, name, facts.
+
+<Demo client:load name="dexcard-basic" />
+
+## Props
+
+<PropsTable of="DexDetailCard" lang="en" />
+
+## Accessibility
+
+The name is a heading; the facts a definition list.
+
+## What merges in spawn
+
+.dex-card · .dex-facts · .dex-card-flavor

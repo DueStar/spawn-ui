@@ -1,0 +1,25 @@
+---
+title: MonCell
+description: "A Pokémon cell: the Pokédex, the Box, the pickers. Picked: the 1px yellow ring."
+---
+
+import Demo from '../../../../../components/Demo'
+import PropsTable from '../../../../../components/PropsTable.astro'
+
+A Pokémon cell: the Pokédex, the Box, the pickers. Picked: the 1px yellow ring.
+
+<Demo client:load name="moncell-dex" />
+
+<Demo client:load name="moncell-looks" />
+
+## Props
+
+<PropsTable of="MonCell" lang="en" />
+
+## Accessibility
+
+Each cell is named; picked is `aria-pressed`; an unknown one says so.
+
+## What merges in spawn
+
+.dex-cell · .box-cell · .w-swap-cell · .rank-partners button

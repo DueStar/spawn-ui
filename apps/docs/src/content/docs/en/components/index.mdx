@@ -40,3 +40,38 @@ spawn-ui is taking in every component spawn's screens use. This is stage one (fo
 - [Menu](./containers/menu/) — Choices that open from a button: arrows move, Enter picks, Esc closes.
 - [Tooltip](./containers/tooltip/) — A short note on hover or keyboard focus. spawn keeps the browser's title until asked.
 - [Tabs](./containers/tabs/) — Tabs: arrows move between them; the chosen one shows its panel.
+
+## spawn · sessions
+
+- [SessionRow](./sessions/session-row/) — One session in the list: its Pokémon, name, state and HP. Enter opens, F2 renames, the × asks before closing.
+- [SessionPicture](./sessions/session-picture/) — Who a session is: its Pokémon, or a mark when there is none.
+- [Rail](./sessions/rail/) — The folded side panel: a 56px column of buttons and sessions.
+- [ListHead](./sessions/list-head/) — The session list head: compact/detailed first, its buttons at the right.
+- [Launcher](./sessions/launcher/) — Start a session; open a folder; resume.
+- [Account](./sessions/account/) — Sign in, or the round avatar.
+- [SessionHeader](./sessions/session-header/) — The bar over a session: who, where, its tools and its ×.
+- [PaneHead](./sessions/pane-head/) — One pane's head in the split view.
+- [AppHeader](./sessions/app-header/) — The window's head and the right side's bar: they drag the window; their buttons do not.
+- [ResizeHandle](./sessions/resize-handle/) — A draggable edge: ← / → move it, Home or a double-click resets.
+- [DragCard](./sessions/drag-card/) — The small card that follows the pointer off the list.
+- [DropZone](./sessions/drop-zone/) — Lights where a dragged session would go.
+- [QueueStrip](./sessions/queue-strip/) — Messages waiting while Claude works.
+- [UpdateButton](./sessions/update-button/) — The update: every state in words.
+- [TextSizeControl](./sessions/text-size-control/) — − 가 + : the app's one text size (80–130 %).
+- [UsageBars](./sessions/usage-bars/) — The plan's limits: label, bar, %, reset.
+
+## spawn · game
+
+- [PokemonSprite](./game/pokemon-sprite/) — A Pokémon picture: smooth and contained; hard pixels only in the wild row.
+- [TierLabel](./game/tier-label/) — A tier: its dot and its word, never colour alone.
+- [TypeTag](./game/type-tag/) — A Pokémon's type: a hairline tag in its colour.
+- [MonCell](./game/mon-cell/) — A Pokémon cell: the Pokédex, the Box, the pickers. Picked: the 1px yellow ring.
+- [DexStrip](./game/dex-strip/) — The side panel's Pokédex line.
+- [StatTile](./game/stat-tile/) — One of the Pokédex's numbers.
+- [WildRow](./game/wild-row/) — A wild Pokémon met in passing, in the chat.
+- [CatchToast](./game/catch-toast/) — A catch, a flight or a level-up as a card; it keeps its own type size.
+- [LeaderboardRow](./game/leaderboard-row/) — One place in the ranking; the top three on a metal disc.
+- [LogRow](./game/log-row/) — One entry of the day's log, and the day's heading.
+- [StepCount](./game/step-count/) — The steps a turn walked.
+- [DexDetailCard](./game/dex-detail-card/) — A Pokémon's page: art, name, facts.
+- [PatchNotes](./game/patch-notes/) — What changed: releases that open and close.

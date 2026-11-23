@@ -8,6 +8,12 @@ import {
 } from '@spawn-ui/react'
 import { Warning } from '@phosphor-icons/react'
 import { Banner, Card, Dialog, EmptyState, FindBar, ListRow, Menu, Notice, SearchField, Switch as Sw, TabPanel, Tabs, TextInput, Toolbar, Tooltip, Button as Btn } from '@spawn-ui/react'
+import {
+  Account, AppHeader, CatchToast, DexDetailCard, DexStrip, DragCard, DropZone, LeaderboardRow, Launcher, ListHead, LogDay, LogRow, MonCell, PaneHead,
+  PatchNotes, PokemonSprite, QueueStrip, Rail, RailButton, ResizeHandle, SessionHeader, SessionPicture, SessionRow, StatTile, StepCount, TextSizeControl,
+  TierLabel, TopBar, TypeTag, UpdateButton, UsageBars, WildRow, IconButton as IBtn, Button as B2,
+} from '@spawn-ui/react'
+import { Gear as GearIcon, Plus as PlusIcon } from '@phosphor-icons/react'
 import React, { useState } from 'react'
 import Preview from './Preview'
 
@@ -211,6 +217,82 @@ Object.assign(DEMOS, {
   'tabs-top': { code: `<Tabs label="세션" value={v} onValueChange={setV} items={…} onClose={…}>\n  <TabPanel value="a">…</TabPanel>\n</Tabs>`, render: () => <TabsDemo orientation="top" /> },
   'tabs-vertical': { code: `<Tabs orientation="vertical" … />`, render: () => <TabsDemo orientation="vertical" /> },
   'scroll-sizes': { code: `<div className="sp-scroll--8">…</div>  {/* 6, 8, 10, 0 */}`, render: () => row(<>{[6, 8, 10, 0].map(n => <div key={n} className={`sp-scroll--${n}`} style={{ width: 120, height: 90, overflowY: 'auto', border: '1px solid var(--line)', borderRadius: 'var(--r-m)', padding: 8, color: 'var(--ink-3)', fontSize: 'var(--t-meta)' }}>{`${n}px`}<br />{'줄 '.repeat(60)}</div>)}</>) },
+} satisfies Record<string, Entry>)
+
+// ---------------------------------------------------------------- spawn · sessions and game (plan 3)
+// spawn-ui ships no Pokémon art: the demos draw a neutral placeholder (a ball) where a sprite goes
+const MON = 'data:image/svg+xml;utf8,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><circle cx="16" cy="16" r="13" fill="#2c303b" stroke="#7d8291" stroke-width="2"/><path d="M3 16h26" stroke="#7d8291" stroke-width="2"/><circle cx="16" cy="16" r="4" fill="#16181d" stroke="#7d8291" stroke-width="2"/></svg>')
+const pic = (size: 18 | 20 | 22 | 24 | 26 | 64 | 96) => <SessionPicture kind="picture" src={MON} size={size} />
+function RowsDemo({ compact }: { compact?: boolean }) {
+  const [chosen, setChosen] = useState('a')
+  const rows = [
+    { id: 'a', name: '로그인 리다이렉트 고치기', mood: 'needs-you' as const, moodLabel: '확인 필요', project: 'shop-web', branch: 'fix/login-redirect', lv: 17, hp: 0.62, model: 'Opus 5.5', tokens: '124K' },
+    { id: 'b', name: 'README 영어 번역', mood: 'working' as const, moodLabel: '일하는 중', project: 'docs', branch: 'main', lv: 12, hp: 0.88, model: 'Sonnet 5.5', tokens: '176K' },
+    { id: 'c', name: '타입 정리', mood: 'idle' as const, moodLabel: '쉬는 중', project: 'core', branch: 'main', lv: 21, hp: 1, hpFull: true, model: 'Opus 5.5', tokens: '200K' },
+  ]
+  return <div style={{ width: 300, padding: '4px 12px', background: 'var(--side-bg)' }}><div style={{ display: 'flex', flexDirection: 'column', gap: compact ? 'var(--row-gap-compact)' : 'var(--row-gap)' }}>
+    {rows.map(r => <SessionRow key={r.id} {...r} compact={compact} picture={pic(compact ? 20 : 24)} chosen={chosen === r.id} onOpen={() => setChosen(r.id)} onRename={() => {}} onClose={() => {}} closeLabel="세션 닫기" closeConfirmLabel="닫기?" renameLabel="이름 바꾸기" />)}
+  </div></div>
+}
+function ListHeadDemo() {
+  const [m, setM] = useState<'compact' | 'detail'>('detail')
+  return <div style={{ width: 280 }}><ListHead mode={m} onMode={setM} labels={{ compact: '간략', detail: '상세', group: '목록 보기' }} actions={<IBtn size="sm" label="새 세션" icon={PlusIcon} />} /></div>
+}
+function ResizeDemo() {
+  const [w, setW] = useState(300)
+  return <div style={{ position: 'relative', width: w, height: 80, background: 'var(--side-bg)', border: '1px solid var(--line)', borderRadius: 'var(--r-m)', color: 'var(--ink-3)', fontSize: 'var(--t-meta)', padding: 8 }}>{w}px<ResizeHandle label="패널 폭" edge="right" value={w} min={240} max={420} onResize={setW} onReset={() => setW(300)} /></div>
+}
+function QueueDemo() {
+  const [open, setOpen] = useState(false)
+  return <div style={{ width: 420 }}><QueueStrip label="대기 중 2" first="README도 고쳐 줘" items={['README도 고쳐 줘', '테스트도 돌려 줘']} open={open} onToggle={() => setOpen(v => !v)} /></div>
+}
+function TextSizeDemo({ compact }: { compact?: boolean }) {
+  const [s, setS] = useState(100)
+  return <TextSizeControl compact={compact} step={s} onStep={setS} steps={[{ value: 80, label: '아주 작게' }, { value: 90, label: '작게' }, { value: 100, label: '보통' }, { value: 110, label: '크게' }, { value: 120, label: '아주 크게' }]} labels={{ smaller: '글자 작게', larger: '글자 크게', menu: '글자 크기' }} />
+}
+function NotesDemo() {
+  const [open, setOpen] = useState(false)
+  return <><B2 onClick={() => setOpen(true)}>새로워진 점 보기</B2><PatchNotes open={open} onClose={() => setOpen(false)} title="새로워진 점" okLabel="확인" releases={[{ version: '1.10.14', items: ['두 칸이 열려 있으면 세 번째는 셋으로 나눠 놓을 자리를 보여 줘요.', '안 열린 세션을 누르면 옆에 새 칸으로 열려요.'] }, { version: '1.10.13', items: ['다시 켜도 칸과 보던 세션이 그대로예요.'] }]} /></>
+}
+function MonGridDemo() {
+  const [p, setP] = useState(1)
+  return <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 88px)', gap: 8 }}>
+    {[1, 2, 3].map(i => <MonCell key={i} look="dex" label={`포켓몬 ${i}`} no={`#000${i}`} sprite={<PokemonSprite src={MON} size={62} />} picked={p === i} count={i === 2 ? 3 : undefined} onClick={() => setP(i)} />)}
+    <MonCell look="dex" label="아직 못 만난 포켓몬" unknown no="#0004" />
+  </div>
+}
+Object.assign(DEMOS, {
+  'sessionrow-detail': { code: `<SessionRow name="로그인 리다이렉트 고치기" mood="needs-you" moodLabel="확인 필요"\n  picture={<SessionPicture kind="picture" src={…} size={24} />} project="shop-web" branch="fix/login-redirect"\n  lv={17} hp={0.62} model="Opus 5.5" tokens="124K" chosen onOpen={…} onClose={…} />`, render: () => <RowsDemo />, surface: 'side-bg' },
+  'sessionrow-compact': { code: `<SessionRow compact … />`, render: () => <RowsDemo compact />, surface: 'side-bg' },
+  'sessionpicture-kinds': { code: `<SessionPicture kind="picture" src={…} size={24} />\n<SessionPicture kind="glyph" size={24} />\n<SessionPicture kind="shell" size={24} />\n<SessionPicture kind="picture" src={…} size={24} hop />`, render: () => row(<>{pic(24)}<SessionPicture kind="glyph" size={24} /><SessionPicture kind="shell" size={24} /><SessionPicture kind="picture" src={MON} size={24} hop /><SessionPicture kind="glyph" size={64} /></>) },
+  'pokemonsprite-looks': { code: `<PokemonSprite src={…} size={48} />\n<PokemonSprite src={…} size={48} silhouette />\n<PokemonSprite src={…} size={48} faded />\n<PokemonSprite src={…} size={24} pixelated />`, render: () => row(<><PokemonSprite src={MON} size={48} /><PokemonSprite src={MON} size={48} silhouette /><PokemonSprite src={MON} size={48} faded /><PokemonSprite src={MON} size={24} pixelated /></>) },
+  'tierlabel-all': { code: `<TierLabel tier="common">일반</TierLabel> … <TierLabel tier="mythical">환상</TierLabel>`, render: () => row(<>{(['common', 'rare', 'sub', 'legendary', 'mythical'] as const).map(t => <TierLabel key={t} tier={t}>{({ common: '일반', rare: '희귀', sub: '준전설', legendary: '전설', mythical: '환상' })[t]}</TierLabel>)}</>) },
+  'typetag-all': { code: `<TypeTag type="fire">불꽃</TypeTag> …`, render: () => row(<>{([['normal', '노말'], ['fire', '불꽃'], ['water', '물'], ['grass', '풀'], ['electric', '전기'], ['psychic', '에스퍼'], ['ice', '얼음'], ['dragon', '드래곤'], ['dark', '악'], ['fairy', '페어리'], ['fighting', '격투'], ['poison', '독'], ['ground', '땅'], ['flying', '비행'], ['bug', '벌레'], ['rock', '바위'], ['ghost', '고스트'], ['steel', '강철']] as const).map(([t, w]) => <TypeTag key={t} type={t}>{w}</TypeTag>)}</>) },
+  'rail-basic': { code: `<Rail label="세션">\n  <RailButton label="설정" icon={Gear} onClick={…} />\n  <Rail.Separator />\n  <RailButton label="로그인 고치기" moodLabel="확인 필요" mood="needs-you" picture={…} chosen onClick={…} />\n</Rail>`, render: () => <div style={{ height: 240 }}><Rail label="세션"><RailButton label="설정" icon={GearIcon} onClick={() => {}} /><Rail.Separator /><RailButton label="로그인 고치기" moodLabel="확인 필요" mood="needs-you" picture={pic(26)} chosen onClick={() => {}} /><RailButton label="README 번역" moodLabel="일하는 중" mood="working" picture={pic(26)} onClick={() => {}} /><RailButton label="끝난 세션" moodLabel="끝남" mood="ended" picture={pic(26)} onClick={() => {}} /></Rail></div>, surface: 'side-bg' },
+  'listhead-basic': { code: `<ListHead mode={m} onMode={setM} labels={{ compact: '간략', detail: '상세', group: '목록 보기' }} actions={…} />`, render: () => <ListHeadDemo />, surface: 'side-bg' },
+  'launcher-basic': { code: `<Launcher newLabel="새로운 세션 시작하기" onNew={…} folderLabel="폴더에서 열기" onFolder={…} resumeLabel="이어하기" onResume={…} />`, render: () => <div style={{ width: 300 }}><Launcher newLabel="새로운 세션 시작하기" onNew={() => {}} folderLabel="폴더에서 열기" onFolder={() => {}} resumeLabel="이어하기" onResume={() => {}} /></div>, surface: 'side-bg' },
+  'account-states': { code: `<Account signInLabel="로그인" onSignIn={…} />\n<Account user={{ name: 'Duestar' }} signInLabel="로그인" onSignIn={…} onOpen={…} />`, render: () => row(<><Account signInLabel="로그인" onSignIn={() => {}} /><Account user={{ name: 'Duestar' }} signInLabel="로그인" onSignIn={() => {}} onOpen={() => {}} /></>) },
+  'sessionheader-basic': { code: `<SessionHeader picture={…} name="로그인 리다이렉트 고치기" project="shop-web" branch="fix/login-redirect" onClose={…} />`, render: () => <div style={{ width: 560 }}><SessionHeader picture={pic(22)} name="로그인 리다이렉트 고치기" project="shop-web" branch="fix/login-redirect" onClose={() => {}} closeLabel="세션 닫기" closeConfirmLabel="닫기?" /></div> },
+  'panehead-basic': { code: `<PaneHead on><SessionHeader … /></PaneHead>\n<PaneHead><SessionHeader … /></PaneHead>`, render: () => <div style={{ display: 'flex', width: 560, height: 40, borderBottom: '1px solid var(--line)' }}><PaneHead on><SessionHeader picture={pic(22)} name="로그인 고치기" /></PaneHead><PaneHead><SessionHeader picture={pic(22)} name="README 번역" /></PaneHead></div> },
+  'appheader-basic': { code: `<AppHeader brand={<b>spawn</b>} actions={…} />\n<TopBar>…</TopBar>`, render: () => <div style={{ width: 560, display: 'grid', gap: 8 }}><AppHeader brand={<b style={{ fontWeight: 600 }}>spawn</b>} actions={<IBtn size="head" label="설정" icon={GearIcon} />} /><TopBar><B2 size="xs" variant="ghost">세션</B2><B2 size="xs" variant="ghost">도감</B2></TopBar></div> },
+  'resizehandle-basic': { code: `<ResizeHandle label="패널 폭" edge="right" value={w} min={240} max={420} onResize={setW} onReset={…} />`, render: () => <ResizeDemo /> },
+  'dragcard-basic': { code: `<DragCard picture={…} label="로그인 고치기" x={x} y={y} />`, render: () => <div style={{ position: 'relative', height: 60 }}><div style={{ position: 'absolute', left: 0, top: 0, transform: 'none' }}><DragCard picture={<PokemonSprite src={MON} size={22} />} label="로그인 고치기" x={0} y={0} /></div></div> },
+  'dropzone-basic': { code: `<DropZone left={1 / 3} width={1 / 3} hint="놓으면 가운데에 열려요" />`, render: () => <div style={{ position: 'relative', width: 480, height: 140, border: '1px solid var(--line)', borderRadius: 'var(--r-m)' }}><DropZone left={1 / 3} width={1 / 3} hint="놓으면 가운데에 열려요" /></div> },
+  'queue-basic': { code: `<QueueStrip label="대기 중 2" first="README도 고쳐 줘" items={…} open={open} onToggle={…} />`, render: () => <QueueDemo /> },
+  'update-states': { code: `<UpdateButton state="available" label="업데이트" … />\n<UpdateButton state="downloading" progress={0.42} label="받는 중" … />\n<UpdateButton state="ready" label="재시작" … />\n<UpdateButton state="failed" label="업데이트 실패" … />`, render: () => row(<><UpdateButton state="available" label="업데이트" onClick={() => {}} /><UpdateButton state="downloading" progress={0.42} label="받는 중" onClick={() => {}} /><UpdateButton state="ready" label="재시작" onClick={() => {}} /><UpdateButton state="failed" label="업데이트 실패" onClick={() => {}} /></>) },
+  'textsize-basic': { code: `<TextSizeControl step={s} onStep={setS} steps={…} labels={…} />\n<TextSizeControl compact … />`, render: () => row(<><TextSizeDemo /><TextSizeDemo compact /></>) },
+  'usage-basic': { code: `<UsageBars limits={[{ label: '5시간', pct: 0.46, reset: '16:20' }, …]} />`, render: () => <div style={{ width: 300 }}><UsageBars limits={[{ label: '5시간', pct: 0.46, reset: '16:20' }, { label: '주간', pct: 0.82, reset: '11/17' }, { label: '월', pct: 0.93, reset: '12/1' }]} /></div>, surface: 'side-bg' },
+  'moncell-dex': { code: `<MonCell look="dex" label="…" no="#0001" sprite={…} picked onClick={…} />\n<MonCell look="dex" label="아직 못 만난 포켓몬" unknown />`, render: () => <MonGridDemo /> },
+  'moncell-looks': { code: `<MonCell look="box" … />  <MonCell look="box-icon" … />  <MonCell look="picker" caption="…" … />  <MonCell look="partner" picked … />`, render: () => row(<><MonCell look="box" label="박스" sprite={<PokemonSprite src={MON} size={50} />} working /><MonCell look="box-icon" label="아이콘" sprite={<PokemonSprite src={MON} size={48} max />} /><MonCell look="picker" label="고르기" sprite={<PokemonSprite src={MON} size={40} max />} caption="꼬부기" /><MonCell look="partner" label="파트너" sprite={<PokemonSprite src={MON} size={36} />} picked /></>) },
+  'dexstrip-basic': { code: `<DexStrip label="도감" count={185} total={1025} recent={…} isNew newLabel="새로 잡음" onOpen={…} />`, render: () => <div style={{ width: 300 }}><DexStrip label="도감" count={185} total={1025} recent={[1, 2, 3, 4].map(i => ({ key: String(i), sprite: <PokemonSprite src={MON} size={21} /> }))} isNew newLabel="새로 잡음" onOpen={() => {}} /></div>, surface: 'side-bg' },
+  'stattile-basic': { code: `<StatTile label="잡은 종류" value={185} of={1025} pct={0.18} />\n<StatTile tier="legendary" label="전설" value={3} of={74} pct={0.04} />`, render: () => <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 160px)' }}><StatTile label="잡은 종류" value={185} of={1025} pct={0.18} /><StatTile label="이로치" value={4} /><StatTile tier="legendary" label="전설" value={3} of={74} pct={0.04} /></div> },
+  'wildrow-basic': { code: `<WildRow sprite={…} name="피카츄" result="caught" resultLabel="잡았어요" tier="rare" tierLabel="희귀" />`, render: () => col(<><WildRow sprite={MON} name="피카츄" result="caught" resultLabel="잡았어요" tier="rare" tierLabel="희귀" /><WildRow sprite={MON} name="이상해씨" result="fled" resultLabel="도망쳤어요" /></>, 420) },
+  'catchtoast-kinds': { code: `<CatchToast kind="catch" sprite={…} eyebrow="잡았어요" title="뮤" tier="mythical" tierLabel="환상" onClose={…} />\n<CatchToast kind="flee" … />`, render: () => col(<><CatchToast kind="catch" sprite={MON} eyebrow="잡았어요" title="뮤" titleNote="Lv.48" tier="mythical" tierLabel="환상" meta="퀵볼 · 로그인 고치기" onClose={() => {}} closeLabel="닫기" /><CatchToast kind="flee" sprite={MON} eyebrow="도망쳤어요" title="이상해씨" onClose={() => {}} closeLabel="닫기" /></>, 380) },
+  'leaderboard-basic': { code: `<LeaderboardRow place={1} name="…" value="412" unit="종" />\n<LeaderboardRow place={12} name="Duestar" value="185" unit="종" me meLabel="나" />`, render: () => col(<>{[1, 2, 3].map(i => <LeaderboardRow key={i} place={i} icon={<PokemonSprite src={MON} size={30} />} name={`트레이너 ${i}`} value={String(420 - i * 7)} unit="종" />)}<LeaderboardRow place={12} icon={<PokemonSprite src={MON} size={30} />} name="Duestar" value="185" unit="종" me meLabel="나" /></>, 420) },
+  'logrow-basic': { code: `<LogDay label="오늘" />\n<LogRow time="오후 2:12" icon={…} text={<><b>피카츄</b>를 잡았어요</>} sub="희귀 · 몬스터볼" />`, render: () => <div style={{ width: 420 }}><LogDay label="오늘" /><LogRow time="오후 2:12" icon={<PokemonSprite src={MON} size={32} />} text={<><b>피카츄</b>를 잡았어요</>} sub="희귀 · 몬스터볼" /><LogRow kind="flee" time="오후 1:40" icon={<PokemonSprite src={MON} size={32} faded />} text={<><b>이상해씨</b>가 도망쳤어요</>} /></div> },
+  'steps-basic': { code: `<StepCount steps={8} label="8걸음" />`, render: () => <span style={{ color: 'var(--ink-3)', fontSize: 'var(--t-meta)' }}><StepCount steps={8} label="8걸음" /></span> },
+  'dexcard-basic': { code: `<DexDetailCard art={…} name="피카츄" no="#0025" facts={[{ label: '키', value: '0.4m' }, …]} flavor="…" />`, render: () => <div style={{ width: 300 }}><DexDetailCard art={<PokemonSprite src={MON} size={120} />} name="피카츄" no="#0025" nameExtra={<TierLabel tier="rare">희귀</TierLabel>} tags={<TypeTag type="electric">전기</TypeTag>} flavor="볼에 전기 주머니가 있어요." facts={[{ label: '키', value: '0.4m' }, { label: '몸무게', value: '6.0kg' }]} /></div> },
+  'patchnotes-basic': { code: `<PatchNotes open={open} onClose={…} title="새로워진 점" okLabel="확인" releases={[…]} />`, render: () => <NotesDemo /> },
 } satisfies Record<string, Entry>)
 
 /** One named example, live, with its code */

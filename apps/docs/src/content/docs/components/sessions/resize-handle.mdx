@@ -1,0 +1,23 @@
+---
+title: ResizeHandle
+description: "끌어서 폭을 바꾸는 가장자리. ← →로 움직이고 Home이나 두 번 누르면 처음 폭."
+---
+
+import Demo from '../../../../components/Demo'
+import PropsTable from '../../../../components/PropsTable.astro'
+
+끌어서 폭을 바꾸는 가장자리. ← →로 움직이고 Home이나 두 번 누르면 처음 폭.
+
+<Demo client:load name="resizehandle-basic" />
+
+## 속성
+
+<PropsTable of="ResizeHandle" />
+
+## 접근성
+
+`role="separator"`에 지금 값과 범위가 있어요.
+
+## spawn에서 합친 것
+
+.w-side-resize · .w-pane-edge · .chat-ch-rz

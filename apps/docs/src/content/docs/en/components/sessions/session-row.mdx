@@ -1,0 +1,25 @@
+---
+title: SessionRow
+description: "One session in the list: its Pokémon, name, state and HP. Enter opens, F2 renames, the × asks before closing."
+---
+
+import Demo from '../../../../../components/Demo'
+import PropsTable from '../../../../../components/PropsTable.astro'
+
+One session in the list: its Pokémon, name, state and HP. Enter opens, F2 renames, the × asks before closing.
+
+<Demo client:load name="sessionrow-detail" />
+
+<Demo client:load name="sessionrow-compact" />
+
+## Props
+
+<PropsTable of="SessionRow" lang="en" />
+
+## Accessibility
+
+The row is a button named by its name and state; in compact the state stays in its name. The × shows when the keyboard reaches it.
+
+## What merges in spawn
+
+.w-row · .w-row-head · .w-row-line1/2 · .w-row-bottom · .w-row-tick · .w-row-state · .w-row-close · .w-row-tools

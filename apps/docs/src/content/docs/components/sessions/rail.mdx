@@ -1,0 +1,23 @@
+---
+title: Rail
+description: "접힌 왼쪽 패널. 56px 기둥에 버튼과 세션."
+---
+
+import Demo from '../../../../components/Demo'
+import PropsTable from '../../../../components/PropsTable.astro'
+
+접힌 왼쪽 패널. 56px 기둥에 버튼과 세션.
+
+<Demo client:load name="rail-basic" />
+
+## 속성
+
+<PropsTable of="Rail" />
+
+## 접근성
+
+`nav`에 이름이 붙고, 세션 버튼은 이름과 상태를 함께 말해요. 보고 있는 세션은 `aria-current`.
+
+## spawn에서 합친 것
+
+.w-rail · .w-rail-btn · .w-rail-session · .w-rail-sep · .w-rail-dot

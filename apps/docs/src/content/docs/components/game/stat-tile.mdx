@@ -1,0 +1,23 @@
+---
+title: StatTile
+description: "도감 위의 숫자 하나: 이름, 큰 숫자, 얇은 막대."
+---
+
+import Demo from '../../../../components/Demo'
+import PropsTable from '../../../../components/PropsTable.astro'
+
+도감 위의 숫자 하나: 이름, 큰 숫자, 얇은 막대.
+
+<Demo client:load name="stattile-basic" />
+
+## 속성
+
+<PropsTable of="StatTile" />
+
+## 접근성
+
+막대는 `role="meter"`예요.
+
+## spawn에서 합친 것
+
+.dex-stat · .dex-tiercol

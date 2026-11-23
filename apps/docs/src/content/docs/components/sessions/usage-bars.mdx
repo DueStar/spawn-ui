@@ -1,0 +1,23 @@
+---
+title: UsageBars
+description: "요금제 한도: 이름 · 막대 · % · 초기화 시각."
+---
+
+import Demo from '../../../../components/Demo'
+import PropsTable from '../../../../components/PropsTable.astro'
+
+요금제 한도: 이름 · 막대 · % · 초기화 시각.
+
+<Demo client:load name="usage-basic" />
+
+## 속성
+
+<PropsTable of="UsageBars" />
+
+## 접근성
+
+80%부터 주황, 90%부터 빨강. %도 같은 색으로 글로 보여요.
+
+## spawn에서 합친 것
+
+.w-limits · .w-limit · .w-bar

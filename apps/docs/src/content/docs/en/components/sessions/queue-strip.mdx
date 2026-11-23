@@ -1,0 +1,23 @@
+---
+title: QueueStrip
+description: "Messages waiting while Claude works."
+---
+
+import Demo from '../../../../../components/Demo'
+import PropsTable from '../../../../../components/PropsTable.astro'
+
+Messages waiting while Claude works.
+
+<Demo client:load name="queue-basic" />
+
+## Props
+
+<PropsTable of="QueueStrip" lang="en" />
+
+## Accessibility
+
+Its open state is `aria-expanded`.
+
+## What merges in spawn
+
+.chat-queue · .chat-queue-list

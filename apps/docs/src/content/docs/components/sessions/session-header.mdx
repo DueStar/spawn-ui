@@ -1,0 +1,23 @@
+---
+title: SessionHeader
+description: "세션 위의 줄: 누구인지, 어디서 일하는지, 도구와 ×."
+---
+
+import Demo from '../../../../components/Demo'
+import PropsTable from '../../../../components/PropsTable.astro'
+
+세션 위의 줄: 누구인지, 어디서 일하는지, 도구와 ×.
+
+<Demo client:load name="sessionheader-basic" />
+
+## 속성
+
+<PropsTable of="SessionHeader" />
+
+## 접근성
+
+이름을 두 번 누르면 이름 바꾸기. ×는 한 번 묻고 닫아요.
+
+## spawn에서 합친 것
+
+.w-sess-bar · .w-sess-head-* · .w-sess-head-close

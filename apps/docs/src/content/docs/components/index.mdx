@@ -40,3 +40,38 @@ spawn 화면에 쓰이는 모든 컴포넌트를 담아 가는 중이에요. 지
 - [Menu](./containers/menu/) — 버튼에서 열리는 선택지 목록. 화살표로 움직이고, Enter로 고르고, Esc로 닫아요.
 - [Tooltip](./containers/tooltip/) — 마우스를 올리거나 키보드로 닿으면 뜨는 짧은 설명. spawn은 말씀하실 때까지 기본 title을 그대로 써요.
 - [Tabs](./containers/tabs/) — 탭. 화살표로 움직이고, 고른 탭의 내용을 보여 줘요.
+
+## spawn · 세션
+
+- [SessionRow](./sessions/session-row/) — 세션 목록의 한 줄. 포켓몬, 이름, 상태, HP. Enter로 열고 F2로 이름을 바꾸고, ×는 한 번 묻고 닫아요.
+- [SessionPicture](./sessions/session-picture/) — 세션이 누구인지: 포켓몬, 또는 포켓몬이 없을 때의 표시.
+- [Rail](./sessions/rail/) — 접힌 왼쪽 패널. 56px 기둥에 버튼과 세션.
+- [ListHead](./sessions/list-head/) — 세션 목록의 머리. 간략/상세가 먼저, 버튼은 오른쪽.
+- [Launcher](./sessions/launcher/) — 새 세션 시작하기와 폴더 열기, 이어하기.
+- [Account](./sessions/account/) — 로그인 버튼, 또는 둥근 프로필.
+- [SessionHeader](./sessions/session-header/) — 세션 위의 줄: 누구인지, 어디서 일하는지, 도구와 ×.
+- [PaneHead](./sessions/pane-head/) — 나란히 보기에서 칸 하나의 머리.
+- [AppHeader](./sessions/app-header/) — 창의 머리와 오른쪽 위 줄. 끌면 창이 움직이고, 버튼은 그대로 눌려요.
+- [ResizeHandle](./sessions/resize-handle/) — 끌어서 폭을 바꾸는 가장자리. ← →로 움직이고 Home이나 두 번 누르면 처음 폭.
+- [DragCard](./sessions/drag-card/) — 목록 밖으로 끌 때 포인터를 따라오는 작은 카드.
+- [DropZone](./sessions/drop-zone/) — 끌어 놓을 자리를 밝혀 보여 줘요.
+- [QueueStrip](./sessions/queue-strip/) — Claude가 일하는 동안 기다리는 메시지들.
+- [UpdateButton](./sessions/update-button/) — 업데이트. 상태를 언제나 글로 말해요.
+- [TextSizeControl](./sessions/text-size-control/) — − 가 + : 앱 전체 글자 크기(80~130%).
+- [UsageBars](./sessions/usage-bars/) — 요금제 한도: 이름 · 막대 · % · 초기화 시각.
+
+## spawn · 게임
+
+- [PokemonSprite](./game/pokemon-sprite/) — 포켓몬 그림. 부드럽게, 넘치지 않게. 딱딱한 픽셀은 야생 줄에서만.
+- [TierLabel](./game/tier-label/) — 등급: 점과 글자. 색만으로 말하지 않아요.
+- [TypeTag](./game/type-tag/) — 포켓몬 타입: 그 타입 색의 가는 선 태그.
+- [MonCell](./game/mon-cell/) — 도감·박스·고르기의 포켓몬 칸. 고른 칸은 1px 노란 테두리.
+- [DexStrip](./game/dex-strip/) — 왼쪽 패널의 도감 줄: 몇 마리, 최근에 잡은 것.
+- [StatTile](./game/stat-tile/) — 도감 위의 숫자 하나: 이름, 큰 숫자, 얇은 막대.
+- [WildRow](./game/wild-row/) — 채팅에서 지나가며 만난 야생 포켓몬.
+- [CatchToast](./game/catch-toast/) — 잡음·도망·레벨업 카드. 글자 크기를 따라가지 않아요.
+- [LeaderboardRow](./game/leaderboard-row/) — 랭킹의 한 줄. 1~3등은 메달.
+- [LogRow](./game/log-row/) — 오늘의 기록 한 줄과 날짜 머리.
+- [StepCount](./game/step-count/) — 한 턴에 걸은 걸음 수.
+- [DexDetailCard](./game/dex-detail-card/) — 도감과 박스의 포켓몬 상세: 그림, 이름, 정보.
+- [PatchNotes](./game/patch-notes/) — 새로워진 점. 릴리스를 접었다 펴요.

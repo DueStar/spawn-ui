@@ -1,0 +1,25 @@
+---
+title: SessionRow
+description: "세션 목록의 한 줄. 포켓몬, 이름, 상태, HP. Enter로 열고 F2로 이름을 바꾸고, ×는 한 번 묻고 닫아요."
+---
+
+import Demo from '../../../../components/Demo'
+import PropsTable from '../../../../components/PropsTable.astro'
+
+세션 목록의 한 줄. 포켓몬, 이름, 상태, HP. Enter로 열고 F2로 이름을 바꾸고, ×는 한 번 묻고 닫아요.
+
+<Demo client:load name="sessionrow-detail" />
+
+<Demo client:load name="sessionrow-compact" />
+
+## 속성
+
+<PropsTable of="SessionRow" />
+
+## 접근성
+
+줄은 이름과 상태를 함께 읽는 버튼이에요. 간략에서는 점만 보여도 상태 글은 이름에 들어 있어요. ×는 키보드로 닿으면 보여요.
+
+## spawn에서 합친 것
+
+.w-row · .w-row-head · .w-row-line1/2 · .w-row-bottom · .w-row-tick · .w-row-state · .w-row-close · .w-row-tools

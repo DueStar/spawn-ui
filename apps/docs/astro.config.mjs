@@ -39,6 +39,8 @@ export default defineConfig({
           group('동작', 'Actions', [{ autogenerate: { directory: 'components/actions' } }]),
           group('상태', 'Status', [{ autogenerate: { directory: 'components/status' } }]),
           group('담는 것', 'Containers', [{ autogenerate: { directory: 'components/containers' } }]),
+          group('spawn · 세션', 'spawn · sessions', [{ autogenerate: { directory: 'components/sessions' } }]),
+          group('spawn · 게임', 'spawn · game', [{ autogenerate: { directory: 'components/game' } }]),
         ]),
         group('릴리스', 'Releases', [
           page('@spawn-ui/tokens', '@spawn-ui/tokens', 'releases/tokens'),
