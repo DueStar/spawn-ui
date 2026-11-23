@@ -22,8 +22,6 @@
 ## spawn과 픽셀 차이
 
 - [ ] ListRow item: 뒤쪽 버튼이 오른쪽 11px·간격 8. spawn의 휴지통은 absolute 오른쪽 8, 줄의 오른쪽 여백 40 → 휴지통 3px, 제목 폭 5px 차이. 쓸 수 없는 줄에도 hover가 보여요(spawn은 `:hover:not(:disabled)`). (plan 2 review)
-- [ ] Tag: 지금은 `.chat-wild-tag`만. `.resume-badge`(실행 중은 주황), `.set-tag`, `.chat-ch-tag`를 변형으로. (plan 1 → plan 3)
-- [ ] Meter: HP가 가득일 때 0.35로 흐려지는 `hp-full`. (plan 1 → plan 3 SessionRow)
 - [ ] SegmentedControl md(5px 10px)는 아직 spawn에 같은 것이 없어요. 적용할 때 맞출 것. (plan 1, Task 6)
 
 ## 문서 사이트

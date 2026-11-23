@@ -17,16 +17,18 @@ export interface MeterProps {
   value: number
   /** Its name for screen readers */
   label: string
+  /** hp: the context is full — the bar fades (spawn's hp-full) */
+  full?: boolean
   className?: string
 }
 
 /** A thin bar (spawn's .w-bar, .w-ctx, .dex-stat-bar) */
-export function Meter({ kind, value, label, className }: MeterProps) {
+export function Meter({ kind, value, label, full, className }: MeterProps) {
   const v = Math.min(1, Math.max(0, Number.isFinite(value) ? value : 0))
   const pct = Math.round(v * 100)
   return (
     <div role="meter" aria-label={label} aria-valuemin={0} aria-valuemax={100} aria-valuenow={pct}
-      className={`sp-meter sp-meter--${kind} sp-meter--${meterTone(kind, v)}${className ? ` ${className}` : ''}`}>
+      className={`sp-meter sp-meter--${kind} sp-meter--${meterTone(kind, v)}${full ? ' sp-meter--full' : ''}${className ? ` ${className}` : ''}`}>
       <span className="sp-meter__fill" style={{ width: `${pct}%` }} />
     </div>
   )

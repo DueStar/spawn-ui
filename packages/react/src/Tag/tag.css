@@ -1,4 +1,7 @@
-/* spawn's .chat-wild-tag: a hairline, no fill (.resume-badge, .set-tag and .chat-ch-tag join as variants when their screens move) */
+/* spawn's hairline tags: .chat-wild-tag (plain), .resume-badge (badge), .resume-badge.run (run). (.set-tag and .chat-ch-tag
+   are plain words with no line: they are text, not tags) */
 .sp-tag { display: inline-flex; align-items: center; gap: 4px; min-width: 0; max-width: 100%; padding: 0 5px; border: 1px solid var(--line); border-radius: var(--r-xs); color: var(--ink-3); font-size: var(--t-micro); white-space: nowrap; }
 /* a tier: no line, the word in its colour beside its dot (spawn's .chat-wild-tier) */
 .sp-tag--tier { border-color: transparent; padding: 0; color: var(--tier); font-size: inherit; }
+.sp-tag--badge { color: var(--ink-2); font-size: inherit; }
+.sp-tag--run { color: var(--amber); border-color: color-mix(in srgb, var(--amber) 38%, transparent); font-size: inherit; }

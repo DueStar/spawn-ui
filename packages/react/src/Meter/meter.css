@@ -13,3 +13,5 @@
 .sp-meter--stat { height: 4px; border-radius: 2px; }
 .sp-meter--stat .sp-meter__fill { border-radius: 2px; background: var(--ink-2); }
 @media (prefers-reduced-motion: reduce) { .sp-meter--usage .sp-meter__fill, .sp-meter--hp .sp-meter__fill { transition: none; } }
+/* a full context (spawn's .hp-full): the bar fades, in --hp */
+.sp-meter--full .sp-meter__fill { background: var(--hp); opacity: 0.35; }
