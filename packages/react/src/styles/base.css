@@ -1,0 +1,9 @@
+/* @spawn-ui/react base: the one focus ring, hidden text, one-line truncation, reduced motion.
+   The ring shows on keyboard focus only (:focus-visible), never on a click, never yellow. */
+.sp-root, .sp-root * { box-sizing: border-box; }
+:focus-visible { outline: 2px solid var(--ink-2); outline-offset: 1px; }
+/* rows and menu items draw it inside (their neighbours sit flush) */
+.sp-inset-ring:focus-visible { outline-offset: -2px; }
+.sp-visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+/* one line, an ellipsis; the element keeps the whole text in its title */
+.sp-truncate { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }

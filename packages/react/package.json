@@ -1,0 +1,36 @@
+{
+  "name": "@spawn-ui/react",
+  "version": "0.0.0",
+  "description": "spawn's React components",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./styles.css": "./dist/styles.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": [
+    "*.css"
+  ],
+  "scripts": {
+    "build": "vite build && tsc -p tsconfig.build.json && tsx scripts/build-styles.ts",
+    "test": "vitest run",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "peerDependencies": {
+    "react": "^18.3.0",
+    "react-dom": "^18.3.0"
+  },
+  "dependencies": {
+    "@base-ui/react": "^1.9.0",
+    "@phosphor-icons/react": "^2.1.10",
+    "@spawn-ui/tokens": "*"
+  }
+}

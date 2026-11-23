@@ -1,0 +1,2 @@
+/* an icon sits on the text's line and takes its colour */
+.sp-icon { display: inline-block; flex: none; vertical-align: middle; color: currentColor; }
