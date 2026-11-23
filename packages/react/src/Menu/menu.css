@@ -1,0 +1,17 @@
+/* spawn's menus merged: .w-dens-menu (250), .w-textsize-menu (140), .chat-menu (300) — the popover look — and
+   .chat-ctrl-menu (min 168) — the control look, with its own border, radius and shadow */
+.sp-menu { box-sizing: border-box; min-width: 140px; max-width: calc(100vw - 16px); padding: 4px; background: var(--card); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: var(--r-l); box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45); color: var(--ink-2); z-index: 70; outline: 1px solid transparent; }
+.sp-menu__title { padding: 6px 8px 4px; font-size: var(--t-meta); color: var(--ink-3); }
+.sp-menu__item { display: grid; grid-template-columns: 16px minmax(0, 1fr); align-items: center; gap: 10px; width: 100%; box-sizing: border-box; padding: 6px 8px; font: inherit; font-size: var(--t-ui); line-height: 1.35; text-align: left; color: var(--ink-2); background: none; border: 0; border-radius: var(--r-s); cursor: pointer; }
+.sp-menu__item[data-highlighted] { background: var(--sel-bg); }
+.sp-menu__item[data-checked] { color: var(--ink); }
+.sp-menu__item[data-disabled] { color: var(--ink-3); cursor: default; }
+.sp-menu__item:focus-visible { outline: 2px solid var(--ink-2); outline-offset: -2px; }
+.sp-menu__mark { display: inline-grid; place-items: center; color: var(--ink); }
+.sp-menu__item[data-unchecked] .sp-menu__mark { opacity: 0; }
+.sp-menu__text { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+.sp-menu__desc { font-size: var(--t-meta); color: var(--ink-3); white-space: normal; }
+
+.sp-menu--control { min-width: 168px; border: 1px solid var(--line); border-radius: var(--r-m); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45); }
+.sp-menu--control .sp-menu__item { grid-template-columns: 12px minmax(0, 1fr); gap: 6px; padding: 5px 8px; white-space: nowrap; }
+.sp-menu--control .sp-menu__item[data-highlighted] { background: var(--hover); color: var(--ink); }
