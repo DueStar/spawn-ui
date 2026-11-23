@@ -1,0 +1,10 @@
+/* spawn's empty places merged: .chat-empty (hero), .w-term-empty (pane), .dex-empty / .w-empty / .resume-empty
+   (inline), .chat-loading (loading) */
+.sp-empty { min-width: 0; overflow-wrap: anywhere; }
+.sp-empty--hero { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; padding: 24px; text-align: center; }
+.sp-empty--hero .sp-empty__title { font-size: var(--t-head); color: var(--ink-2); }
+.sp-empty--pane { height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; color: var(--ink-3); text-align: center; }
+.sp-empty--pane .sp-empty__title { font-weight: 500; }
+.sp-empty--inline { padding: 20px; grid-column: 1 / -1; font-size: var(--t-ui); color: var(--ink-3); text-align: center; }
+.sp-empty__hint { font-size: var(--t-meta); color: var(--ink-3); line-height: 1.6; max-width: 440px; }
+.sp-empty__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 6px; }

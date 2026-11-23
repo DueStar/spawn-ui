@@ -1,0 +1,16 @@
+/* spawn's boxes merged: .w-card (surface, widget pad), .chat-card (surface, chat pad; .ask = attention),
+   .sys-spec (system pad), .rank-me (flat), .chat-code / .chat-diff / .chat-mddoc (well), the side panel's
+   .w-card in window mode (section) */
+.sp-card { position: relative; min-width: 0; }
+.sp-card--surface { background: var(--card); border: 1px solid var(--line); border-radius: var(--r-l); }
+.sp-card--flat { background: none; border: 1px solid var(--line); border-radius: var(--r-m); }
+.sp-card--pad-widget { padding: 10px 12px; }
+.sp-card--pad-chat { padding: 12px 14px; display: flex; flex-direction: column; gap: 10px; }
+.sp-card--pad-system { padding: 16px; display: flex; flex-direction: column; gap: 8px; }
+.sp-card--well { border: 1px solid var(--line); border-radius: var(--r-m); overflow: hidden; }
+.sp-card--well-card { background: var(--card); }
+.sp-card--well-term { background: var(--term-bg); }
+.sp-card--section { background: transparent; border: 0; border-bottom: 1px solid var(--line); border-radius: 0; padding: 10px 16px; }
+/* asking for the person (.chat-card.ask): the amber edge, and a 2px bar inside the left side */
+.sp-card--attention { border-color: color-mix(in srgb, var(--amber) 38%, transparent); }
+.sp-card--attention::before { content: ''; position: absolute; left: -1px; top: 10px; bottom: 10px; width: 2px; border-radius: var(--r-xs); background: var(--amber); }

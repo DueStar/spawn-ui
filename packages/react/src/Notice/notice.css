@@ -1,0 +1,17 @@
+/* spawn's quiet lines merged: .chat-note / .chat-notice / .w-note / .chat-day / .rank-msg / .fb-msg (11 copies) */
+.sp-notice { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; min-width: 0; line-height: 1.45; }
+.sp-notice__text { min-width: 0; overflow-wrap: anywhere; }
+.sp-notice--meta { font-size: var(--t-meta); }
+.sp-notice--ui { font-size: var(--t-ui); }
+.sp-notice--ink-3 { color: var(--ink-3); }
+.sp-notice--ink-2 { color: var(--ink-2); }
+.sp-notice.sp-notice--warn { color: var(--amber); }
+.sp-notice.sp-notice--ok { color: var(--green); }
+.sp-notice--center { justify-content: center; text-align: center; }
+/* the widget's note (.w-note): a hairline box that enters softly */
+.sp-notice--boxed { padding: 6px 9px; border: 1px solid var(--line); border-radius: var(--r-s); animation: sp-note-in 0.2s ease-out both; }
+@keyframes sp-note-in { from { opacity: 0; transform: translateY(3px); } to { opacity: 1; transform: none; } }
+/* the day between turns (.chat-day) */
+.sp-notice--divider { justify-content: center; text-align: center; padding: 2px 0 6px; }
+.sp-notice .sp-button--link { color: inherit; }
+@media (prefers-reduced-motion: reduce) { .sp-notice--boxed { animation: none; } }
