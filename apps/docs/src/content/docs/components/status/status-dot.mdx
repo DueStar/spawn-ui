@@ -1,0 +1,29 @@
+---
+title: StatusDot
+description: '6px 점 하나로 상태나 등급을 보여요. 점만으로 말하지 않게 글이 함께 있어요.'
+---
+
+import Demo from '../../../../components/Demo'
+import PropsTable from '../../../../components/PropsTable.astro'
+
+6px 점 하나로 상태나 등급을 보여요. 점만으로 말하지 않게 글이 함께 있어요.
+
+<Demo client:load name="dot-tones" />
+
+## Tier
+
+등급 색은 점과 글자에만 써요.
+
+<Demo client:load name="dot-tiers" />
+
+## 속성
+
+<PropsTable of="StatusDot" />
+
+## 접근성
+
+`label`은 화면에는 안 보이고 화면 읽기 프로그램이 읽어요. 점 옆에 글자가 이미 있으면 `label`은 빼요.
+
+## spawn에서 합친 것
+
+.tdot · .chat-dot · .w-pill-dot · .w-rail-dot · .w-sess-tab-dot — 12벌

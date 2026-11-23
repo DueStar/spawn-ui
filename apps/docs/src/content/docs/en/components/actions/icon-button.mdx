@@ -1,0 +1,39 @@
+---
+title: IconButton
+description: 'A button with only an icon. Its name is said, and shown on hover.'
+---
+
+import Demo from '../../../../../components/Demo'
+import PropsTable from '../../../../../components/PropsTable.astro'
+
+A button with only an icon. Its name is said, and shown on hover.
+
+<Demo client:load name="iconbutton-basic" />
+
+## Size
+
+The sizes spawn already had: a tab's × (20), a chip's × (22), the header's buttons (24×22), the folded rail (38).
+
+<Demo client:load name="iconbutton-sizes" />
+
+## Pressed
+
+A toggle says its state with `pressed`.
+
+<Demo client:load name="iconbutton-pressed" />
+
+## Example: window buttons
+
+<Demo client:load name="iconbutton-window" />
+
+## Props
+
+<PropsTable of="IconButton" lang="en" />
+
+## Accessibility
+
+`label` becomes `aria-label` and `title`. An icon alone says nothing, so `label` is required.
+
+## What it merges in spawn
+
+.w-icon · .w-rail-btn · .chat-copy · .chat-ichip-x · .w-sess-tab-x … — 23 definitions at 12 sizes

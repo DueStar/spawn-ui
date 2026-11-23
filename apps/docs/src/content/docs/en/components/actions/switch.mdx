@@ -1,0 +1,27 @@
+---
+title: Switch
+description: 'Turns a setting on or off at once. A setting turned on is a chosen thing, so it is yellow.'
+---
+
+import Demo from '../../../../../components/Demo'
+import PropsTable from '../../../../../components/PropsTable.astro'
+
+Turns a setting on or off at once. A setting turned on is a chosen thing, so it is yellow.
+
+<Demo client:load name="switch-basic" />
+
+## States
+
+<Demo client:load name="switch-states" />
+
+## Props
+
+<PropsTable of="Switch" lang="en" />
+
+## Accessibility
+
+`role="switch"` named by `label`; Space toggles it. With reduced motion the knob jumps instead of sliding.
+
+## What it merges in spawn
+
+.set-switch · .rank-npc-toggle

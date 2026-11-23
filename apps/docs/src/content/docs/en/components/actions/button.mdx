@@ -1,0 +1,41 @@
+---
+title: Button
+description: 'A button with words. Never yellow.'
+---
+
+import Demo from '../../../../../components/Demo'
+import PropsTable from '../../../../../components/PropsTable.astro'
+
+A button with words. Never yellow.
+
+<Demo client:load name="button-basic" />
+
+## Variant
+
+`solid` is the one strongest action on a screen (allow, save), filled with ink. The rest are `outline` (the default), `ghost` when quieter, and `link` for an action inside text.
+
+<Demo client:load name="button-variants" />
+
+## Size
+
+`xs` is the chat's small buttons (24px), `sm` a card's (28px, the default), `md` settings and dialogs.
+
+<Demo client:load name="button-sizes" />
+
+## Disabled
+
+Disabled, it fades and a press does nothing.
+
+<Demo client:load name="button-disabled" />
+
+## Props
+
+<PropsTable of="Button" lang="en" />
+
+## Accessibility
+
+Always a `<button>`, `type="button"` by default so it never submits a form by accident. Keyboard focus shows the one focus ring.
+
+## What it merges in spawn
+
+.chat-btn · .chat-btn.solid · .chat-card-btn · .set-btn(.ghost .primary) · .fb-btn · .chat-link-btn — 38 definitions

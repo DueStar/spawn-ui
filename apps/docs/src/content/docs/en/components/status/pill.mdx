@@ -1,0 +1,29 @@
+---
+title: Pill
+description: "A session's state as a dot and a word."
+---
+
+import Demo from '../../../../../components/Demo'
+import PropsTable from '../../../../../components/PropsTable.astro'
+
+A session's state as a dot and a word.
+
+<Demo client:load name="pill-moods" />
+
+## A state you can press
+
+With `onClick` it becomes a button: in spawn, pressing “needs you” opens that session.
+
+<Demo client:load name="pill-button" />
+
+## Props
+
+<PropsTable of="Pill" lang="en" />
+
+## Accessibility
+
+“Needs you” is an amber dot and slightly brighter words, not yellow: yellow is for what is chosen.
+
+## What it merges in spawn
+
+.w-pill(.mood-*)

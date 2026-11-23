@@ -1,0 +1,23 @@
+---
+title: RadioGroup
+description: "One out of a list, as in a question card's options."
+---
+
+import Demo from '../../../../../components/Demo'
+import PropsTable from '../../../../../components/PropsTable.astro'
+
+One out of a list, as in a question card's options.
+
+<Demo client:load name="radio-basic" />
+
+## Props
+
+<PropsTable of="RadioGroup" lang="en" />
+
+## Accessibility
+
+`role="radiogroup"` named by `label`; the arrows move and choose. Disabled options are skipped.
+
+## What it merges in spawn
+
+.chat-card-mark · .chat-card-opt.pick

@@ -1,0 +1,31 @@
+---
+title: SegmentedControl
+description: '몇 가지 중 하나를 나란히 놓고 골라요. 고른 것은 옅은 바탕과 밝은 글자예요.'
+---
+
+import Demo from '../../../../components/Demo'
+import PropsTable from '../../../../components/PropsTable.astro'
+
+몇 가지 중 하나를 나란히 놓고 골라요. 고른 것은 옅은 바탕과 밝은 글자예요.
+
+<Demo client:load name="segmented-basic" />
+
+## Size
+
+<Demo client:load name="segmented-sizes" />
+
+## 예: 채팅 / 터미널
+
+<Demo client:load name="segmented-view" />
+
+## 속성
+
+<PropsTable of="SegmentedControl" />
+
+## 접근성
+
+`role="group"`에 `label`이 이름으로 붙고, 각 버튼은 `aria-pressed`로 골랐는지 알려요. ←/→로 버튼 사이를 옮겨요. 마우스를 올려도 고른 것의 모양은 바뀌지 않아요.
+
+## spawn에서 합친 것
+
+.dex-seg · .dex-chips · .w-view-switch · .w-list-mode · .chat-mddoc-tabs — 10벌

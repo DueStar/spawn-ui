@@ -1,4 +1,51 @@
 ---
 title: Why spawn-ui
+description: What counting spawn's CSS showed
 ---
 
+spawn grew screen by screen, and so did its CSS. On 23 November 2026 we counted all ten of its stylesheets (2,730 lines).
+
+## spawn in numbers (2026-11-23)
+
+| | Value |
+|---|---|
+| Kinds of visual thing | **73** |
+| Times they were defined separately | **257** |
+| CSS lines of those definitions | **1,862** |
+| CSS used nowhere | 35 rules, 66 lines |
+
+On average, the same thing was drawn 3.5 separate times.
+
+## The most repeated
+
+| Thing | Separate definitions | Note |
+|---|---|---|
+| Button | 38, in 208 lines | heights 24 · 28 · about 30px |
+| Icon button | 23 | 12 sizes (20px to 56×44) |
+| Status dot | 12 | all 6px circles |
+| Tag | 12 | |
+| Notice | 11 | |
+| Segmented control | 10 | |
+
+The focus ring was set once for the whole app, then restated 11 more times unchanged. And the other way round, one idea differed by place: a chosen item's background is 4 % white on rows, 5 % on the rail and 6 % on segmented controls.
+
+## By group
+
+| Group | Components | Definitions | CSS lines |
+|---|---|---|---|
+| Foundations | 4 | 8 | 20 |
+| Actions | 5 | 75 | 433 |
+| Status | 5 | 37 | 131 |
+| Containers | 11 | 57 | 366 |
+| spawn · sessions | 16 | 29 | 333 |
+| spawn · game | 11 | 17 | 244 |
+| spawn · chat | 19 | 30 | 302 |
+
+## So
+
+- **Merge.** Look-alikes become variants of one component: 38 buttons become one `Button`.
+- **Keep the screens.** Every size and colour spawn had stays as a variant, so moving over changes no pixel. Unifying sizes is decided separately.
+- **Keep the rules as tests.** The rules spawn kept (yellow, greys, the focus ring, weights, radii, motion) are tests here too: see [Design Principles](../principles/).
+- **Drop the dead.** The 66 lines used nowhere are not carried over; they are deleted in spawn.
+
+The raw inventory is [docs/inventory.md](https://github.com/DueStar/spawn-ui/blob/main/docs/inventory.md) in the repository.

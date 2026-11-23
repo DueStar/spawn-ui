@@ -1,0 +1,29 @@
+---
+title: Icon
+description: "A Phosphor icon at spawn's one weight and three sizes."
+---
+
+import Demo from '../../../../../components/Demo'
+import PropsTable from '../../../../../components/PropsTable.astro'
+
+A Phosphor icon at spawn's one weight and three sizes.
+
+<Demo client:load name="icon-basic" />
+
+## Three sizes
+
+In a button 16, inline 14, small places 12. Any other size snaps to the nearest step; over 17 counts as a picture and keeps its size.
+
+<Demo client:load name="icon-snap" />
+
+## Props
+
+<PropsTable of="Icon" lang="en" />
+
+## Accessibility
+
+Without `label` it is decoration, hidden from screen readers (`aria-hidden`). With one it has `role="img"` and that name.
+
+## What it merges in spawn
+
+src/components/Icons.tsx (28) · chat/ChatIcons.tsx (26)

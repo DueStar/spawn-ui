@@ -1,0 +1,29 @@
+---
+title: StatusDot
+description: 'A 6px dot for a state or a tier, never alone: words come with it.'
+---
+
+import Demo from '../../../../../components/Demo'
+import PropsTable from '../../../../../components/PropsTable.astro'
+
+A 6px dot for a state or a tier, never alone: words come with it.
+
+<Demo client:load name="dot-tones" />
+
+## Tier
+
+Tier colours go on dots and words only.
+
+<Demo client:load name="dot-tiers" />
+
+## Props
+
+<PropsTable of="StatusDot" lang="en" />
+
+## Accessibility
+
+`label` is not shown but is read by screen readers. Leave it out when words already sit beside the dot.
+
+## What it merges in spawn
+
+.tdot · .chat-dot · .w-pill-dot · .w-rail-dot · .w-sess-tab-dot — 12 definitions

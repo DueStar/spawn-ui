@@ -1,0 +1,23 @@
+---
+title: Checkbox
+description: '여러 개를 함께 고를 수 있을 때. 질문 카드의 여러 개 고르기에서 써요.'
+---
+
+import Demo from '../../../../components/Demo'
+import PropsTable from '../../../../components/PropsTable.astro'
+
+여러 개를 함께 고를 수 있을 때. 질문 카드의 여러 개 고르기에서 써요.
+
+<Demo client:load name="checkbox-basic" />
+
+## 속성
+
+<PropsTable of="Checkbox" />
+
+## 접근성
+
+글자를 눌러도 바뀌어요. `role="checkbox"`와 `aria-checked`를 가져요.
+
+## spawn에서 합친 것
+
+.chat-card-mark.multi · .w-textsize-ck · .w-dens-ck

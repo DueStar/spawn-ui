@@ -1,0 +1,41 @@
+---
+title: Button
+description: '누르면 무언가 하는 글자 버튼. 노랑은 쓰지 않아요.'
+---
+
+import Demo from '../../../../components/Demo'
+import PropsTable from '../../../../components/PropsTable.astro'
+
+누르면 무언가 하는 글자 버튼. 노랑은 쓰지 않아요.
+
+<Demo client:load name="button-basic" />
+
+## Variant
+
+`solid`는 화면에서 가장 강한 한 가지 동작(허용, 저장)에 써요. 잉크색으로 채워요. 나머지는 `outline`(기본), 덜 중요하면 `ghost`, 글 사이의 동작은 `link`예요.
+
+<Demo client:load name="button-variants" />
+
+## Size
+
+`xs`는 채팅의 작은 버튼(24px), `sm`은 카드의 버튼(28px, 기본), `md`는 설정과 대화상자예요.
+
+<Demo client:load name="button-sizes" />
+
+## Disabled
+
+누를 수 없을 때는 흐리게 보이고 눌러도 아무 일도 없어요.
+
+<Demo client:load name="button-disabled" />
+
+## 속성
+
+<PropsTable of="Button" />
+
+## 접근성
+
+항상 `<button>`이고 기본 `type="button"`이라 폼 안에서도 실수로 제출되지 않아요. 키보드로 옮기면 하나뿐인 포커스 링이 보여요.
+
+## spawn에서 합친 것
+
+.chat-btn · .chat-btn.solid · .chat-card-btn · .set-btn(.ghost .primary) · .fb-btn · .chat-link-btn — 38벌

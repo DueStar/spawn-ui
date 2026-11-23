@@ -1,0 +1,23 @@
+---
+title: RadioGroup
+description: '목록에서 하나를 골라요. 질문 카드의 선택지에서 써요.'
+---
+
+import Demo from '../../../../components/Demo'
+import PropsTable from '../../../../components/PropsTable.astro'
+
+목록에서 하나를 골라요. 질문 카드의 선택지에서 써요.
+
+<Demo client:load name="radio-basic" />
+
+## 속성
+
+<PropsTable of="RadioGroup" />
+
+## 접근성
+
+`role="radiogroup"`에 `label`이 이름으로 붙고, 화살표로 옮기며 골라요. 고를 수 없는 항목은 건너뛰어요.
+
+## spawn에서 합친 것
+
+.chat-card-mark · .chat-card-opt.pick

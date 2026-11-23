@@ -1,0 +1,29 @@
+---
+title: Icon
+description: 'Phosphor 아이콘을 spawn의 굵기 하나와 크기 세 단계로 그려요.'
+---
+
+import Demo from '../../../../components/Demo'
+import PropsTable from '../../../../components/PropsTable.astro'
+
+Phosphor 아이콘을 spawn의 굵기 하나와 크기 세 단계로 그려요.
+
+<Demo client:load name="icon-basic" />
+
+## 크기는 세 단계
+
+버튼 안은 16, 글 사이는 14, 작은 곳은 12예요. 다른 값을 주면 가장 가까운 단계로 맞춰져요. 17보다 크면 그림 크기로 보고 그대로 둬요.
+
+<Demo client:load name="icon-snap" />
+
+## 속성
+
+<PropsTable of="Icon" />
+
+## 접근성
+
+`label`이 없으면 장식으로 보고 화면 읽기 프로그램에서 숨겨요(`aria-hidden`). `label`이 있으면 `role="img"`와 그 이름을 가져요.
+
+## spawn에서 합친 것
+
+src/components/Icons.tsx (28개) · chat/ChatIcons.tsx (26개)

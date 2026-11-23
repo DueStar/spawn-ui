@@ -1,0 +1,33 @@
+---
+title: Meter
+description: '얇은 막대. 컨텍스트(HP), 사용량, 포켓몬 능력치.'
+---
+
+import Demo from '../../../../components/Demo'
+import PropsTable from '../../../../components/PropsTable.astro'
+
+얇은 막대. 컨텍스트(HP), 사용량, 포켓몬 능력치.
+
+<Demo client:load name="meter-hp" />
+
+## Usage
+
+사용량은 회색이다가 80%부터 주황, 90%부터 빨강이에요. 곧 막힌다는 뜻이에요.
+
+<Demo client:load name="meter-usage" />
+
+## 예: 세션 줄
+
+<Demo client:load name="meter-row" />
+
+## 속성
+
+<PropsTable of="Meter" />
+
+## 접근성
+
+`role="meter"`에 0–100 값과 `label`이 붙어요. 값은 0–1로 주고 넘치면 잘라요.
+
+## spawn에서 합친 것
+
+.w-bar · .w-ctx(.w-hp) · .w-rail-bar · .dex-stat-bar · .chat-ctrl-meter

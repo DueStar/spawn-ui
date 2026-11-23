@@ -1,0 +1,23 @@
+---
+title: Badge
+description: 'A round badge on the reward yellow: a new Pokémon, a count.'
+---
+
+import Demo from '../../../../../components/Demo'
+import PropsTable from '../../../../../components/PropsTable.astro'
+
+A round badge on the reward yellow: a new Pokémon, a count.
+
+<Demo client:load name="badge-basic" />
+
+## Props
+
+<PropsTable of="Badge" lang="en" />
+
+## Accessibility
+
+The reward yellow (`--new-badge`) is a different token from the chosen yellow. Only badges and the switch are fully round.
+
+## What it merges in spawn
+
+.w-toast-new · .w-toast-badge

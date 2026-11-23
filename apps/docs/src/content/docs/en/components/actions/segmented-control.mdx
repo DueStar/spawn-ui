@@ -1,0 +1,31 @@
+---
+title: SegmentedControl
+description: 'One choice out of a few, side by side. The chosen one gets a faint fill and bright words.'
+---
+
+import Demo from '../../../../../components/Demo'
+import PropsTable from '../../../../../components/PropsTable.astro'
+
+One choice out of a few, side by side. The chosen one gets a faint fill and bright words.
+
+<Demo client:load name="segmented-basic" />
+
+## Size
+
+<Demo client:load name="segmented-sizes" />
+
+## Example: chat / terminal
+
+<Demo client:load name="segmented-view" />
+
+## Props
+
+<PropsTable of="SegmentedControl" lang="en" />
+
+## Accessibility
+
+`role="group"` named by `label`; each button says whether it is chosen with `aria-pressed`. ←/→ move between them. Hovering never restyles the chosen one.
+
+## What it merges in spawn
+
+.dex-seg · .dex-chips · .w-view-switch · .w-list-mode · .chat-mddoc-tabs — 10 definitions

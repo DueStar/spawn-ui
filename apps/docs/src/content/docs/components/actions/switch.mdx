@@ -1,0 +1,27 @@
+---
+title: Switch
+description: '설정을 바로 켜고 꺼요. 켜진 설정은 고른 것이라 노랑이에요.'
+---
+
+import Demo from '../../../../components/Demo'
+import PropsTable from '../../../../components/PropsTable.astro'
+
+설정을 바로 켜고 꺼요. 켜진 설정은 고른 것이라 노랑이에요.
+
+<Demo client:load name="switch-basic" />
+
+## States
+
+<Demo client:load name="switch-states" />
+
+## 속성
+
+<PropsTable of="Switch" />
+
+## 접근성
+
+`role="switch"`에 `label`이 이름으로 붙어요. Space로 바꿔요. 움직임을 줄이는 설정이면 손잡이가 미끄러지지 않고 바로 바뀌어요.
+
+## spawn에서 합친 것
+
+.set-switch · .rank-npc-toggle

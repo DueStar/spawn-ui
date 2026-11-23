@@ -1,0 +1,33 @@
+---
+title: Meter
+description: "A thin bar: context (HP), usage limits, a Pokémon's stat."
+---
+
+import Demo from '../../../../../components/Demo'
+import PropsTable from '../../../../../components/PropsTable.astro'
+
+A thin bar: context (HP), usage limits, a Pokémon's stat.
+
+<Demo client:load name="meter-hp" />
+
+## Usage
+
+Usage is grey, amber from 80 %, red from 90 %: the limit is about to hit.
+
+<Demo client:load name="meter-usage" />
+
+## Example: a session row
+
+<Demo client:load name="meter-row" />
+
+## Props
+
+<PropsTable of="Meter" lang="en" />
+
+## Accessibility
+
+`role="meter"` with a 0–100 value and `label`. Give 0–1; anything outside is clamped.
+
+## What it merges in spawn
+
+.w-bar · .w-ctx(.w-hp) · .w-rail-bar · .dex-stat-bar · .chat-ctrl-meter

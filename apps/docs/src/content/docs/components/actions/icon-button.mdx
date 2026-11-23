@@ -1,0 +1,39 @@
+---
+title: IconButton
+description: '아이콘만 있는 버튼. 이름은 말하고, 마우스를 올리면 보여요.'
+---
+
+import Demo from '../../../../components/Demo'
+import PropsTable from '../../../../components/PropsTable.astro'
+
+아이콘만 있는 버튼. 이름은 말하고, 마우스를 올리면 보여요.
+
+<Demo client:load name="iconbutton-basic" />
+
+## Size
+
+spawn에 있던 크기 그대로예요. 탭의 ×(20), 칩의 ×(22), 헤더의 버튼(24×22), 접힌 레일(38).
+
+<Demo client:load name="iconbutton-sizes" />
+
+## Pressed
+
+켜고 끄는 버튼이면 `pressed`로 지금 상태를 알려요.
+
+<Demo client:load name="iconbutton-pressed" />
+
+## 예: 창 버튼
+
+<Demo client:load name="iconbutton-window" />
+
+## 속성
+
+<PropsTable of="IconButton" />
+
+## 접근성
+
+`label`이 `aria-label`과 `title`이 돼요. 아이콘만으로는 뜻이 전해지지 않으니 `label`은 꼭 필요해요.
+
+## spawn에서 합친 것
+
+.w-icon · .w-rail-btn · .chat-copy · .chat-ichip-x · .w-sess-tab-x … — 23벌, 12가지 크기
