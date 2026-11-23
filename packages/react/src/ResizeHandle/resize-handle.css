@@ -1,0 +1,13 @@
+/* spawn's draggable edges merged: .w-side-resize (7), .w-pane-edge (7, its line at rest), .chat-ch-rz (22) */
+.sp-resize { position: absolute; top: 0; bottom: 0; width: 7px; z-index: 6; cursor: col-resize; touch-action: none; -webkit-app-region: no-drag; outline: 1px solid transparent; }
+.sp-resize--right { right: -4px; }
+.sp-resize--left { left: -4px; }
+.sp-resize--22 { width: 22px; }
+.sp-resize--22.sp-resize--right { right: -11px; }
+.sp-resize--22.sp-resize--left { left: -11px; }
+.sp-resize::after { content: ''; position: absolute; top: 0; bottom: 0; left: 3px; width: 1px; background: transparent; }
+.sp-resize--22::after { left: 10px; }
+.sp-resize--line::after { background: var(--line); }
+.sp-resize:hover::after, .sp-resize:active::after { background: rgba(255, 255, 255, 0.3); }
+/* from the keyboard: the line reads (3:1 and more on the panel's grey) */
+.sp-resize:focus-visible::after { background: var(--ink-3); }

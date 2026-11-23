@@ -1,0 +1,6 @@
+/* spawn's .w-head (widget.css 54) and .w-term-tabs (widget-expanded.css 107): both drag the window */
+.sp-app-header { display: flex; align-items: center; gap: 8px; height: 42px; box-sizing: border-box; padding: 6px 8px 6px 12px; -webkit-app-region: drag; }
+.sp-app-header--mac { padding-left: 78px; }
+.sp-app-header__brand { margin-right: auto; display: inline-flex; align-items: center; gap: 6px; -webkit-app-region: no-drag; }
+.sp-app-header button, .sp-top-bar button { -webkit-app-region: no-drag; }
+.sp-top-bar { display: flex; align-items: center; gap: 2px; height: var(--head-h); box-sizing: border-box; padding: 0 8px 0 10px; border-bottom: 1px solid var(--line); background: var(--bg); -webkit-app-region: drag; }

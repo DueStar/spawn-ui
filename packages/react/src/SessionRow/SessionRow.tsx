@@ -1,6 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React from 'react'
 import { Meter, meterTone } from '../Meter/Meter'
 import { Pill } from '../Pill/Pill'
+import { useConfirm } from '../useConfirm'
 
 export type SessionMood = 'working' | 'needs-you' | 'error' | 'idle' | 'ended'
 
@@ -55,16 +56,9 @@ export interface SessionRowProps {
 /** One session in the list: its Pokémon, name, state and HP. Enter opens it, F2 renames, the × asks before it closes. */
 export function SessionRow(p: SessionRowProps) {
   const { name, mood, moodLabel, picture, chosen, compact, lifted, widget, onOpen, onRename, onClose } = p
-  const [confirm, setConfirm] = useState(false)
-  const timer = useRef<ReturnType<typeof setTimeout>>()
-  useEffect(() => () => clearTimeout(timer.current), [])
-  const pressClose = (e: React.MouseEvent) => {
-    e.stopPropagation()
-    if (confirm) { clearTimeout(timer.current); setConfirm(false); onClose?.(); return }
-    setConfirm(true)
-    clearTimeout(timer.current)
-    timer.current = setTimeout(() => setConfirm(false), 3000)
-  }
+  const closer = useConfirm(onClose)
+  const confirm = closer.asking
+  const pressClose = (e: React.MouseEvent) => { e.stopPropagation(); closer.press() }
   const keys = (e: React.KeyboardEvent<HTMLDivElement>) => {
     if (e.target !== e.currentTarget) return
     if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onOpen() }

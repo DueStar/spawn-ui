@@ -1,0 +1,19 @@
+/* spawn's session bar (widget-expanded.css .w-sess-bar, .w-sess-head-*): the words share one baseline, mid-bar */
+.sp-session-header { display: flex; align-items: center; gap: 4px; flex-shrink: 0; min-width: 0; height: var(--sess-bar-h); box-sizing: border-box; padding: 0 8px 0 10px; border-bottom: 1px solid var(--line); background: var(--bg); -webkit-app-region: no-drag; }
+.sp-session-header__head { display: flex; align-items: baseline; align-self: stretch; gap: 8px; flex: 1 1 auto; min-width: 0; padding-left: 4px; container: sp-sess-head / inline-size; }
+.sp-session-header__pic, .sp-session-header__tools, .sp-session-header__close, .sp-session-header__head > .sp-text-input, .sp-session-header__head > .sp-segmented { align-self: center; }
+.sp-session-header__pic { flex: none; display: inline-grid; place-items: center; }
+.sp-session-header__name { flex: 0 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: var(--t-name); font-weight: var(--w-name); color: var(--ink); cursor: default; line-height: calc(var(--sess-bar-h) - 1px); }
+.sp-session-header__project { flex: none; font-size: var(--t-meta); color: var(--ink-3); white-space: nowrap; line-height: calc(var(--sess-bar-h) - 1px); }
+.sp-session-header__branch { flex: 0 1 auto; min-width: 0; max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: calc(var(--t-meta) - 0.5px); font-weight: var(--w-mono); color: var(--ink-3); font-family: 'Monaspace Neon Var', Consolas, 'SF Mono', Menlo, monospace; line-height: calc(var(--sess-bar-h) - 1px); }
+.sp-session-header__branch::before { content: '⎇ '; opacity: 0.7; }
+.sp-session-header__spacer { flex: 1 1 0; min-width: 0; }
+.sp-session-header__tools { flex: none; display: inline-flex; align-items: center; gap: 4px; }
+.sp-session-header__close { flex: none; display: inline-grid; place-items: center; min-width: 24px; height: 24px; padding: 0; font: inherit; font-size: var(--t-big); line-height: 1; color: var(--ink-3); background: none; border: 0; border-radius: var(--r-s); cursor: pointer; }
+.sp-session-header__close:hover { color: var(--danger); background: color-mix(in srgb, var(--danger) 12%, transparent); }
+.sp-session-header__close--confirm, .sp-session-header__close--confirm:hover { padding: 0 7px; color: #fff; background: var(--danger); font-size: var(--t-meta); font-weight: var(--w-name); }
+.sp-session-header__close:focus-visible { outline: 2px solid var(--ink-2); outline-offset: 1px; }
+/* the narrowest header: the project's name gives way before the controls do */
+@container sp-sess-head (max-width: 420px) {
+  .sp-session-header__project { flex: 0 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+}

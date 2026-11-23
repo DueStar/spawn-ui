@@ -1,0 +1,5 @@
+/* spawn's .w-pane-head (widget-expanded.css 698) */
+.sp-pane-head { flex: 1 1 0; min-width: 0; box-sizing: border-box; display: flex; align-items: center; align-self: stretch; padding: 0 6px 0 10px; border-left: 1px solid var(--line); }
+.sp-pane-head:first-child { border-left: 0; }
+.sp-pane-head--on { background: var(--hover); }
+.sp-pane-head > .sp-session-header { flex: 1; min-width: 0; height: auto; padding: 0; border: 0; background: none; }
