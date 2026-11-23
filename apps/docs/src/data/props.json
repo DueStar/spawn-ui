@@ -118,10 +118,10 @@
     },
     {
       "name": "size",
-      "type": "\"xs\" | \"sm\" | \"md\" | \"lg\"",
+      "type": "\"xs\" | \"sm\" | \"md\" | \"head\" | \"lg\"",
       "required": false,
       "default": "md",
-      "description": "xs 20px (a tab's ×) · sm 22px (a chip's ×) · md 24×22 (the header's buttons, the default) · lg 38px (the folded rail)"
+      "description": "xs 20px (a tab's ×) · sm 22px (a chip's ×) · md 24×22 (the window bar, the default) · head 26px (the side panel's header) · lg 38px (the folded rail)"
     },
     {
       "name": "pressed",

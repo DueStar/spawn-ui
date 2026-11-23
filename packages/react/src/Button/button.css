@@ -1,6 +1,9 @@
 /* spawn's buttons merged: .chat-btn (xs), .chat-card-btn (sm), .set-btn (md), .chat-link-btn (link) */
 .sp-button { display: inline-flex; align-items: center; justify-content: center; gap: 6px; flex: none; border: 1px solid var(--line); border-radius: var(--r-s); background: none; color: var(--ink-2); font: inherit; font-weight: 500; white-space: nowrap; cursor: pointer; }
+/* disabled: spawn's own fades — the chat's 0.5, settings' 0.45 */
 .sp-button:disabled { opacity: 0.45; cursor: default; }
+.sp-button--xs:disabled { opacity: 0.5; }
+.sp-button--md:disabled { opacity: 0.45; }
 .sp-button--xs { min-height: 24px; padding: 0 10px; font-size: var(--t-meta); }
 .sp-button--sm { min-height: 28px; padding: 0 12px; font-size: var(--t-ui); font-weight: var(--w-name); }
 .sp-button--md { padding: 6px 12px; font-size: var(--t-ui); font-weight: var(--w-name); color: var(--ink); }
@@ -11,5 +14,10 @@
 .sp-button--solid.sp-button--md:not(:disabled):hover { background: var(--ink); filter: brightness(1.08); }
 .sp-button--ghost { border-color: transparent; color: var(--ink-2); }
 .sp-button--ghost:not(:disabled):hover { color: var(--ink); background: var(--hover); }
-.sp-button--link { min-height: 22px; padding: 0 2px; border: 0; border-radius: var(--r-xs); color: var(--ink-2); font-weight: 400; text-decoration: underline; text-decoration-color: rgba(255, 255, 255, 0.28); text-underline-offset: 3px; }
-.sp-button--link:not(:disabled):hover { color: var(--ink); }
+/* settings' ghost keeps its hairline (.set-btn.ghost) */
+.sp-button--ghost.sp-button--md { border-color: var(--line); }
+.sp-button--ghost.sp-button--md:not(:disabled):hover { border-color: var(--line-hover); }
+/* a link takes the size and weight of the text it sits in (spawn .chat-link-btn: font inherit) */
+.sp-button--link { display: inline; min-height: 22px; padding: 0 2px; border: 0; border-radius: var(--r-xs); color: var(--ink-2); font: inherit; text-decoration: underline; text-decoration-color: rgba(255, 255, 255, 0.28); text-underline-offset: 3px; }
+.sp-button--link.sp-button--xs, .sp-button--link.sp-button--sm, .sp-button--link.sp-button--md { min-height: 22px; padding: 0 2px; font-size: inherit; font-weight: inherit; }
+.sp-button--link:not(:disabled):hover { color: var(--ink); text-decoration-color: var(--ink); }

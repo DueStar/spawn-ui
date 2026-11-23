@@ -14,7 +14,9 @@
     "./styles.css": "./dist/styles.css"
   },
   "files": [
-    "dist"
+    "dist",
+    "README.md",
+    "LICENSE"
   ],
   "sideEffects": [
     "*.css"
@@ -31,6 +33,11 @@
   "dependencies": {
     "@base-ui/react": "^1.9.0",
     "@phosphor-icons/react": "^2.1.10",
-    "@spawn-ui/tokens": "*"
+    "@spawn-ui/tokens": "^0.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DueStar/spawn-ui",
+    "directory": "packages/react"
   }
 }

@@ -1,6 +1,6 @@
 /* spawn's .w-pill */
 .sp-pill { display: inline-flex; align-items: center; gap: 5px; min-width: 0; max-width: 100%; padding: 0; border: 0; background: none; color: var(--ink-3); font: inherit; font-size: var(--t-meta); font-weight: var(--w-body); white-space: nowrap; }
-.sp-pill--button { cursor: pointer; border-radius: var(--r-xs); }
+.sp-pill--button { padding: 1px 0; cursor: pointer; border-radius: var(--r-xs); }
 .sp-pill--button:hover { color: var(--ink); }
 .sp-pill__dot { flex: none; width: 6px; height: 6px; border-radius: 50%; background: var(--ink-3); }
 .sp-pill--working .sp-pill__dot { background: var(--green); }

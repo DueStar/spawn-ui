@@ -7,14 +7,28 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
-    ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" },
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
     "./tokens.css": "./dist/tokens.css"
   },
-  "files": ["dist"],
-  "sideEffects": ["*.css"],
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "sideEffects": [
+    "*.css"
+  ],
   "scripts": {
     "build": "tsx scripts/build-css.ts && tsc -p tsconfig.build.json",
     "test": "npm run build && vitest run",
     "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DueStar/spawn-ui",
+    "directory": "packages/tokens"
   }
 }

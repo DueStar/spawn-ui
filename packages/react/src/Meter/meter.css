@@ -1,13 +1,15 @@
-.sp-meter { flex: 1; min-width: 0; background: var(--track); overflow: hidden; }
+.sp-meter { min-width: 0; background: var(--track); overflow: hidden; }
 .sp-meter__fill { display: block; height: 100%; }
 .sp-meter--usage { height: var(--bar-h); border-radius: 1px; }
 .sp-meter--usage .sp-meter__fill { border-radius: 1px; background: var(--bar); transition: width 0.4s; }
 .sp-meter--usage.sp-meter--warn .sp-meter__fill { background: var(--bar-warn); }
 .sp-meter--usage.sp-meter--danger .sp-meter__fill { background: var(--bar-danger); }
-.sp-meter--hp { height: var(--hp-h); border-radius: 2px; }
-.sp-meter--hp .sp-meter__fill { border-radius: 2px; background: var(--hp); }
+/* the context window as HP: fills its row (spawn .w-ctx), drains like a Pokémon's HP bar */
+.sp-meter--hp { flex: 1; height: var(--hp-h); border-radius: 2px; }
+.sp-meter--hp .sp-meter__fill { border-radius: 2px; background: var(--hp); transition: width 0.6s ease-out, background-color 0.3s; }
+.sp-meter--stat { flex: 1; }
 .sp-meter--hp.sp-meter--warn .sp-meter__fill { background: var(--hp-warn); }
 .sp-meter--hp.sp-meter--danger .sp-meter__fill { background: var(--hp-low); }
 .sp-meter--stat { height: 4px; border-radius: 2px; }
 .sp-meter--stat .sp-meter__fill { border-radius: 2px; background: var(--ink-2); }
-@media (prefers-reduced-motion: reduce) { .sp-meter--usage .sp-meter__fill { transition: none; } }
+@media (prefers-reduced-motion: reduce) { .sp-meter--usage .sp-meter__fill, .sp-meter--hp .sp-meter__fill { transition: none; } }
