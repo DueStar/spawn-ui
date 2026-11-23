@@ -1,0 +1,11 @@
+/* spawn's .chat-lightbox (chat.css 322–334), in Dialog kind lightbox */
+.sp-lightbox { display: grid; place-items: center; outline: 1px solid transparent; }
+.sp-lightbox__fig { display: flex; flex-direction: column; align-items: center; gap: 10px; margin: 0; max-width: 92vw; }
+.sp-lightbox__img { max-width: 92vw; max-height: 84vh; object-fit: contain; border-radius: var(--r-m); background: #fff; }
+.sp-lightbox__fig figcaption { font-size: var(--t-ui); color: var(--ink-2); }
+.sp-lightbox__nav { position: fixed; top: 50%; display: grid; place-items: center; width: 40px; height: 40px; margin-top: -20px; padding: 0; border: 1px solid var(--line); border-radius: 50%; background: var(--card); color: var(--ink-2); cursor: pointer; }
+.sp-lightbox__nav:hover { color: var(--ink); border-color: var(--line-hover); }
+.sp-lightbox__nav:focus-visible { outline: 2px solid var(--ink-2); outline-offset: 1px; }
+.sp-lightbox__nav--prev { left: 16px; }
+.sp-lightbox__nav--prev svg { transform: rotate(180deg); }
+.sp-lightbox__nav--next { right: 16px; }

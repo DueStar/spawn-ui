@@ -1,0 +1,11 @@
+/* spawn's .chat-agent-chip (chat.css 620–628) */
+.sp-agent-chip { flex: 0 1 auto; min-width: 0; max-width: 340px; display: inline-flex; align-items: center; gap: 7px; height: 28px; padding: 0 11px 0 10px; border: 1px solid var(--line); border-radius: var(--r-l); background: rgba(255, 255, 255, 0.025); color: var(--ink-2); font: inherit; font-size: var(--t-meta); white-space: nowrap; cursor: pointer; }
+.sp-agent-chip:hover:not(:disabled), .sp-agent-chip--on { background: var(--hover); border-color: var(--line-hover); color: var(--ink); }
+.sp-agent-chip:focus-visible { outline: 2px solid var(--ink-2); outline-offset: 1px; }
+.sp-agent-chip__name { flex: 0 1 auto; min-width: 0; max-width: 190px; overflow: hidden; text-overflow: ellipsis; }
+.sp-agent-chip__last { flex: 0 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; color: var(--ink-3); }
+.sp-agent-chip__time { flex: none; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+.sp-agent-chip__mark { flex: none; display: inline-grid; place-items: center; width: 10px; height: 10px; }
+.sp-agent-chip__mark i { width: 6px; height: 6px; border-radius: 50%; background: var(--green); }
+.sp-agent-chip--wait .sp-agent-chip__mark i { background: var(--amber); }
+.sp-agent-chip--done .sp-agent-chip__mark i { background: var(--ink-3); }

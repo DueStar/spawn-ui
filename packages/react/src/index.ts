@@ -71,3 +71,7 @@ export { ControlRow, ControlItem, ControlSep, type ControlItemProps } from './Co
 export { FileChip, type FileChipProps } from './FileChip/FileChip'
 export { ImageChip, type ImageChipProps } from './ImageChip/ImageChip'
 export { SuggestionList, type SuggestionListProps, type Suggestion } from './SuggestionList/SuggestionList'
+export { LinkCard, type LinkCardProps } from './LinkCard/LinkCard'
+export { AgentChip, type AgentChipProps } from './AgentChip/AgentChip'
+export { SidePanel, type SidePanelProps } from './SidePanel/SidePanel'
+export { Lightbox, type LightboxProps } from './Lightbox/Lightbox'
