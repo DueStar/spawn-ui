@@ -1,0 +1,8 @@
+/* spawn's segmented controls merged: .dex-seg, .dex-chips, .w-view-switch, .w-list-mode, .chat-mddoc-tabs */
+.sp-segmented { display: flex; gap: 2px; min-width: 0; }
+.sp-segmented__item { display: inline-flex; align-items: center; gap: 5px; min-width: 26px; max-width: 100%; padding: 4px 9px; border: 0; border-radius: var(--r-s); background: transparent; color: var(--ink-3); font: inherit; font-size: var(--t-meta); font-weight: var(--w-body); white-space: nowrap; cursor: pointer; }
+.sp-segmented--md .sp-segmented__item { padding: 5px 10px; font-size: var(--t-ui); }
+.sp-segmented__item:disabled { opacity: 0.45; cursor: default; }
+/* hovered: quieter than the chosen one — the faint fill, the words --ink-2; the chosen one is never restyled */
+.sp-segmented__item[aria-pressed="false"]:not(:disabled):hover { color: var(--ink-2); background: var(--hover); }
+.sp-segmented__item[aria-pressed="true"] { background: var(--sel-bg); color: var(--ink); }
