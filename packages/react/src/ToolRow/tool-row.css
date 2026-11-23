@@ -1,0 +1,22 @@
+/* spawn's .chat-tool* (chat.css 81–104) */
+.sp-tool { display: flex; flex-direction: column; min-width: 0; }
+.sp-tool__head { display: flex; align-items: center; gap: 6px; min-height: 30px; margin-left: -4px; border-radius: var(--r-s); font-size: var(--t-ui); color: var(--ink-2); min-width: 0; }
+.sp-tool__head:hover { background: var(--hover); }
+.sp-tool__toggle { flex: 1 1 auto; min-width: 0; display: flex; align-items: center; gap: 7px; min-height: 30px; padding: 4px 6px 4px 4px; border: 0; border-radius: var(--r-s); background: none; color: inherit; font: inherit; text-align: left; }
+button.sp-tool__toggle { cursor: pointer; }
+button.sp-tool__toggle:focus-visible { outline: 2px solid var(--ink-2); outline-offset: -2px; }
+.sp-tool__chev { color: var(--ink-3); flex: none; display: inline-flex; }
+.sp-tool--open > .sp-tool__head .sp-tool__chev { transform: rotate(90deg); }
+.sp-tool__ico { color: var(--ink-3); flex: none; display: inline-flex; }
+.sp-tool__label { color: var(--ink-2); white-space: nowrap; flex: none; }
+.sp-tool__detail { color: var(--ink-3); min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-family: 'W Pretendard', 'Pretendard Variable', 'Malgun Gothic', 'Apple SD Gothic Neo', 'Hiragino Sans', system-ui, sans-serif; }
+.sp-tool__detail--mono { font-family: 'Monaspace Neon Var', Consolas, 'SF Mono', Menlo, monospace; font-weight: var(--w-mono); font-size: calc(var(--t-ui) - 1px); }
+.sp-tool__err { color: var(--red-text); min-width: 0; flex: 0 1 auto; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-family: 'Monaspace Neon Var', Consolas, 'SF Mono', Menlo, monospace; font-weight: var(--w-mono); font-size: calc(var(--t-ui) - 1px); }
+.sp-tool__meta { margin-left: auto; padding: 0 6px 0 10px; color: var(--ink-3); font-size: var(--t-meta); white-space: nowrap; display: inline-flex; align-items: center; gap: 6px; flex: none; }
+.sp-tool__action { flex: none; margin-right: 4px; opacity: 0; }
+.sp-tool__head:hover .sp-tool__action, .sp-tool__action:focus-within { opacity: 1; }
+.sp-tool--wait > .sp-tool__head .sp-tool__meta { color: var(--ink-2); }
+.sp-tool--fail .sp-tool__label, .sp-tool--fail > .sp-tool__head .sp-tool__ico { color: var(--red-text); }
+.sp-tool__body { margin: 2px 0 6px 10px; padding: 4px 0 4px 14px; border-left: 1px solid var(--line); font-size: var(--t-ui); color: var(--ink-3); min-width: 0; }
+.sp-tool--fail > .sp-tool__body { border-left-color: rgba(255, 100, 100, 0.35); }
+.sp-tool__out { margin: 0; max-height: 320px; overflow: auto; font-family: 'Monaspace Neon Var', Consolas, 'SF Mono', Menlo, monospace; font-weight: var(--w-mono); font-size: calc(var(--t-code) - 1px); line-height: 1.65; color: var(--ink-2); white-space: pre-wrap; overflow-wrap: anywhere; }

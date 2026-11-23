@@ -1,0 +1,8 @@
+/* spawn's .chat-shell (chat.css 514–521) */
+.sp-shell { max-width: 88%; margin-left: auto; }
+.sp-shell__box { box-sizing: border-box; min-width: 220px; max-width: 100%; padding: 8px 12px 9px; border: 1px solid var(--line); border-radius: var(--r-l); background: rgba(0, 0, 0, 0.22); }
+.sp-shell__cmd { display: flex; gap: 8px; font-family: 'Monaspace Neon Var', Consolas, 'SF Mono', Menlo, monospace; font-weight: var(--w-mono); font-size: var(--t-code); line-height: 1.6; color: var(--ink); overflow-wrap: anywhere; }
+.sp-shell__cmd b { flex: none; color: var(--ink-3); font-weight: var(--w-name); }
+.sp-shell__run { margin-top: 4px; font-size: var(--t-meta); color: var(--ink-3); }
+.sp-shell__out { margin: 6px 0 0; padding-top: 6px; border-top: 1px solid var(--line); max-height: 360px; overflow: auto; font-family: 'Monaspace Neon Var', Consolas, 'SF Mono', Menlo, monospace; font-weight: var(--w-mono); font-size: calc(var(--t-code) - 1px); line-height: 1.6; color: var(--ink-2); white-space: pre-wrap; overflow-wrap: anywhere; }
+.sp-shell__err { color: var(--red-text); }
