@@ -1,0 +1,10 @@
+/* spawn's icon-only buttons merged: .w-sess-tab-x (xs), .chat-ichip-x (sm), .w-icon (md), .w-rail-btn (lg) */
+.sp-icon-button { display: inline-grid; place-items: center; flex: none; padding: 0; border: 0; background: transparent; color: var(--ink-3); font: inherit; cursor: pointer; }
+.sp-icon-button:disabled { opacity: 0.45; cursor: default; }
+.sp-icon-button--xs { width: 20px; height: 20px; border-radius: var(--r-xs); }
+.sp-icon-button--sm { width: 22px; height: 22px; border-radius: var(--r-xs); }
+.sp-icon-button--md { width: 24px; height: 22px; border-radius: var(--r-s); color: var(--ink-2); }
+.sp-icon-button--lg { width: 38px; height: 38px; border-radius: var(--r-m); }
+.sp-icon-button:not(:disabled):hover { color: var(--ink); background: var(--hover); }
+.sp-icon-button--md:not(:disabled):hover { background: var(--sel-bg); }
+.sp-icon-button[aria-pressed="true"] { color: var(--ink); background: var(--sel-bg); }
