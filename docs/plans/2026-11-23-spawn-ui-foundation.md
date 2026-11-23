@@ -14,7 +14,7 @@
 
 ## Global Constraints
 
-- Repo: `C:\Users\hoo20\Documents\spawn-ui`, GitHub `DueStar/spawn-ui` (public), MIT, npm workspaces (not pnpm).
+- Repo: `spawn-ui/` (next to spawn), GitHub `DueStar/spawn-ui` (public), MIT, npm workspaces (not pnpm).
 - Token names and values exactly spawn's `src/styles/tokens.css` as of 2026-11-23 (baseline copied in Task 2); no renames.
 - Text sizes: 100 % on `:root`; 80/90/110/120/130 as `:root.ts-N` **and** `.sp-ts-N` (so a docs preview can scale on its own). Component CSS uses only `var(--t-*)` for font-size (no px font sizes).
 - Yellow (`--accent`) is rare (spawn: the chosen session, the picked cell, send, the update button). In this plan's components it appears **only** on `Switch` checked (spawn's `.set-switch.on`). `Button variant="solid"` fills with `--ink` (spawn's `.chat-btn.solid`); `SegmentedControl`'s on-state is `--sel-bg` + `--ink`. The focus ring is never yellow.
@@ -44,7 +44,7 @@
 **Interfaces:**
 - Produces: workspaces `packages/*`, `apps/*`; root scripts `build`, `test`, `typecheck`, `docs:dev`, `docs:build`.
 
-- [ ] **Step 1:** `git init` in `C:\Users\hoo20\Documents\spawn-ui`; root `package.json` `{ "private": true, "workspaces": ["packages/*", "apps/*"] }`, Node ≥ 20, scripts above; `tsconfig.base.json` strict, `jsx: react-jsx`, `moduleResolution: bundler`.
+- [ ] **Step 1:** `git init` in `spawn-ui/` (next to spawn); root `package.json` `{ "private": true, "workspaces": ["packages/*", "apps/*"] }`, Node ≥ 20, scripts above; `tsconfig.base.json` strict, `jsx: react-jsx`, `moduleResolution: bundler`.
 - [ ] **Step 2:** README (ko) / README.en.md: one paragraph on what spawn-ui is, links to spawn and the docs; MIT LICENSE (holder as in spawn's LICENSE).
 - [ ] **Step 3:** CI workflow: on push/PR, `npm ci && npm run typecheck && npm test && npm run build`.
 - [ ] **Step 4:** `npm install` succeeds with empty workspaces; commit `chore: workspace`.
