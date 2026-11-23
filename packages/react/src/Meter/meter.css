@@ -1,0 +1,13 @@
+.sp-meter { flex: 1; min-width: 0; background: var(--track); overflow: hidden; }
+.sp-meter__fill { display: block; height: 100%; }
+.sp-meter--usage { height: var(--bar-h); border-radius: 1px; }
+.sp-meter--usage .sp-meter__fill { border-radius: 1px; background: var(--bar); transition: width 0.4s; }
+.sp-meter--usage.sp-meter--warn .sp-meter__fill { background: var(--bar-warn); }
+.sp-meter--usage.sp-meter--danger .sp-meter__fill { background: var(--bar-danger); }
+.sp-meter--hp { height: var(--hp-h); border-radius: 2px; }
+.sp-meter--hp .sp-meter__fill { border-radius: 2px; background: var(--hp); }
+.sp-meter--hp.sp-meter--warn .sp-meter__fill { background: var(--hp-warn); }
+.sp-meter--hp.sp-meter--danger .sp-meter__fill { background: var(--hp-low); }
+.sp-meter--stat { height: 4px; border-radius: 2px; }
+.sp-meter--stat .sp-meter__fill { border-radius: 2px; background: var(--ink-2); }
+@media (prefers-reduced-motion: reduce) { .sp-meter--usage .sp-meter__fill { transition: none; } }

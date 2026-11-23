@@ -1,0 +1,4 @@
+/* spawn's .chat-wild-tag, .resume-badge, .set-tag, .chat-ch-tag: a hairline, no fill */
+.sp-tag { display: inline-flex; align-items: center; gap: 4px; max-width: 100%; padding: 0 5px; border: 1px solid var(--line); border-radius: var(--r-xs); color: var(--ink-3); font-size: var(--t-micro); white-space: nowrap; }
+/* a tier: no line, the word in its colour beside its dot (spawn's .chat-wild-tier) */
+.sp-tag--tier { border-color: transparent; padding: 0; color: var(--tier); font-size: inherit; }

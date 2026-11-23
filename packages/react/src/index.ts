@@ -6,3 +6,8 @@ export { SegmentedControl, type SegmentedControlProps, type SegmentedOption } fr
 export { Switch, type SwitchProps } from './Switch/Switch'
 export { Checkbox, type CheckboxProps } from './Checkbox/Checkbox'
 export { RadioGroup, type RadioGroupProps } from './RadioGroup/RadioGroup'
+export { StatusDot, type StatusDotProps } from './StatusDot/StatusDot'
+export { Tag, type TagProps } from './Tag/Tag'
+export { Pill, type PillProps } from './Pill/Pill'
+export { Badge, type BadgeProps } from './Badge/Badge'
+export { Meter, meterTone, type MeterProps, type MeterKind, type MeterTone } from './Meter/Meter'
