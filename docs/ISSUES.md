@@ -26,6 +26,8 @@
 - [ ] ListRow item: 뒤쪽 버튼이 오른쪽 11px·간격 8. spawn의 휴지통은 absolute 오른쪽 8, 줄의 오른쪽 여백 40 → 휴지통 3px, 제목 폭 5px 차이. 쓸 수 없는 줄에도 hover가 보여요(spawn은 `:hover:not(:disabled)`). (plan 2 review)
 - [ ] SegmentedControl md(5px 10px)는 아직 spawn에 같은 것이 없어요. 적용할 때 맞출 것. (plan 1, Task 6)
 
+- [ ] UsageBars의 레일용 세로 막대 두 개(`.w-rail-usage`)는 아직 없어요. 레일을 옮길 때 추가. (plan 3, Task 6)
+
 ## 문서 사이트
 
 - [ ] Starlight 기본 모양이 spawn과 너무 달라요(사장님: "너무 구려"). 컴포넌트를 다 만든 뒤 spawn(paseo 느낌) 모양과 인터랙션으로 다시 만들기.
