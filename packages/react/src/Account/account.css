@@ -1,0 +1,6 @@
+/* spawn's .w-signin and .w-account (pokedex.css 292–305) */
+.sp-account__signin { -webkit-app-region: no-drag; flex: none; font: inherit; font-size: var(--t-meta); font-weight: var(--w-body); padding: 3px 10px; border-radius: var(--r-s); border: 0; white-space: nowrap; background: none; color: var(--ink-2); cursor: pointer; }
+.sp-account__signin:hover { background: var(--hover); color: var(--ink); }
+.sp-account__avatar { -webkit-app-region: no-drag; flex: none; width: 24px; height: 24px; border-radius: 50%; border: 1px solid var(--line); padding: 0; overflow: hidden; background: var(--card-2); color: var(--ink); font: inherit; font-size: var(--t-meta); font-weight: var(--w-name); cursor: pointer; display: grid; place-items: center; }
+.sp-account__avatar img { width: 100%; height: 100%; object-fit: cover; }
+.sp-account__signin:focus-visible, .sp-account__avatar:focus-visible { outline: 2px solid var(--ink-2); outline-offset: 1px; }

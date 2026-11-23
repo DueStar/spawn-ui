@@ -66,6 +66,8 @@ describe('the calm look, on every stylesheet', () => {
   it('radii (border-radius and its longhands) only var(--r-*), 0, 1px, 2px, 50 %; 999px only in switch.css and badge.css', () => {
     for (const d of decls()) {
       if (!/^border(-[a-z]+)*-radius$/.test(d.prop)) continue
+      // (an inner radius one px tighter than its box, as spawn's .w-list-mode buttons: calc(var(--r-*) - 1px))
+      if (/^calc\(var\(--r-[\w-]+\) - 1px\)$/.test(d.value)) continue
       for (const part of d.value.split(/[\s/]+/)) {
         const ok = /^var\(--r-[\w-]+\)$/.test(part) || ['0', '1px', '2px', '50%', 'inherit'].includes(part) || (part === '999px' && ['switch.css', 'badge.css'].includes(d.file))
         expect(ok, `${d.file} ${d.sel}: ${d.prop} ${d.value}`).toBe(true)
@@ -74,8 +76,8 @@ describe('the calm look, on every stylesheet', () => {
   })
 
   it('var(--accent) appears only in switch.css (the allow-list later plans extend: send, chosen row, picked cell)', () => {
-    // spawn's own yellow, by file: switch.css (.set-switch.on), session-row.css (.w-row.chosen::before)
-    const ACCENT_OK = ['switch.css', 'session-row.css']
+    // spawn's own yellow, by file: switch.css (.set-switch.on), session-row.css (.w-row.chosen::before), rail.css (.w-rail-session.on::before)
+    const ACCENT_OK = ['switch.css', 'session-row.css', 'rail.css']
     for (const d of decls()) if (/var\(--accent(?:-hover)?\)/.test(d.value)) expect(ACCENT_OK, `${d.file} ${d.sel} uses yellow`).toContain(d.file)
   })
 

@@ -1,0 +1,4 @@
+/* spawn's .w-list-head (widget.css): the mode first, the buttons pushed right */
+.sp-list-head { display: flex; align-items: center; gap: 4px; margin: 2px 0 6px; font-size: var(--t-meta); color: var(--ink-3); min-width: 0; }
+.sp-list-head > .sp-segmented { flex: none; margin-right: 2px; }
+.sp-list-head__actions { margin-left: auto; display: inline-flex; align-items: center; gap: 4px; }

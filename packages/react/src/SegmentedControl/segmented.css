@@ -6,3 +6,8 @@
 /* hovered: quieter than the chosen one — the faint fill, the words --ink-2; the chosen one is never restyled */
 .sp-segmented__item[aria-pressed="false"]:not(:disabled):hover { color: var(--ink-2); background: var(--hover); }
 .sp-segmented__item[aria-pressed="true"] { background: var(--sel-bg); color: var(--ink); }
+/* xs: the session list's mode (.w-list-mode): boxed in a hairline, small words, a 22px hit area around a small box */
+.sp-segmented--xs { flex: none; display: inline-flex; gap: 0; border: 1px solid var(--line); border-radius: var(--r-s); padding: 1px; }
+.sp-segmented--xs .sp-segmented__item { position: relative; min-width: 0; padding: 1px 7px; font-size: var(--t-micro); line-height: 1.4; border-radius: calc(var(--r-s) - 1px); }
+.sp-segmented--xs .sp-segmented__item::after { content: ''; position: absolute; left: 0; right: 0; top: 50%; height: 22px; transform: translateY(-50%); }
+.sp-segmented--xs .sp-segmented__item[aria-pressed="false"]:not(:disabled):hover { background: none; }

@@ -15,7 +15,7 @@ export interface SegmentedControlProps<T extends string> {
   options: SegmentedOption<T>[]
   onChange(value: T): void
   /** sm: the Pokédex's filters (24px) · md: a little roomier */
-  size?: 'sm' | 'md'
+  size?: 'xs' | 'sm' | 'md'
   className?: string
 }
 

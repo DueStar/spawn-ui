@@ -1,0 +1,6 @@
+/* spawn's .w-launch, .w-launch-main, .w-launch-alt (widget-expanded.css 30–75) */
+.sp-launcher { display: flex; gap: 2px; padding: 6px; border-radius: var(--r-l); min-width: 0; }
+.sp-launcher__main { flex: 1; min-width: 0; display: inline-flex; align-items: center; justify-content: flex-start; gap: 8px; min-height: 34px; padding: 7px 8px; font: inherit; font-size: var(--t-ui); font-weight: var(--w-body); color: var(--ink-2); background: none; border: 0; border-radius: var(--r-s); cursor: pointer; }
+.sp-launcher__alt { display: inline-flex; align-items: center; justify-content: center; width: 30px; color: var(--ink-3); background: none; border: 0; border-radius: var(--r-s); cursor: pointer; }
+.sp-launcher__main:hover, .sp-launcher__alt:hover { background: var(--hover); color: var(--ink); }
+.sp-launcher__main:focus-visible, .sp-launcher__alt:focus-visible { outline: 2px solid var(--ink-2); outline-offset: -2px; }
