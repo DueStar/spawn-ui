@@ -1,0 +1,9 @@
+/* spawn's .chat-code / .chat-copy (chat.css 62–70) */
+.sp-code { border: 1px solid var(--line); border-radius: var(--r-m); background: var(--term-bg); overflow: hidden; margin: 4px 0 10px; }
+.sp-code__head { display: flex; align-items: center; gap: 8px; padding: 3px 4px 3px 12px; border-bottom: 1px solid var(--line); font-size: var(--t-meta); color: var(--ink-3); min-height: 30px; }
+.sp-code__lang { flex: 1; min-width: 0; font-family: 'Monaspace Neon Var', Consolas, 'SF Mono', Menlo, monospace; font-weight: var(--w-mono); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.sp-code pre { margin: 0; padding: 10px 12px; font-family: 'Monaspace Neon Var', Consolas, 'SF Mono', Menlo, monospace; font-weight: var(--w-mono); font-size: var(--t-code); line-height: 1.6; color: var(--ink); overflow-x: auto; white-space: pre; }
+.sp-code pre code { font: inherit; padding: 0; background: none; border-radius: 0; }
+.sp-code__copy { display: inline-flex; align-items: center; gap: 4px; min-height: 24px; padding: 0 8px; border: 0; border-radius: var(--r-s); background: none; color: var(--ink-3); font: inherit; font-size: var(--t-meta); cursor: pointer; white-space: nowrap; }
+.sp-code__copy:hover { background: var(--hover); color: var(--ink); }
+.sp-code__copy:focus-visible { outline: 2px solid var(--ink-2); outline-offset: -2px; }

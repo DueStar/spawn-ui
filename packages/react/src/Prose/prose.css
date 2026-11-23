@@ -1,0 +1,25 @@
+/* spawn's .chat-prose (chat.css 9–28, 54–60) */
+.sp-prose { font-family: 'W Pretendard', 'Pretendard Variable', 'Malgun Gothic', 'Apple SD Gothic Neo', 'Hiragino Sans', system-ui, sans-serif; font-size: var(--t-prose); line-height: 1.7; color: var(--ink); overflow-wrap: anywhere; min-width: 0; }
+.sp-prose p, .sp-prose li, .sp-prose td, .sp-prose th, .sp-prose h1, .sp-prose h2, .sp-prose h3, .sp-prose h4, .sp-prose blockquote { unicode-bidi: isolate; }
+.sp-prose p { margin: 0 0 8px; }
+.sp-prose > :last-child, .sp-prose li > :last-child { margin-bottom: 0; }
+.sp-prose h1, .sp-prose h2, .sp-prose h3, .sp-prose h4 { font-size: var(--t-head); font-weight: 600; margin: 14px 0 6px; letter-spacing: -0.01em; color: var(--ink); line-height: 1.5; }
+.sp-prose h3, .sp-prose h4 { font-size: var(--t-prose); }
+.sp-prose > :first-child { margin-top: 0; }
+.sp-prose ol, .sp-prose ul { margin: 2px 0 8px; padding-left: 20px; }
+.sp-prose li { margin: 2px 0; padding-left: 2px; }
+.sp-prose li > ol, .sp-prose li > ul { margin: 2px 0; }
+.sp-prose li::marker { color: var(--ink-3); }
+.sp-prose strong { font-weight: 500; color: var(--ink); }
+.sp-prose em { font-style: italic; }
+.sp-prose del { color: var(--ink-3); text-decoration-color: var(--ink-3); }
+.sp-prose hr { border: 0; border-top: 1px solid var(--line); margin: 12px 0; }
+.sp-prose blockquote { margin: 4px 0 8px; padding: 0 0 0 12px; border-left: 1px solid var(--line-hover); color: var(--ink-2); }
+.sp-prose code { font-family: 'Monaspace Neon Var', Consolas, 'SF Mono', Menlo, monospace; font-weight: var(--w-mono); font-size: calc(var(--t-prose) - 1px); padding: 1px 5px; border-radius: var(--r-xs); background: rgba(255, 255, 255, 0.06); }
+.sp-prose a { color: var(--ink); text-decoration: underline; text-decoration-color: rgba(255, 255, 255, 0.28); text-underline-offset: 3px; border-radius: var(--r-xs); }
+.sp-prose a:hover { text-decoration-color: var(--ink); }
+.sp-prose table { border-collapse: collapse; width: 100%; font-size: calc(var(--t-prose) - 1px); line-height: 1.5; }
+.sp-prose th { text-align: left; font-weight: 500; font-size: var(--t-meta); color: var(--ink-3); padding: 0 12px 6px 0; border-bottom: 1px solid var(--line); white-space: nowrap; }
+.sp-prose td { padding: 7px 12px 7px 0; border-bottom: 1px solid var(--line); color: var(--ink-2); vertical-align: top; overflow-wrap: normal; }
+.sp-prose td:first-child { white-space: nowrap; }
+.sp-prose tr:last-child td { border-bottom: 0; }

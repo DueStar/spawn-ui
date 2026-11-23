@@ -1,0 +1,12 @@
+/* spawn's .chat-mddoc (chat.css 558–569): a well on --card, its two views on a faint track */
+.sp-mddoc { margin: 4px 0 10px; border: 1px solid var(--line); border-radius: var(--r-m); background: var(--card); overflow: hidden; }
+.sp-mddoc__head { display: flex; align-items: center; gap: 8px; min-height: 30px; padding: 3px 4px 3px 12px; border-bottom: 1px solid var(--line); font-size: var(--t-meta); color: var(--ink-3); }
+.sp-mddoc__title { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.sp-mddoc__tabs { flex: none; padding: 2px; gap: 2px; border-radius: var(--r-s); background: rgba(255, 255, 255, 0.04); }
+.sp-mddoc__tabs .sp-segmented__item { padding: 1px 8px; border-radius: var(--r-xs); }
+.sp-mddoc__tabs .sp-segmented__item[aria-pressed="true"] { background: var(--hover); }
+.sp-mddoc__body { padding: 14px 18px 12px; }
+.sp-mddoc__body--folded { max-height: 420px; overflow: hidden; -webkit-mask-image: linear-gradient(to bottom, #000 80%, transparent); mask-image: linear-gradient(to bottom, #000 80%, transparent); }
+.sp-mddoc__body--raw { font-family: 'Monaspace Neon Var', Consolas, 'SF Mono', Menlo, monospace; font-weight: var(--w-mono); font-size: var(--t-code); white-space: pre-wrap; }
+.sp-mddoc__body h1 { font-size: calc(var(--t-head) + 2px); margin: 18px 0 8px; }
+.sp-mddoc__body h2 { font-size: var(--t-head); margin: 18px 0 8px; padding-bottom: 6px; border-bottom: 1px solid var(--line); }
