@@ -1,0 +1,30 @@
+/* spawn's tabs merged: .w-sess-tab(s) (top: the session tabs over the panes) and .set-nav (vertical: settings) */
+.sp-tabs__list { display: flex; gap: 2px; min-width: 0; }
+.sp-tabs__item { position: relative; display: flex; align-items: center; min-width: 0; }
+.sp-tabs__tab { display: flex; align-items: center; gap: 6px; min-width: 0; font: inherit; font-size: var(--t-ui); text-align: left; background: transparent; border: 0; color: var(--ink-2); cursor: pointer; }
+.sp-tabs__tab:focus-visible { outline: 2px solid var(--ink-2); outline-offset: -2px; }
+.sp-tabs__label { min-width: 0; }
+.sp-tabs__picture { display: inline-grid; place-items: center; width: 18px; height: 18px; flex: none; }
+.sp-tabs__close { opacity: 0; }
+.sp-tabs__item:hover .sp-tabs__close, .sp-tabs__item:focus-within .sp-tabs__close, .sp-tabs__item[data-on] .sp-tabs__close { opacity: 1; }
+
+/* top: rounded on top, the chosen one --hover with a 2px underline */
+.sp-tabs--top .sp-tabs__list { align-items: stretch; }
+.sp-tabs--top .sp-tabs__item { max-width: 260px; border-radius: var(--r-s) var(--r-s) 0 0; }
+.sp-tabs--top .sp-tabs__tab { align-self: stretch; padding: 0 4px 0 8px; border-radius: var(--r-s) var(--r-s) 0 0; color: var(--ink-3); }
+.sp-tabs--top .sp-tabs__item:hover { background: var(--hover); }
+.sp-tabs--top .sp-tabs__item:hover .sp-tabs__tab { color: var(--ink-2); }
+.sp-tabs--top .sp-tabs__item[data-on] { background: var(--hover); box-shadow: inset 0 -2px 0 var(--ink-2); }
+.sp-tabs--top .sp-tabs__item[data-on] .sp-tabs__tab { color: var(--ink); cursor: default; }
+.sp-tabs--top .sp-tabs__item[data-on] .sp-tabs__picture { width: 20px; height: 20px; }
+
+/* vertical: the settings' column; a row when the window is narrow */
+.sp-tabs--vertical { display: flex; min-height: 0; }
+.sp-tabs--vertical .sp-tabs__list { flex-direction: column; }
+.sp-tabs--vertical .sp-tabs__tab { flex: 1; min-height: 32px; padding: 7px 10px; border-radius: var(--r-s); font-size: var(--t-ui); font-weight: var(--w-body); }
+.sp-tabs--vertical .sp-tabs__tab:hover { color: var(--ink); background: var(--hover); }
+.sp-tabs--vertical .sp-tabs__item[data-on] .sp-tabs__tab { background: var(--sel-bg); color: var(--ink); }
+@media (max-width: 560px) {
+  .sp-tabs--vertical { flex-direction: column; }
+  .sp-tabs--vertical .sp-tabs__list { flex-direction: row; flex-wrap: wrap; }
+}
