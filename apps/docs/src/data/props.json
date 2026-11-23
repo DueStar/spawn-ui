@@ -1,0 +1,366 @@
+{
+  "Badge": [
+    {
+      "name": "tone",
+      "type": "\"new\" | \"count\"",
+      "required": true,
+      "default": null,
+      "description": "new: a word (NEW) · count: a number"
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    }
+  ],
+  "Button": [
+    {
+      "name": "variant",
+      "type": "\"solid\" | \"outline\" | \"ghost\" | \"link\"",
+      "required": false,
+      "default": "outline",
+      "description": "outline: a hairline (the default) · solid: filled with ink, the one strong action · ghost: no line · link: underlined words"
+    },
+    {
+      "name": "size",
+      "type": "\"xs\" | \"sm\" | \"md\"",
+      "required": false,
+      "default": "sm",
+      "description": "xs 24px (the chat's buttons) · sm 28px (a card's buttons, the default) · md (dialogs and settings)"
+    }
+  ],
+  "Checkbox": [
+    {
+      "name": "label",
+      "type": "ReactNode",
+      "required": true,
+      "default": null,
+      "description": "Shown beside the mark and said to screen readers"
+    },
+    {
+      "name": "checked",
+      "type": "boolean",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "onCheckedChange",
+      "type": "(checked: boolean) => void",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    }
+  ],
+  "Icon": [
+    {
+      "name": "icon",
+      "type": "Icon",
+      "required": true,
+      "default": null,
+      "description": "A Phosphor icon (`import { Gear } from '@phosphor-icons/react'`)"
+    },
+    {
+      "name": "size",
+      "type": "number",
+      "required": false,
+      "default": "16",
+      "description": "Pixels; snapped to 12, 14 or 16"
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": "Said to screen readers; without it the icon is decoration"
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    }
+  ],
+  "ICON_SIZES": [],
+  "ICON_WEIGHT": [],
+  "iconStep": [],
+  "IconButton": [
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "description": "What it does: its name for screen readers and its tooltip"
+    },
+    {
+      "name": "icon",
+      "type": "Icon",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "size",
+      "type": "\"xs\" | \"sm\" | \"md\" | \"lg\"",
+      "required": false,
+      "default": "md",
+      "description": "xs 20px (a tab's ×) · sm 22px (a chip's ×) · md 24×22 (the header's buttons, the default) · lg 38px (the folded rail)"
+    },
+    {
+      "name": "pressed",
+      "type": "boolean",
+      "required": false,
+      "default": null,
+      "description": "Shown while pressed (a toggle): aria-pressed"
+    }
+  ],
+  "meterTone": [],
+  "Meter": [
+    {
+      "name": "kind",
+      "type": "MeterKind",
+      "required": true,
+      "default": null,
+      "description": "usage: a 2px limit bar · hp: the 3px context bar · stat: a Pokémon's stat"
+    },
+    {
+      "name": "value",
+      "type": "number",
+      "required": true,
+      "default": null,
+      "description": "0–1 (clamped)"
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "description": "Its name for screen readers"
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    }
+  ],
+  "Pill": [
+    {
+      "name": "mood",
+      "type": "\"working\" | \"needs-you\" | \"error\" | \"idle\"",
+      "required": true,
+      "default": null,
+      "description": "working (green dot) · needs-you (amber dot, words --ink-2) · error (red dot) · idle (grey)"
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "onClick",
+      "type": "((e: MouseEvent<HTMLButtonElement, MouseEvent>) => void)",
+      "required": false,
+      "default": null,
+      "description": "A button when given (spawn: 확인 필요 opens the session)"
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    }
+  ],
+  "RadioGroup": [
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "description": "The group's name for screen readers"
+    },
+    {
+      "name": "value",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "onValueChange",
+      "type": "(value: T) => void",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "options",
+      "type": "{ value: T; label: ReactNode; disabled?: boolean | undefined; }[]",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    }
+  ],
+  "SegmentedControl": [
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "description": "The group's name for screen readers (정렬, 보기 …)"
+    },
+    {
+      "name": "value",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "options",
+      "type": "SegmentedOption<T>[]",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "onChange",
+      "type": "(value: T) => void",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "size",
+      "type": "\"sm\" | \"md\"",
+      "required": false,
+      "default": "sm",
+      "description": "sm: the Pokédex's filters (24px) · md: a little roomier"
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    }
+  ],
+  "StatusDot": [
+    {
+      "name": "tone",
+      "type": "\"neutral\" | \"green\" | \"amber\" | \"danger\"",
+      "required": false,
+      "default": "neutral",
+      "description": "neutral grey · green (working) · amber (waits on you) · danger (an error)"
+    },
+    {
+      "name": "tier",
+      "type": "Tier",
+      "required": false,
+      "default": null,
+      "description": "A tier's colour instead of a tone"
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": "Said to screen readers (a dot never says it by colour alone)"
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    }
+  ],
+  "Switch": [
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "description": "Its name for screen readers (the setting it turns on)"
+    },
+    {
+      "name": "checked",
+      "type": "boolean",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "onCheckedChange",
+      "type": "(checked: boolean) => void",
+      "required": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    }
+  ],
+  "Tag": [
+    {
+      "name": "tier",
+      "type": "Tier",
+      "required": false,
+      "default": null,
+      "description": "A tier: its dot beside the word, the word in the tier's colour (never a filled chip)"
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": "The whole text on hover (a string child is used when left out)"
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    }
+  ]
+}

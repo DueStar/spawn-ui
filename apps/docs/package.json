@@ -1,0 +1,19 @@
+{
+  "name": "@spawn-ui/docs",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "props": "tsx scripts/props.ts",
+    "dev": "npm run props && astro dev",
+    "build": "npm run props && astro build",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@astrojs/react": "^7.1.9",
+    "@astrojs/starlight": "^0.43.1",
+    "@spawn-ui/react": "*",
+    "@spawn-ui/tokens": "*",
+    "astro": "^7.4.13",
+    "react-docgen-typescript": "^2.4.0"
+  }
+}

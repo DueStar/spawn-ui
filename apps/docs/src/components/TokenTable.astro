@@ -1,0 +1,33 @@
+---
+import { contrast, tokens } from '@spawn-ui/tokens'
+interface Props { group: 'surface' | 'ink' | 'line' | 'accent' | 'status' | 'reward' | 'tier'; lang?: 'ko' | 'en' }
+const { group, lang = 'ko' } = Astro.props
+const GROUPS: Record<string, string[]> = {
+  surface: ['bg', 'side-bg', 'card', 'card-2', 'term-bg', 'toast-bg'],
+  ink: ['ink', 'ink-2', 'ink-3'],
+  line: ['line', 'line-hover', 'track', 'hover', 'sel-bg', 'row-sel-bg'],
+  accent: ['accent', 'accent-hover', 'accent-ink'],
+  status: ['green', 'amber', 'danger', 'red-text', 'hp'],
+  reward: ['new-dot', 'new-badge', 'shiny', 'metal-1', 'metal-2', 'metal-3'],
+}
+const rows = group === 'tier'
+  ? Object.entries(tokens.tier).map(([k, v]) => ({ name: `tier-${k}`, value: v }))
+  : GROUPS[group].map(k => ({ name: k, value: tokens.color[k] }))
+// (a surface's own ratio to another surface says nothing: only colours used as text or marks get one)
+const ratio = (v: string, bg: string) => (group !== 'surface' && v.startsWith('#') ? contrast(v, tokens.color[bg]).toFixed(1) : '—')
+const head = lang === 'en' ? ['', 'Token', 'Value', 'on --bg', 'on --card'] : ['', '토큰', '값', '--bg 위', '--card 위']
+---
+<table class="dsp-tokens">
+  <thead><tr>{head.map(h => <th>{h}</th>)}</tr></thead>
+  <tbody>
+    {rows.map(r => (
+      <tr>
+        <td><span class="dsp-swatch" style={`background: var(--${r.name.startsWith('tier-') ? 'tier' : r.name})`} class:list={[r.name.startsWith('tier-') && r.name]} /></td>
+        <td><code>--{r.name.startsWith('tier-') ? `tier (.${r.name})` : r.name}</code></td>
+        <td><code>{r.value}</code></td>
+        <td>{ratio(r.value, 'bg')}</td>
+        <td>{ratio(r.value, 'card')}</td>
+      </tr>
+    ))}
+  </tbody>
+</table>

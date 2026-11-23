@@ -1,0 +1,28 @@
+---
+title: 설치
+description: spawn-ui를 프로젝트에 넣는 법
+---
+
+spawn-ui 패키지는 각 릴리스의 GitHub Release에 파일(tarball)로 올라가요. npm에는 아직 올리지 않았어요.
+
+```bash
+npm install https://github.com/DueStar/spawn-ui/releases/download/v0.1.0/spawn-ui-tokens-0.1.0.tgz \
+            https://github.com/DueStar/spawn-ui/releases/download/v0.1.0/spawn-ui-react-0.1.0.tgz
+```
+
+앱의 첫 화면에서 스타일을 한 번 불러와요. 토큰이 먼저, 컴포넌트가 그다음 순서로 묶여 있어요.
+
+```tsx
+import '@spawn-ui/react/styles.css'
+import { Button } from '@spawn-ui/react'
+
+export function Save() {
+  return <Button variant="solid">저장</Button>
+}
+```
+
+## 필요한 것
+
+- React 18.3 이상
+- 어두운 바탕. spawn-ui는 spawn처럼 어두운 화면만 있어요.
+- 글자 크기를 바꾸려면 `<html>`에 `ts-80` … `ts-130` 클래스를 붙이거나, 일부에만 `sp-ts-80` … 을 붙여요.

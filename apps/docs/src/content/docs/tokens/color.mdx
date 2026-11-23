@@ -1,0 +1,42 @@
+---
+title: 색
+description: 바탕, 글자, 선, 노랑, 상태, 보상, 등급
+---
+
+import TokenTable from '../../../components/TokenTable.astro'
+
+명암비는 각 색이 `--bg`와 `--card` 위에서 갖는 값이에요. 글자로 쓰는 색은 본문 4.5:1, 보조 3:1 이상이어야 해요.
+
+## 바탕
+
+<TokenTable group="surface" />
+
+## 글자 — 세 가지 회색
+
+<TokenTable group="ink" />
+
+## 선과 선택
+
+반투명 흰색이라 어느 바탕 위에서도 같은 느낌으로 보여요.
+
+<TokenTable group="line" />
+
+## 노랑 — 고른 것에만
+
+<TokenTable group="accent" />
+
+## 상태
+
+<TokenTable group="status" />
+
+## 보상
+
+보상의 색은 그대로 두어요. 새 포켓몬 배지, 이로치, 랭킹 메달이에요.
+
+<TokenTable group="reward" />
+
+## 등급
+
+등급 색은 정보예요. 글자와 점에만 쓰고 바탕을 칠하지 않아요.
+
+<TokenTable group="tier" />

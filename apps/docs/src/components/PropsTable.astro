@@ -1,0 +1,21 @@
+---
+import props from '../data/props.json'
+interface Props { of: string; lang?: 'ko' | 'en' }
+const { of, lang = 'ko' } = Astro.props
+const rows = ((props as Record<string, { name: string; type: string; required: boolean; default: string | null; description: string }[]>)[of] ?? [])
+  .filter(r => !['className'].includes(r.name))
+const head = lang === 'en' ? ['Prop', 'Type', 'Default', 'Description'] : ['속성', '타입', '기본값', '설명']
+---
+<table class="dsp-props">
+  <thead><tr>{head.map(h => <th>{h}</th>)}</tr></thead>
+  <tbody>
+    {rows.map(r => (
+      <tr>
+        <td><code>{r.name}{r.required ? '' : '?'}</code></td>
+        <td><code>{r.type}</code></td>
+        <td>{r.default !== null ? <code>{r.default}</code> : '—'}</td>
+        <td>{r.description}</td>
+      </tr>
+    ))}
+  </tbody>
+</table>

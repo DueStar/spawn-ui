@@ -1,0 +1,14 @@
+---
+title: Motion
+description: Short, quiet transitions
+---
+
+| Token | Value | Used for |
+|---|---|---|
+| `--ease` | `cubic-bezier(0.2, 0, 0, 1)` | every transition |
+| `--dur-fast` | 120ms | a dropped row settling, a pane half lighting up |
+| `--dur-base` | 180ms | rows sliding aside, the switch |
+
+- Things come and go whole rather than clipped: no row slides half cut.
+- A motion the user has accepted is not changed along the way of other work.
+- With `prefers-reduced-motion: reduce`, every transition and animation stops.

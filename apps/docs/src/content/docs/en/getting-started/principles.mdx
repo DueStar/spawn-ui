@@ -1,0 +1,38 @@
+---
+title: Design Principles
+description: The rules spawn kept as tests, and why
+---
+
+Every rule below is a test. A component that breaks one fails the build.
+
+## Yellow is rare
+
+Yellow (`--accent`) marks **what is chosen** and nothing else: the chosen session, the picked cell, send, the update button, a switch turned on. Even when something seems to need emphasis, yellow is not added: it is rare so that the chosen thing stands out at a glance. The strong action button (`Button variant="solid"`) is ink, not yellow.
+
+## Three greys
+
+Text comes in three greys only: `--ink` (body), `--ink-2` (secondary), `--ink-3` (quiet).
+
+- Body text is **4.5:1 or more** on every surface; secondary and quiet text **3:1 or more**.
+- Tier colours are 3:1 or more on every surface too.
+
+## Never colour alone
+
+A state is said by a dot and a word together. A tier is always its dot beside its name, never a chip filled with the tier's colour. Status dots carry text for screen readers.
+
+## One focus ring
+
+Only keyboard focus shows a ring: `2px solid var(--ink-2)`. None on a click, never yellow. Rows and menu items, which sit flush with their neighbours, draw it inside (-2px).
+
+## Weights and radii
+
+- Weights are 380 (code), 400 (body), 500 (names) and 600 (headings) only.
+- Radii are the `--r-*` tokens, 0, 1px, 2px and 50 % only. Fully round (999px) is for the switch and badges alone.
+
+## Grow with the text size
+
+spawn's text size goes from 80 % to 130 %, so components never set font sizes in px: only the `--t-*` tokens. Try it with the 80–130 % buttons above every preview.
+
+## Motion: short and quiet
+
+Transitions take 120–180ms on one easing, `cubic-bezier(0.2, 0, 0, 1)`. When the system asks for less motion, every transition and animation stops. Nothing glints or spins to say it is working.

@@ -1,0 +1,28 @@
+---
+title: Installation
+description: Adding spawn-ui to a project
+---
+
+spawn-ui's packages are attached to each GitHub Release as tarballs; they are not on npm yet.
+
+```bash
+npm install https://github.com/DueStar/spawn-ui/releases/download/v0.1.0/spawn-ui-tokens-0.1.0.tgz \
+            https://github.com/DueStar/spawn-ui/releases/download/v0.1.0/spawn-ui-react-0.1.0.tgz
+```
+
+Load the styles once, at the app's entry. Tokens come first, then the components.
+
+```tsx
+import '@spawn-ui/react/styles.css'
+import { Button } from '@spawn-ui/react'
+
+export function Save() {
+  return <Button variant="solid">Save</Button>
+}
+```
+
+## Requirements
+
+- React 18.3 or later
+- A dark page: spawn-ui, like spawn, is dark only.
+- To change the text size, put `ts-80` … `ts-130` on `<html>`, or `sp-ts-80` … on one part of the page.

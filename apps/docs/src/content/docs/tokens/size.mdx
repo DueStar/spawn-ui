@@ -1,0 +1,22 @@
+---
+title: 크기와 모서리
+description: 모서리, 높이, 간격
+---
+
+import { tokens } from '@spawn-ui/tokens'
+
+## 모서리
+
+<table>
+  <thead><tr><th></th><th>토큰</th><th>값</th></tr></thead>
+  <tbody>{Object.entries(tokens.radius).map(([k, v]) => <tr><td><span class="dsp-swatch" style={`border-radius: var(--${k}); background: var(--card-2)`} /></td><td><code>--{k}</code></td><td>{v}</td></tr>)}</tbody>
+</table>
+
+이 밖에는 0, 1px, 2px, 50%(원)만 써요. 999px은 스위치와 배지뿐이에요.
+
+## 높이와 간격
+
+<table>
+  <thead><tr><th>토큰</th><th>값</th></tr></thead>
+  <tbody>{Object.entries(tokens.measure).map(([k, v]) => <tr><td><code>--{k}</code></td><td>{v}</td></tr>)}</tbody>
+</table>

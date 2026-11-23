@@ -1,0 +1,39 @@
+---
+title: 글꼴
+description: 글자 크기 단계, 굵기, 글꼴
+---
+
+import { tokens } from '@spawn-ui/tokens'
+
+## 크기 단계
+
+글자 크기는 아홉 단계예요. 100%가 기본이고, spawn의 글자 크기 설정에 따라 80%~130%로 바뀌어요.
+
+<table>
+  <thead><tr><th>토큰</th><th>쓰임</th>{[80, 90].map(n => <th>{n}%</th>)}<th>100%</th>{[110, 120, 130].map(n => <th>{n}%</th>)}</tr></thead>
+  <tbody>
+    {Object.entries(tokens.type).map(([k, v]) => (
+      <tr>
+        <td><code>--t-{k}</code></td>
+        <td>{{ micro: '태그, 배지', meta: '보조 정보, 작은 버튼', ui: '버튼, 메뉴, 컨트롤', name: '세션 이름', prose: '채팅 본문', num: '숫자', head: '제목', big: '큰 제목', code: '코드' }[k]}</td>
+        {[80, 90].map(n => <td>{tokens.typeScale[n][k]}px</td>)}
+        <td><b>{v}px</b></td>
+        {[110, 120, 130].map(n => <td>{tokens.typeScale[n][k]}px</td>)}
+      </tr>
+    ))}
+  </tbody>
+</table>
+
+## 굵기
+
+| 토큰 | 값 | 쓰임 |
+|---|---|---|
+| `--w-mono` | 380 | 코드 |
+| `--w-body` | 400 | 본문 |
+| `--w-name`, `--w-strong` | 500 | 이름, 강조 |
+| `--w-head` | 600 | 제목, 로고 |
+
+## 글꼴
+
+- 본문: Pretendard (한국어), 없으면 맑은 고딕 · Apple SD Gothic Neo
+- 코드: Monaspace Neon, 없으면 Consolas · SF Mono

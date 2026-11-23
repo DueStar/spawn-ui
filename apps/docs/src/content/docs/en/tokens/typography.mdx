@@ -1,0 +1,39 @@
+---
+title: Typography
+description: Text steps, weights, typefaces
+---
+
+import { tokens } from '@spawn-ui/tokens'
+
+## Steps
+
+Nine text steps. 100 % is the default; spawn's text size setting moves them from 80 % to 130 %.
+
+<table>
+  <thead><tr><th>Token</th><th>Used for</th>{[80, 90].map(n => <th>{n}%</th>)}<th>100%</th>{[110, 120, 130].map(n => <th>{n}%</th>)}</tr></thead>
+  <tbody>
+    {Object.entries(tokens.type).map(([k, v]) => (
+      <tr>
+        <td><code>--t-{k}</code></td>
+        <td>{{ micro: 'tags, badges', meta: 'secondary text, small buttons', ui: 'buttons, menus, controls', name: 'session names', prose: 'chat prose', num: 'numbers', head: 'headings', big: 'large headings', code: 'code' }[k]}</td>
+        {[80, 90].map(n => <td>{tokens.typeScale[n][k]}px</td>)}
+        <td><b>{v}px</b></td>
+        {[110, 120, 130].map(n => <td>{tokens.typeScale[n][k]}px</td>)}
+      </tr>
+    ))}
+  </tbody>
+</table>
+
+## Weights
+
+| Token | Value | Used for |
+|---|---|---|
+| `--w-mono` | 380 | code |
+| `--w-body` | 400 | body |
+| `--w-name`, `--w-strong` | 500 | names, emphasis |
+| `--w-head` | 600 | headings, the wordmark |
+
+## Typefaces
+
+- Text: Pretendard (Korean), then Malgun Gothic · Apple SD Gothic Neo
+- Code: Monaspace Neon, then Consolas · SF Mono

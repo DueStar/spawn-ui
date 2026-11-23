@@ -1,0 +1,24 @@
+---
+title: Introduction
+description: What spawn-ui is and why it exists
+---
+
+spawn-ui is the design system of [spawn](https://github.com/DueStar/spawn), a desktop app for working with Claude Code sessions alongside Pokémon. While a session works, its Pokémon works with it; while you wait, you fill your Pokédex.
+
+spawn-ui holds three things:
+
+- **`@spawn-ui/tokens`** — colour, type, size, radius and motion values, exactly as spawn uses them.
+- **`@spawn-ui/react`** — components: from the common ones like buttons to spawn's own — the session row, the HP bar, the Pokédex cell, the chat's permission card. Everything spawn's screens use.
+- **These docs** — every component live, at every text size, with its props.
+
+## Why
+
+spawn drew its CSS screen by screen, so the same button grew several names. An inventory found 73 visual families defined 257 separate times. The numbers are on [Why spawn-ui](../why/).
+
+spawn also had rules it kept as tests: yellow only on what is chosen, one focus ring, body text at 4.5:1 or more. spawn-ui carries those rules over and tests every component against them. A component that breaks one does not get built.
+
+## Principles
+
+- **spawn's own** — not a general library: a system for spawn's calm dark screens.
+- **What actually runs** — the components here are the ones spawn uses, not pictures or copies.
+- **Screens stay as they are** — moving spawn onto spawn-ui changes no pixel. Changes are decided separately.
