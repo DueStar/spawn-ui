@@ -14,6 +14,8 @@
 - [ ] 메뉴 제목이 `role="menu"` 안의 그냥 `div`라 화면 읽기에서 빠져요. `Menu.Group` + `GroupLabel`로. (plan 2 review)
 - [ ] 툴팁 내용을 화면 읽기가 읽지 않아요(Base UI 1.9가 `aria-describedby`를 안 붙여요). 문서에 "트리거에 이름이 따로 있어야 한다"고 적거나 직접 연결. (plan 2 review)
 
+- [ ] SessionRow는 spawn처럼 `role="button"` 줄 안에 ✎·× 버튼이 들어 있어요(버튼 안의 버튼, axe `nested-interactive`). 줄을 목록 항목 + 안쪽 열기 버튼으로 바꾸면 spawn 구조와 하네스가 바뀌어요. (plan 3, Task 3)
+
 ## 동작
 
 - [ ] 툴팁의 자동 닫힘 타이머가, 바깥이 `onOpenChange`를 매번 새로 넘기면 처음부터 다시 세요. ref로 바꾸기. (plan 2 review)
