@@ -11,7 +11,8 @@ export function rule(text: string, sel: string): Record<string, string> {
   const out: Record<string, string> = {}
   postcss.parse(text).walkRules((r: Rule) => {
     // (as the page is with motion on: a reduced-motion rule is not the normal look)
-    if (r.parent?.type === 'atrule' && /prefers-reduced-motion/.test((r.parent as postcss.AtRule).params)) return
+    // (the normal look: not a reduced-motion rule, nor a narrow-window or container one)
+    if (r.parent?.type === 'atrule' && /prefers-reduced-motion|max-width|min-width/.test((r.parent as postcss.AtRule).params)) return
     if (r.selectors.map(x => x.trim()).includes(sel)) r.walkDecls(d => { out[d.prop] = d.value })
   })
   return out
