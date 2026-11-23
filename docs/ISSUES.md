@@ -28,6 +28,15 @@
 - [ ] 간략 줄: 다음 줄에서 Shift+Tab으로 돌아오면 ×를 건너뛰어요(spawn도 같음). (plan 3 review)
 - [ ] UsageBars 불러오는 중: 빛 .12 vs spawn .10, spawn은 %·초기화를 숨기고 막대를 넓혀요. (plan 3 review)
 
+- [ ] Composer: spawn의 자체 조합(compositionstart/end) 추적이 없어요(isComposing·229만 봐요). (plan 4 review)
+- [ ] 질문 카드: 답한 뒤에도 선택지를 바꿀 수 있어요. spawn은 고른 것만 진하게, 나머지는 흐리게. QuestionBody에 `disabled`/`chosen`. (plan 4 review)
+- [ ] Lightbox: × 버튼에 포커스가 가면 ← →가 안 먹어요. 테스트도 사진 2장이라 ←/→를 구분 못 해요. (plan 4 review)
+- [ ] LinkCard에 spawn의 `title={url}`(마우스를 올리면 주소)이 없어요. http/https 검사는 앱 몫. (plan 4 review)
+- [ ] 잘리는데 title이 없는 곳: SuggestionList 설명, MdDoc 제목. (plan 4 review)
+- [ ] 작은 픽셀 차이: `.sp-think` min-width 0, 패널 diff 마지막 칸 padding-right 10, `.sp-og` margin 2px 0 10px, JumpPill 감싸개, ImageChip `loading`. (plan 4 review)
+- [ ] 노랑 허용이 파일 단위라 composer.css에 다른 노랑이 생겨도 통과해요. `.sp-composer__send`로 좁히기. (plan 4 review)
+- [ ] test/css.ts `rule()`이 좁은 화면 규칙을 건너뛰어요. 좁은 화면 모습을 보는 옵션(`{ at }`) 추가. (plan 4 review)
+
 ## 동작
 
 - [ ] 툴팁의 자동 닫힘 타이머가, 바깥이 `onOpenChange`를 매번 새로 넘기면 처음부터 다시 세요. ref로 바꾸기. (plan 2 review)

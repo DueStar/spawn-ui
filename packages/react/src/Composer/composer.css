@@ -7,7 +7,9 @@
 .sp-composer__box { position: relative; display: flex; flex-direction: column; gap: 6px; padding: 8px 8px 8px 12px; background: var(--card); border: 1px solid var(--line); border-radius: var(--r-l); }
 .sp-composer__box:focus-within { border-color: rgba(255, 255, 255, 0.16); }
 .sp-composer__chips { display: flex; flex-wrap: wrap; gap: 6px; }
-.sp-composer__input { display: block; width: 100%; min-height: 22px; max-height: 160px; margin: 0; padding: 2px 0; box-sizing: border-box; border: 0; outline: 1px solid transparent; resize: none; overflow-y: auto; background: none; color: var(--ink); font-family: 'W Pretendard', 'Pretendard Variable', 'Malgun Gothic', 'Apple SD Gothic Neo', 'Hiragino Sans', system-ui, sans-serif; font-size: var(--t-prose); line-height: 1.6; }
+.sp-composer__input { display: block; width: 100%; min-height: 22px; max-height: 160px; margin: 0; padding: 2px 0; box-sizing: border-box; border: 0; outline: 1px solid transparent; resize: none; overflow-y: hidden; background: none; color: var(--ink); font-family: 'W Pretendard', 'Pretendard Variable', 'Malgun Gothic', 'Apple SD Gothic Neo', 'Hiragino Sans', system-ui, sans-serif; font-size: var(--t-prose); line-height: 1.6; }
+/* the field's hidden twin, only to measure the text's height */
+.sp-composer__twin { position: absolute; top: 0; left: 0; height: 0; min-height: 0; overflow: hidden; visibility: hidden; pointer-events: none; }
 .sp-composer__input::placeholder { color: var(--ink-3); opacity: 1; }
 .sp-composer__input[readonly] { color: var(--ink-3); }
 .sp-composer__input[aria-busy="true"] { color: var(--ink-2); }

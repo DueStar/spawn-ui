@@ -17,7 +17,7 @@ describe('DiffBlock', () => {
     const open = vi.fn()
     render(<DiffBlock file="src/a.ts" kind="수정" lines={LINES} added={1} removed={1} onOpenFile={open} countsLabel="추가 1줄, 삭제 1줄" />)
     fireEvent.click(screen.getByRole('button', { name: 'src/a.ts' })); expect(open).toHaveBeenCalledTimes(1)
-    expect(screen.getByLabelText('추가 1줄, 삭제 1줄').textContent).toBe('+1−1')
+    expect(document.querySelector('.sp-diff__counts')?.textContent).toBe('+1−1추가 1줄, 삭제 1줄')
     expect(rule(c(), '.sp-diff')).toMatchObject({ background: 'var(--term-bg)', 'border-radius': 'var(--r-m)' })
     expect(rule(c(), '.sp-diff__head')).toMatchObject({ 'min-height': '30px', padding: '2px 10px' })
   })

@@ -1,5 +1,5 @@
 /* spawn's .chat-agent-chip (chat.css 620–628) */
-.sp-agent-chip { flex: 0 1 auto; min-width: 0; max-width: 340px; display: inline-flex; align-items: center; gap: 7px; height: 28px; padding: 0 11px 0 10px; border: 1px solid var(--line); border-radius: var(--r-l); background: rgba(255, 255, 255, 0.025); color: var(--ink-2); font: inherit; font-size: var(--t-meta); white-space: nowrap; cursor: pointer; }
+.sp-agent-chip { flex: 0 1 auto; min-width: 0; max-width: 340px; display: inline-flex; align-items: center; gap: 7px; height: 28px; padding: 0 11px 0 10px; border: 1px solid var(--line); border-radius: var(--r-l); background: rgba(255, 255, 255, 0.025); color: var(--ink-2); font: inherit; font-size: var(--t-meta); white-space: nowrap; cursor: pointer; transition: background-color .15s ease, border-color .15s ease, color .15s ease; animation: sp-chip-in .28s cubic-bezier(.2, .7, .2, 1) both; }
 .sp-agent-chip:hover:not(:disabled), .sp-agent-chip--on { background: var(--hover); border-color: var(--line-hover); color: var(--ink); }
 .sp-agent-chip:focus-visible { outline: 2px solid var(--ink-2); outline-offset: 1px; }
 .sp-agent-chip__name { flex: 0 1 auto; min-width: 0; max-width: 190px; overflow: hidden; text-overflow: ellipsis; }
@@ -9,3 +9,13 @@
 .sp-agent-chip__mark i { width: 6px; height: 6px; border-radius: 50%; background: var(--green); }
 .sp-agent-chip--wait .sp-agent-chip__mark i { background: var(--amber); }
 .sp-agent-chip--done .sp-agent-chip__mark i { background: var(--ink-3); }
+/* spawn's motion (chat-game.css 50–62): in .28s; finished, out .32s after 1.25s; the running dot breathes */
+.sp-agent-chip--gone { animation: sp-chip-out .32s ease 1.25s forwards; }
+.sp-agent-chip--run .sp-agent-chip__mark i { animation: sp-halo 1.6s ease-in-out infinite; }
+@keyframes sp-chip-in { from { opacity: 0; transform: translateY(4px); } }
+@keyframes sp-chip-out { to { opacity: 0; transform: scale(.96); } }
+@keyframes sp-halo { 0%, 100% { opacity: 0.25; } 25% { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) {
+  .sp-agent-chip, .sp-agent-chip--gone { transition: none; animation: none; }
+  .sp-agent-chip--run .sp-agent-chip__mark i { animation: none; }
+}

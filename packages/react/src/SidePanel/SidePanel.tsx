@@ -24,7 +24,7 @@ export function SidePanel({ title, label, extra, sub, width, over, onClose, clos
   return (
     <aside aria-label={label ?? (typeof title === 'string' ? title : undefined)} className={`sp-side-panel${over ? ' sp-side-panel--over' : ''}`} style={{ width }}>
       <div className="sp-side-panel__head">
-        <b>{title}</b>{extra}
+        <b title={typeof title === 'string' ? title : undefined}>{title}</b>{extra}
         <button type="button" className="sp-side-panel__x" aria-label={closeLabel} title={closeLabel} onClick={onClose}><Icon icon={X} size={14} /></button>
       </div>
       {sub && <div className="sp-side-panel__sub">{sub}</div>}

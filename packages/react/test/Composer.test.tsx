@@ -5,9 +5,9 @@ import { describe, expect, it, vi } from 'vitest'
 import { Composer, ControlItem, ControlRow, FileChip, ImageChip, SuggestionList } from '../src'
 import { css, rule } from './css'
 
-function C({ onSend = vi.fn(), onStop, busy }: { onSend?: () => void; onStop?: () => void; busy?: boolean }) {
+function C({ onSend = vi.fn(), onStop, busy }: { onSend?: () => void; onStop?: () => void; busy?: boolean }) { // (busy = working since review I1)
   const [v, setV] = useState('안녕')
-  return <Composer label="메시지" value={v} onChange={setV} onSend={onSend} sendLabel="보내기" busy={busy} onStop={onStop} stopLabel="멈추기" />
+  return <Composer label="메시지" value={v} onChange={setV} onSend={onSend} sendLabel="보내기" working={busy} onStop={onStop} stopLabel="멈추기" />
 }
 
 describe('Composer', () => {
@@ -24,7 +24,7 @@ describe('Composer', () => {
     const stop = vi.fn()
     render(<C busy onStop={stop} />)
     expect(screen.getByRole('button', { name: '보내기' })).toBeTruthy()
-    fireEvent.keyDown(screen.getByRole('textbox'), { key: 'Escape' }); expect(stop).toHaveBeenCalledTimes(1)
+    fireEvent.keyDown(screen.getByRole('textbox', { name: '메시지' }), { key: 'Escape' }); expect(stop).toHaveBeenCalledTimes(1)
   })
   it('box: 8px 8px 8px 12px on --card, --r-l, focus edge 16 % white; field 22–160, --t-prose lh 1.6; send 30 in the one yellow', () => {
     expect(rule(c(), '.sp-composer__box')).toMatchObject({ padding: '8px 8px 8px 12px', background: 'var(--card)', 'border-radius': 'var(--r-l)', gap: '6px' })

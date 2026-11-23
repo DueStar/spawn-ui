@@ -80,6 +80,13 @@
       "description": ""
     },
     {
+      "name": "gone",
+      "type": "boolean",
+      "required": false,
+      "default": null,
+      "description": "Finished: it fades out after a moment"
+    },
+    {
       "name": "onOpen",
       "type": "() => void",
       "required": true,
@@ -590,11 +597,25 @@
       "description": ""
     },
     {
-      "name": "busy",
+      "name": "canSend",
       "type": "boolean",
       "required": false,
       "default": null,
-      "description": "Claude is working: Esc stops it"
+      "description": "Something can be sent (default: the text is not empty; pass true when a picture or file is attached)"
+    },
+    {
+      "name": "sending",
+      "type": "boolean",
+      "required": false,
+      "default": null,
+      "description": "A send is on its way: the draft quieter (aria-busy), no second send"
+    },
+    {
+      "name": "working",
+      "type": "boolean",
+      "required": false,
+      "default": null,
+      "description": "Claude is working: Esc (plain) stops it"
     },
     {
       "name": "onStop",
@@ -657,7 +678,7 @@
       "type": "boolean",
       "required": false,
       "default": null,
-      "description": ""
+      "description": "An ended session: nothing is sent"
     },
     {
       "name": "controls",
@@ -671,14 +692,21 @@
       "type": "ReactNode",
       "required": false,
       "default": null,
-      "description": "The listbox the field drives (mentions, commands)"
+      "description": "The listbox the field drives (a SuggestionList)"
+    },
+    {
+      "name": "fieldProps",
+      "type": "(TextareaHTMLAttributes<HTMLTextAreaElement> & Record<`aria-${string}`, unknown>)",
+      "required": false,
+      "default": null,
+      "description": "More on the textarea: aria-controls / aria-activedescendant / aria-autocomplete for a SuggestionList (`${id}-${index}`), onPaste, onSelect, onBlur …"
     },
     {
       "name": "onFieldKeyDown",
       "type": "((e: KeyboardEvent<HTMLTextAreaElement>) => void)",
       "required": false,
       "default": null,
-      "description": "The field's keys, before the composer's own (a suggestion list takes ↑ ↓ Enter first)"
+      "description": "The field's keys, before the composer's own and never while an IME composes (a suggestion list takes ↑ ↓ Enter first: preventDefault to keep them)"
     },
     {
       "name": "className",
@@ -993,6 +1021,20 @@
       "required": false,
       "default": null,
       "description": "The counts in words (+1 −1 is not enough for a screen reader)"
+    },
+    {
+      "name": "addedLabel",
+      "type": "string",
+      "required": false,
+      "default": "added",
+      "description": "Said before an added / removed line (the sign alone is not read)"
+    },
+    {
+      "name": "removedLabel",
+      "type": "string",
+      "required": false,
+      "default": "removed",
+      "description": ""
     },
     {
       "name": "look",
