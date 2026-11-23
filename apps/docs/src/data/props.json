@@ -200,6 +200,27 @@
       "description": "The close button's name"
     },
     {
+      "name": "initialFocus",
+      "type": "RefObject<HTMLElement | null>",
+      "required": false,
+      "default": null,
+      "description": "Where the focus starts (default: the first control, which is the × in a head)"
+    },
+    {
+      "name": "finalFocus",
+      "type": "RefObject<HTMLElement | null>",
+      "required": false,
+      "default": null,
+      "description": "Where the focus goes on close (default: what opened it)"
+    },
+    {
+      "name": "scope",
+      "type": "\"window\" | \"pane\"",
+      "required": false,
+      "default": "window",
+      "description": "window: over the whole app (the default) · pane: inside the PortalProvider's container (the chat's full view)"
+    },
+    {
       "name": "className",
       "type": "string",
       "required": false,
@@ -210,7 +231,7 @@
   "EmptyState": [
     {
       "name": "size",
-      "type": "\"inline\" | \"hero\" | \"pane\"",
+      "type": "\"inline\" | \"pane\" | \"hero\"",
       "required": true,
       "default": null,
       "description": "hero: a whole page (the chat's first screen) · pane: fills its pane · inline: a row in a list or grid"
