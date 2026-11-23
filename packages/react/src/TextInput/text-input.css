@@ -1,0 +1,15 @@
+/* spawn's text fields merged: .w-row-rename = .w-sess-head-rename (rename), .set-times / .set-tool-form / .rank-field
+   inputs (form: times, tool, rank), .chat-card-field (card), .fb-text (note) */
+.sp-text-input { box-sizing: border-box; min-width: 0; font: inherit; font-size: var(--t-ui); color: var(--ink); background: var(--card); border: 1px solid var(--line); border-radius: var(--r-s); color-scheme: dark; outline: 1px solid transparent; }
+.sp-text-input::placeholder { color: var(--ink-3); }
+/* focus is the border turning lighter (spawn's fields); the outline (above) is transparent, not removed, so forced colours still draw it */
+.sp-text-input:focus { border-color: var(--ink-3); }
+.sp-text-input--times { padding: 4px 6px; }
+.sp-text-input--tool { padding: 6px 9px; }
+.sp-text-input--rank { padding: 6px 10px; width: 180px; }
+.sp-text-input--rename { padding: 2px 7px; border-color: var(--ink-3); font-size: var(--t-name); font-weight: var(--w-name); }
+.sp-text-input--card { height: 30px; padding: 0 10px; background: var(--bg); }
+.sp-text-input--card:focus { border-color: var(--line-hover); }
+.sp-text-input--note { display: block; width: 100%; min-height: 78px; resize: vertical; padding: 9px 11px; background: var(--bg); font-size: var(--t-name); line-height: 1.5; }
+.sp-text-input--mono { font-family: 'Monaspace Neon Var', 'Monaspace Neon', 'Pretendard Variable', 'Apple SD Gothic Neo', 'SF Mono', Menlo, monospace; }
+textarea.sp-text-input { resize: vertical; line-height: 1.5; }

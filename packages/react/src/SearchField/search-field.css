@@ -1,0 +1,8 @@
+/* spawn's search boxes merged: .dex-fsearch (150), .box-search (170 with its icon), .w-swap-section input (120) */
+.sp-search { position: relative; display: inline-flex; align-items: center; min-width: 0; }
+.sp-search__input { max-width: 100%; }
+.sp-search__input::-webkit-search-cancel-button { display: none; }
+.sp-search--150 .sp-search__input { width: 150px; padding: 5px 9px; }
+.sp-search--170 .sp-search__input { width: 170px; padding: 5px 26px 5px 9px; }
+.sp-search--120 .sp-search__input { width: 120px; padding: 4px 8px; }
+.sp-search__icon { position: absolute; right: 9px; display: inline-flex; color: var(--ink-3); pointer-events: none; }
