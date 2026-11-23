@@ -29,3 +29,4 @@ export { PokemonSprite, type PokemonSpriteProps } from './PokemonSprite/PokemonS
 export { SessionPicture, type SessionPictureProps } from './SessionPicture/SessionPicture'
 export { TierLabel, TIER_WORDS, type TierLabelProps } from './TierLabel/TierLabel'
 export { TypeTag, POKEMON_TYPES, type PokemonType, type TypeTagProps } from './TypeTag/TypeTag'
+export { SessionRow, type SessionRowProps, type SessionMood } from './SessionRow/SessionRow'

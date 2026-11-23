@@ -1,0 +1,63 @@
+/* spawn's session row (widget.css .w-row … 142–330; the × widget-expanded.css .w-row-close). Detailed: two lines and
+   the HP bar; compact (간략): one line, the HP as a tick, the × in the dot's place on hover or focus */
+.sp-session-row { position: relative; display: flex; flex-direction: column; gap: 4px; margin: 0 -8px; padding: 8px 8px 8px 10px; border-radius: var(--r-m); background: none; cursor: pointer; --row-base: var(--card); --row-tint: transparent; }
+.sp-session-row:hover { background: var(--hover); --row-tint: var(--hover); }
+.sp-session-row:focus-visible { outline: 2px solid var(--ink-2); outline-offset: -2px; }
+/* the chosen session: a lighter row and the yellow bar at its left (yellow = the chosen thing) */
+.sp-session-row--chosen { background: var(--row-sel-bg); --row-tint: var(--row-sel-bg); }
+.sp-session-row--chosen::before { content: ''; position: absolute; left: -8px; top: 10px; bottom: 10px; width: 2px; border-radius: 2px; background: var(--accent); pointer-events: none; }
+.sp-session-row--widget.sp-session-row--chosen::before { left: -4px; }
+.sp-session-row--lifted { z-index: 3; background: var(--card-2); box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45), 0 0 0 1px var(--line); cursor: grabbing; }
+.sp-session-row img { -webkit-user-drag: none; }
+
+.sp-session-row__head { display: grid; grid-template-columns: 24px minmax(0, 1fr); column-gap: 10px; row-gap: 2px; align-items: center; }
+.sp-session-row__picture { grid-row: 1 / span 2; display: inline-grid; place-items: center; }
+.sp-session-row__line1, .sp-session-row__line2 { display: flex; align-items: center; gap: 6px; min-width: 0; position: relative; }
+.sp-session-row__name { flex: 1; min-width: 0; font-size: var(--t-name); font-weight: var(--w-name); color: var(--ink-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.sp-session-row--chosen .sp-session-row__name { color: var(--ink); }
+.sp-session-row__line1 > .sp-pill { flex: none; }
+.sp-session-row__helpers { flex: none; display: inline-flex; }
+.sp-session-row__line2 { min-height: 16px; font-size: var(--t-meta); }
+.sp-session-row__lv { flex: none; font-size: var(--t-meta); font-weight: var(--w-body); color: var(--ink-3); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.sp-session-row__meta { flex: 1; min-width: 0; display: flex; align-items: center; gap: 5px; overflow: hidden; }
+.sp-session-row__project { flex: 0 1 auto; min-width: 44px; color: var(--ink-3); font-size: var(--t-meta); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.sp-session-row__tool { flex: none; color: var(--ink-3); white-space: nowrap; }
+/* the git branch: quiet, no chip, the first to give way */
+.sp-session-row__branch { flex: 0 1 auto; min-width: 0; max-width: 120px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: calc(var(--t-meta) - 0.5px); font-weight: var(--w-mono); color: var(--ink-3); font-family: 'Monaspace Neon Var', Consolas, 'SF Mono', Menlo, monospace; }
+.sp-session-row__branch::before { content: '⎇ '; opacity: 0.7; }
+/* the buttons float over line 2's end on hover (or keyboard focus), over the row's own colour */
+.sp-session-row__tools { position: absolute; right: -2px; top: 50%; transform: translateY(-50%); display: inline-flex; align-items: center; padding-left: 14px; background: linear-gradient(to right, transparent, var(--row-tint) 12px), linear-gradient(to right, transparent, var(--row-base) 12px); opacity: 0; pointer-events: none; }
+.sp-session-row:hover .sp-session-row__tools, .sp-session-row__tools:focus-within, .sp-session-row__tools:has(.sp-session-row__close--confirm) { opacity: 1; pointer-events: auto; }
+.sp-session-row__edit { font: inherit; font-size: var(--t-meta); color: var(--ink-3); background: transparent; border: 0; border-radius: var(--r-s); padding: 2px 5px; cursor: pointer; }
+.sp-session-row__edit:hover { color: var(--ink); }
+.sp-session-row__close { font: inherit; font-size: var(--t-ui); line-height: 1; color: var(--ink-3); background: none; border: 0; border-radius: var(--r-s); padding: 2px 5px; cursor: pointer; }
+.sp-session-row__close:hover { color: var(--danger); background: color-mix(in srgb, var(--danger) 12%, transparent); }
+.sp-session-row__close--confirm, .sp-session-row__close--confirm:hover { color: #fff; background: var(--danger); font-size: var(--t-meta); font-weight: var(--w-name); }
+.sp-session-row__edit:focus-visible, .sp-session-row__close:focus-visible { outline: 2px solid var(--ink-2); outline-offset: -2px; }
+
+.sp-session-row__bottom { display: flex; align-items: center; gap: 8px; padding-left: 34px; }
+.sp-session-row__hp-label { flex: none; font-size: var(--t-micro); font-weight: var(--w-body); color: var(--ink-3); }
+.sp-session-row__model { flex: none; font-size: var(--t-meta); color: var(--ink-2); white-space: nowrap; }
+.sp-session-row__num { flex: none; width: 3em; font-size: var(--t-meta); color: var(--ink-3); font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }
+/* waiting on you: its Pokémon hops (only then, so the hop is the signal) */
+.sp-session-row--needs-you .sp-session-row__picture > * { animation: sp-mon-hop 1.2s cubic-bezier(.3, .7, .4, 1) infinite; transform-origin: 50% 100%; }
+
+/* 간략 (compact) */
+.sp-session-row--compact { padding: 5px 8px 5px 10px; gap: 0; }
+.sp-session-row--compact.sp-session-row--chosen::before { top: 6px; bottom: 6px; }
+.sp-session-row--compact .sp-session-row__head { grid-template-columns: 20px minmax(0, 1fr); column-gap: 8px; }
+.sp-session-row--compact .sp-session-row__picture { grid-row: auto; }
+.sp-session-row--compact .sp-session-row__line1 { gap: 8px; min-height: 20px; }
+.sp-session-row__tick { flex: none; width: 12px; height: 3px; border-radius: 2px; background: var(--hp); }
+.sp-session-row__tick--warn { background: var(--hp-warn); }
+.sp-session-row__tick--danger { background: var(--hp-low); }
+.sp-session-row__tick--full { opacity: 0.35; }
+.sp-session-row__state { flex: none; display: inline-grid; place-items: center; min-width: 14px; }
+.sp-session-row--compact .sp-pill .sp-truncate { display: none; }
+.sp-session-row--compact .sp-pill__dot { width: 7px; height: 7px; }
+.sp-session-row__state > .sp-session-row__close { display: none; }
+.sp-session-row--compact:hover .sp-session-row__state > .sp-pill, .sp-session-row--compact:focus-visible .sp-session-row__state > .sp-pill, .sp-session-row__state:focus-within > .sp-pill, .sp-session-row__state:has(> .sp-session-row__close--confirm) > .sp-pill { display: none; }
+.sp-session-row--compact:hover .sp-session-row__state > .sp-session-row__close, .sp-session-row--compact:focus-visible .sp-session-row__state > .sp-session-row__close, .sp-session-row__state:focus-within > .sp-session-row__close, .sp-session-row__state > .sp-session-row__close--confirm { display: inline-grid; place-items: center; }
+/* an ended session, dimmed as the rail does (its dot alone would read as idle) */
+.sp-session-row--compact.sp-session-row--ended { opacity: 0.45; }
+@media (prefers-reduced-motion: reduce) { .sp-session-row--needs-you .sp-session-row__picture > * { animation: none; } }
