@@ -1,5 +1,11 @@
 # @spawn-ui/react
 
+## 0.3.0
+
+### Minor Changes
+
+- spawn · sessions: SessionRow, SessionPicture, Rail and RailButton, ListHead, Launcher, Account, SessionHeader, PaneHead, AppHeader and TopBar, ResizeHandle, DragCard, DropZone, QueueStrip, UpdateButton, TextSizeControl, UsageBars, and the useConfirm hook. spawn · game: PokemonSprite, TierLabel (with TIER_WORDS), TypeTag (POKEMON_TYPES), MonCell, DexStrip, StatTile, WildRow, CatchToast, LeaderboardRow, LogRow and LogDay, StepCount, DexDetailCard, PatchNotes. Also: Tag tones badge and run, Meter full, SegmentedControl size xs.
+
 ## 0.2.0
 
 ### Minor Changes
