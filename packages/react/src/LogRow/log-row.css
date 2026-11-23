@@ -1,0 +1,14 @@
+/* spawn's .today-row / .today-day (pokedex.css 388–420) */
+.sp-log-day { position: sticky; top: -6px; z-index: 1; margin: 6px 0 0; padding: 8px 0 4px; font-size: var(--t-meta); font-weight: var(--w-name); color: var(--ink-3); background: var(--bg); }
+.sp-log-day:first-child { margin-top: 0; }
+.sp-log-row { display: flex; align-items: center; gap: 12px; min-height: 60px; box-sizing: border-box; padding: 12px 0; }
+.sp-log-row + .sp-log-row { border-top: 1px solid rgba(255, 255, 255, 0.045); }
+.sp-log-row__time { width: 5.6em; flex: none; white-space: nowrap; font-size: var(--t-meta); color: var(--ink-3); font-variant-numeric: tabular-nums; }
+.sp-log-row__icon { display: inline-grid; place-items: center; flex: none; }
+.sp-log-row__icon > * { width: 32px; height: 32px; object-fit: contain; }
+.sp-log-row__text { min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.sp-log-row__line { font-size: var(--t-name); color: var(--ink-2); display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.sp-log-row__line b { color: var(--ink); font-weight: var(--w-name); }
+.sp-log-row--flee .sp-log-row__line, .sp-log-row--flee .sp-log-row__line b { color: var(--ink-3); }
+.sp-log-row--levelup { font-size: var(--t-meta); color: var(--ink-3); }
+.sp-log-row__sub { display: flex; align-items: center; gap: 6px; font-size: var(--t-meta); color: var(--ink-3); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }

@@ -39,8 +39,8 @@ function fontParts(v: string): { size?: string; weight?: string } {
   const weight = /(^|\s)(\d{3}|bold|bolder|lighter)(\s|$)/.exec(v)?.[2]
   return { size: m[2], weight }
 }
-/** spawn's few fixed type sizes (they never take the text step), by file: session-picture.css 10px (.w-row-shell's >_), text-size.css 14px / 13px (.w-textsize-step, .w-textsize-g: the control, not text), mon-cell.css 14px (.dex-q: the unknown ? mark) */
-const FIXED_PX_OK: Record<string, string[]> = { 'session-picture.css': ['10px'], 'text-size.css': ['14px', '13px'], 'mon-cell.css': ['14px'] }
+/** spawn's few fixed type sizes (they never take the text step), by file: session-picture.css 10px (.w-row-shell's >_), text-size.css 14px / 13px (.w-textsize-step, .w-textsize-g: the control, not text), mon-cell.css 14px (.dex-q: the unknown ? mark), catch-toast.css 15px / 14px (the toast window never takes the text step), dex-detail-card.css 16px (.dex-card-name: a fixed heading) */
+const FIXED_PX_OK: Record<string, string[]> = { 'session-picture.css': ['10px'], 'text-size.css': ['14px', '13px'], 'mon-cell.css': ['14px'], 'catch-toast.css': ['15px', '14px'], 'dex-detail-card.css': ['16px'] }
 const fontSizeOk = (v: string) => /^var\(--t-[\w-]+\)$/.test(v) || /^calc\(.*var\(--t-[\w-]+\).*\)$/.test(v) || v === 'inherit'
 const weightOk = (v: string) => /^(380|400|500|600|inherit)$/.test(v) || /^var\(--w-[\w-]+\)$/.test(v)
 

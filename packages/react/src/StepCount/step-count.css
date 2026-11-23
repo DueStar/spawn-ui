@@ -1,0 +1,3 @@
+/* spawn's .chat-steps (chat-game.css 9) */
+.sp-steps { display: inline-flex; align-items: center; gap: 4px; }
+.sp-steps svg { flex: none; }

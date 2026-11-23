@@ -1,0 +1,15 @@
+/* spawn's .dex-card (pokedex.css 200–232). The name is spawn's fixed 16px heading */
+.sp-dex-card { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.sp-dex-card__art { height: 160px; border-radius: var(--r-l); display: grid; place-items: center; background: var(--mon-bg); }
+.sp-dex-card__art img { max-height: 130px; max-width: 90%; }
+.sp-dex-card__no { font-size: var(--t-meta); color: var(--ink-3); margin-top: 6px; font-variant-numeric: tabular-nums; }
+.sp-dex-card__name { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; margin: 0; font-size: 16px; font-weight: var(--w-head); letter-spacing: -0.02em; color: var(--ink); }
+.sp-dex-card__name .sp-tier-label { margin-left: 6px; }
+.sp-dex-card__tags { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.sp-dex-card__flavor { margin: 0; font-size: var(--t-ui); line-height: 1.7; color: var(--ink-2); }
+.sp-dex-card__facts { display: grid; grid-template-columns: 84px minmax(0, 1fr); gap: 0; margin: 8px 0 0; }
+.sp-dex-card__facts div { display: contents; }
+.sp-dex-card__facts dt, .sp-dex-card__facts dd { margin: 0; padding: 7px 0; border-top: 1px solid var(--line); min-width: 0; }
+.sp-dex-card__facts dt { font-size: var(--t-meta); color: var(--ink-3); padding-right: 8px; }
+.sp-dex-card__facts dd { font-size: var(--t-ui); font-weight: var(--w-body); color: var(--ink); }
+.sp-dex-card__actions { display: flex; gap: 6px; flex-wrap: wrap; }

@@ -1,0 +1,16 @@
+/* spawn's .rank-row (pokedex.css 535–552) */
+.sp-rank { display: grid; grid-template-columns: 36px 30px minmax(0, 1fr) auto; align-items: center; gap: 10px; padding: 6px 10px; border-radius: var(--r-s); }
+.sp-rank:hover { background: var(--hover); }
+.sp-rank--me { background: var(--sel-bg); }
+.sp-rank__place { font-size: var(--t-ui); font-weight: var(--w-body); color: var(--ink-3); text-align: center; font-variant-numeric: tabular-nums; }
+.sp-rank__icon { display: inline-grid; place-items: center; width: 30px; height: 30px; }
+.sp-rank__icon > * { width: 30px; height: 30px; object-fit: contain; }
+.sp-rank__name { font-size: var(--t-name); font-weight: var(--w-name); color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.sp-rank__me { margin-left: 6px; font-size: var(--t-micro); font-weight: var(--w-name); color: var(--ink-2); background: none; border: 1px solid rgba(255, 255, 255, 0.18); padding: 0 5px; border-radius: var(--r-xs); }
+.sp-rank__value { font-size: var(--t-meta); color: var(--ink-3); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.sp-rank__value b { font-size: var(--t-name); font-weight: var(--w-strong); color: var(--num-ink); margin-right: 2px; }
+/* places 1–3: a little taller, the place on a small metal disc; no tint, no line */
+.sp-rank--top { --metal: var(--metal-3); padding: 8px 10px; }
+.sp-rank--top1 { --metal: var(--metal-1); }
+.sp-rank--top2 { --metal: var(--metal-2); }
+.sp-rank--top .sp-rank__place { justify-self: center; display: grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; background: var(--metal); color: #15171d; font-size: var(--t-meta); font-weight: var(--w-name); }

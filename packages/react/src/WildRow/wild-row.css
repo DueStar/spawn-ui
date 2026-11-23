@@ -1,0 +1,11 @@
+/* spawn's .chat-wild (chat-game.css 17–38): a quiet line; the one place a sprite is pixelated */
+.sp-wild { display: flex; align-items: center; gap: 8px; width: 100%; max-width: 100%; box-sizing: border-box; min-height: 34px; padding: 4px 12px 4px 6px; margin: 2px 0; font-size: var(--t-ui); color: var(--ink-3); min-width: 0; border: 1px solid var(--line); border-radius: var(--r-m); background: rgba(255, 255, 255, 0.015); opacity: 0.72; }
+.sp-wild__line { display: flex; flex-wrap: wrap; align-items: center; gap: 2px 8px; min-width: 0; }
+.sp-wild b { color: var(--ink-2); font-weight: var(--w-name); }
+.sp-wild__arrow { color: var(--ink-3); }
+.sp-wild__got { color: var(--ink-2); display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }
+.sp-wild__ball { display: inline-grid; width: 14px; height: 14px; flex: none; }
+.sp-wild__ball > * { width: 14px; height: 14px; }
+.sp-wild--appear .sp-sprite { animation: sp-wild-in .5s cubic-bezier(.2, .8, .2, 1) both; }
+@keyframes sp-wild-in { from { transform: translateY(6px) scale(.8); opacity: 0; } to { transform: none; opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .sp-wild--appear .sp-sprite { animation: none; } }

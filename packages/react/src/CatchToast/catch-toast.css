@@ -1,0 +1,26 @@
+/* spawn's .w-toast (toast.css 27–110). The toast window fixes the type at the 100 % step, so its title (15px) and
+   × (14px) are fixed sizes, as spawn's */
+.sp-toast { position: relative; width: 100%; box-sizing: border-box; display: grid; grid-template-columns: 64px minmax(0, 1fr); align-items: center; gap: 14px; padding: 14px 18px 14px 14px; border-radius: var(--r-toast); border: 1px solid var(--line); background: var(--toast-bg); cursor: pointer; animation: sp-toast-in 0.3s cubic-bezier(.2, .8, .2, 1) both; }
+.sp-toast:hover { border-color: var(--line-hover); }
+.sp-toast--leaving { animation: sp-toast-out 0.35s ease-in both; }
+.sp-toast__art { width: 64px; height: 64px; border-radius: var(--r-l); display: grid; place-items: center; background: var(--toast-art-bg); }
+.sp-toast__text { display: flex; flex-direction: column; gap: 3px; min-width: 0; padding-right: 10px; }
+.sp-toast__eyebrow { display: flex; align-items: center; gap: 8px; font-size: var(--t-meta); font-weight: var(--w-name); line-height: 1.4; }
+.sp-toast__kind { color: var(--ink-3); }
+.sp-toast__title { font-size: 15px; font-weight: var(--w-head); color: var(--ink); letter-spacing: -0.02em; line-height: 1.3; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.sp-toast__title small { margin-left: 7px; font-size: var(--t-meta); font-weight: var(--w-body); color: var(--ink-3); letter-spacing: 0; font-variant-numeric: tabular-nums; }
+.sp-toast__meta { margin-top: 3px; display: flex; align-items: center; gap: 8px; font-size: var(--t-ui); color: var(--ink-2); min-width: 0; white-space: nowrap; }
+.sp-toast__via { font-size: var(--t-meta); color: var(--ink-3); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.sp-toast__via--warn { color: var(--amber); }
+.sp-toast__close { position: absolute; top: 8px; right: 8px; width: 22px; height: 22px; padding: 0; display: grid; place-items: center; border: 0; border-radius: 50%; cursor: pointer; font: inherit; font-size: 14px; line-height: 1; color: var(--ink-3); background: transparent; }
+.sp-toast__close:hover { color: var(--ink); background: rgba(255, 255, 255, 0.1); }
+.sp-toast__close:focus-visible { outline: 2px solid var(--ink-2); outline-offset: 1px; }
+.sp-toast--flee .sp-toast__title { color: var(--ink-2); }
+.sp-toast--catch.tier-rare { border-color: color-mix(in srgb, var(--tier) 35%, transparent); }
+.sp-toast--catch.tier-sub { border-color: color-mix(in srgb, var(--tier) 50%, transparent); }
+/* a ring, no glow around it */
+.sp-toast--catch.tier-legendary, .sp-toast--catch.tier-mythical { border-color: var(--tier); box-shadow: 0 0 0 1px var(--tier); }
+.sp-toast--shiny { border-color: var(--shiny); }
+@keyframes sp-toast-in { from { transform: translateY(24px) scale(0.97); opacity: 0; } to { transform: none; opacity: 1; } }
+@keyframes sp-toast-out { to { transform: translateY(16px); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .sp-toast, .sp-toast--leaving { animation: none; } }
