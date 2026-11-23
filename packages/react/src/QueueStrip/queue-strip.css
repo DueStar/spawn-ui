@@ -1,0 +1,14 @@
+/* spawn's .chat-queue (chat.css 263, 526–533) */
+.sp-queue { display: flex; align-items: center; gap: 8px; width: calc(100% - 16px); height: 30px; margin: 0 8px; padding: 0 12px; box-sizing: border-box; font-family: inherit; text-align: left; cursor: pointer; font-size: var(--t-ui); color: var(--ink-3); background: rgba(255, 255, 255, 0.025); border: 1px solid var(--line); border-bottom: 0; border-top-left-radius: var(--r-l); border-top-right-radius: var(--r-l); }
+.sp-queue:hover { color: var(--ink-2); }
+.sp-queue:focus-visible { outline: 2px solid var(--ink-2); outline-offset: -2px; }
+.sp-queue__label { flex: none; color: var(--ink-3); white-space: nowrap; }
+.sp-queue__label::before { content: ''; display: inline-block; width: 5px; height: 5px; border-radius: 50%; background: var(--ink-3); margin-right: 7px; vertical-align: 2px; }
+.sp-queue__text { flex: 1; min-width: 0; color: var(--ink-2); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.sp-queue__chev { flex: none; display: inline-grid; margin-left: auto; color: var(--ink-3); transform: rotate(180deg); }
+.sp-queue-wrap--open .sp-queue__chev { transform: none; }
+.sp-queue__list { list-style: none; margin: 0 8px; padding: 6px 12px 2px; max-height: 180px; overflow: auto; background: rgba(255, 255, 255, 0.025); border: 1px solid var(--line); border-bottom: 0; border-top-left-radius: var(--r-l); border-top-right-radius: var(--r-l); font-size: var(--t-ui); }
+.sp-queue-wrap--open .sp-queue { border-top: 0; border-radius: 0; }
+.sp-queue__list li { display: flex; gap: 8px; padding: 4px 0; color: var(--ink-2); line-height: 1.5; }
+.sp-queue__n { flex: none; min-width: 14px; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+.sp-queue__full { min-width: 0; white-space: pre-wrap; overflow-wrap: anywhere; }

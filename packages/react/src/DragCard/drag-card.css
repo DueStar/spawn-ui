@@ -1,0 +1,4 @@
+/* spawn's .w-drag-card (widget.css 131) */
+.sp-drag-card { position: fixed; z-index: 70; display: flex; align-items: center; gap: 6px; max-width: 220px; padding: 5px 10px 5px 6px; border-radius: var(--r-m); background: var(--card-2); border: 1px solid var(--line-hover); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45); color: var(--ink); font-size: var(--t-ui); pointer-events: none; transform: translate(12px, 8px); }
+.sp-drag-card img { width: 22px; height: 22px; object-fit: contain; }
+.sp-drag-card span { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }

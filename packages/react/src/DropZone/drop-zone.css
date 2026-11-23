@@ -1,0 +1,5 @@
+/* spawn's .w-pane-drop (widget-expanded.css 689): the slot lit in the chosen thing's yellow, faint, dashed */
+.sp-drop-zone { position: absolute; top: 8px; bottom: 8px; z-index: 50; display: grid; place-items: center; margin: 0 4px; border: 1.5px dashed color-mix(in srgb, var(--accent) 60%, transparent); border-radius: var(--r-l); background: color-mix(in srgb, var(--accent) 9%, var(--bg) 55%); pointer-events: none; transition: left 120ms cubic-bezier(0.2, 0, 0, 1), width 120ms cubic-bezier(0.2, 0, 0, 1); }
+.sp-drop-zone__hint { max-width: calc(100% - 16px); padding: 8px 14px; border-radius: var(--r-m); background: var(--card); border: 1px solid var(--line-hover); font-size: var(--t-ui); color: var(--ink); text-align: center; }
+.sp-drop-zone--full .sp-drop-zone__hint { color: var(--red-text); }
+@media (prefers-reduced-motion: reduce) { .sp-drop-zone { transition: none; } }

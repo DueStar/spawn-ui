@@ -1,0 +1,15 @@
+/* spawn's .w-limits / .w-limit (widget.css 247–265, 332–350) */
+.sp-usage { display: grid; grid-template-columns: minmax(36px, max-content) minmax(0, 1fr) 30px 74px; column-gap: 10px; row-gap: 7px; padding: 9px 12px; align-items: center; }
+.sp-usage__row { display: grid; grid-column: 1 / -1; grid-template-columns: subgrid; align-items: center; }
+.sp-usage__label { font-size: var(--t-meta); color: var(--ink-3); }
+.sp-usage__pct { text-align: right; font-weight: var(--w-body); font-size: var(--t-meta); color: var(--num-ink); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.sp-usage__pct--warn { color: var(--amber); }
+.sp-usage__pct--danger { color: var(--red-text); }
+.sp-usage__reset { font-size: var(--t-meta); color: var(--ink-3); white-space: nowrap; text-align: right; font-variant-numeric: tabular-nums; }
+.sp-usage--idle { display: flex; align-items: center; gap: 10px; padding: 11px 12px; }
+.sp-usage__hint { font-size: var(--t-meta); color: var(--ink-3); }
+/* waiting for the first numbers: a light passes along each bar */
+.sp-usage--loading .sp-meter { position: relative; }
+.sp-usage--loading .sp-meter::after { content: ''; position: absolute; inset: 0; width: 40%; background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.12), transparent); animation: sp-usage-shimmer 1.4s ease-in-out infinite; }
+@keyframes sp-usage-shimmer { from { transform: translateX(-100%); } to { transform: translateX(250%); } }
+@media (prefers-reduced-motion: reduce) { .sp-usage--loading .sp-meter::after { animation: none; } }

@@ -1,0 +1,11 @@
+/* spawn's .w-textsize (widget-expanded.css 426–446). Its − / + and 가 keep one size: they are the control, not text */
+.sp-textsize { position: relative; flex: none; display: inline-flex; align-items: center; height: 28px; box-sizing: border-box; margin: 0 4px 0 6px; border: 1px solid var(--line); border-radius: var(--r-m); -webkit-app-region: no-drag; }
+.sp-textsize > button { height: 26px; padding: 0; font: inherit; color: var(--ink-3); background: none; border: 0; cursor: pointer; }
+.sp-textsize__step { width: 24px; font-size: 14px; line-height: 1; }
+.sp-textsize > button:hover:not(:disabled), .sp-textsize__cur[data-popup-open] { color: var(--ink); background: var(--hover); }
+.sp-textsize > button:disabled { opacity: 0.3; cursor: default; }
+.sp-textsize > button:focus-visible { outline: 2px solid var(--ink-2); outline-offset: 1px; }
+.sp-textsize__cur { display: inline-flex; align-items: center; gap: 5px; padding: 0 7px; border-left: 1px solid var(--line); border-right: 1px solid var(--line); color: var(--ink-2); font-size: var(--t-meta); white-space: nowrap; }
+.sp-textsize > .sp-textsize__cur { color: var(--ink-2); }
+.sp-textsize--compact .sp-textsize__cur { border: 0; min-width: 26px; justify-content: center; }
+.sp-textsize__g { font-size: 13px; line-height: 1; color: var(--ink); }
