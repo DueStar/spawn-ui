@@ -1,0 +1,7 @@
+/* spawn's .chat-turn-head and .chat-foot (chat.css 185–204) */
+.sp-turn-head { display: flex; align-items: center; gap: 6px; min-height: 22px; font-size: var(--t-meta); color: var(--ink-3); }
+.sp-turn-head b { font-weight: 500; color: var(--ink-2); }
+.sp-turn-head__pic { flex: none; display: inline-grid; place-items: center; width: 22px; height: 22px; margin: 0 -1px 0 -3px; }
+.sp-turn-head__pic > * { width: 22px; height: 22px; object-fit: contain; }
+.sp-turn-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; min-height: 24px; font-size: var(--t-meta); color: var(--ink-3); padding-top: 2px; }
+.sp-turn-foot__action { margin-left: auto; }

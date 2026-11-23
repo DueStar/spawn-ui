@@ -1,0 +1,7 @@
+/* spawn's .chat-think and .chat-live (chat.css 209–219) */
+.sp-think { padding-left: 12px; border-left: 1px solid var(--line); font-family: 'W Pretendard', 'Pretendard Variable', 'Malgun Gothic', 'Apple SD Gothic Neo', 'Hiragino Sans', system-ui, sans-serif; font-size: var(--t-ui); line-height: 1.65; color: var(--ink-3); }
+.sp-think__head { display: block; margin-bottom: 2px; font-size: var(--t-meta); font-weight: 500; color: var(--ink-3); }
+.sp-think .sp-prose { font-size: var(--t-ui); line-height: 1.65; color: var(--ink-3); }
+.sp-live { display: flex; flex-direction: column; gap: 2px; }
+.sp-live__label { font-size: var(--t-micro); color: var(--ink-3); }
+.sp-live__text, .sp-live__text .sp-prose { color: var(--ink-2); }

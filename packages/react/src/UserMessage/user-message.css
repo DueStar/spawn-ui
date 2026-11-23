@@ -1,0 +1,5 @@
+/* spawn's .chat-user / .chat-bubble / .chat-time / .chat-pending (chat.css 180–183, 318, 661) */
+.sp-user { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; margin-left: auto; max-width: 78%; width: fit-content; }
+.sp-user__bubble { background: var(--card-2); color: var(--ink); font-family: 'W Pretendard', 'Pretendard Variable', 'Malgun Gothic', 'Apple SD Gothic Neo', 'Hiragino Sans', system-ui, sans-serif; font-size: var(--t-prose); line-height: 1.6; padding: 8px 12px; border-radius: var(--r-l); white-space: pre-wrap; overflow-wrap: anywhere; unicode-bidi: isolate; }
+.sp-user__time, .sp-user__state { font-size: var(--t-micro); color: var(--ink-3); }
+.sp-user--queued .sp-user__bubble { opacity: 0.55; }

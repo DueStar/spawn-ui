@@ -1,0 +1,14 @@
+/* spawn's .chat-status (chat.css 225), its hop (chat-game.css 37) and .chat-jump (chat.css 230) */
+.sp-working { display: flex; align-items: center; gap: 8px; min-height: 34px; margin-top: 2px; font-size: var(--t-ui); color: var(--ink-3); }
+.sp-working__pic { flex: none; display: inline-grid; place-items: center; width: 22px; height: 22px; margin: 0 -1px 0 -3px; }
+.sp-working__pic > * { position: relative; animation: sp-chat-hop 1.6s ease-in-out infinite; }
+.sp-working--waiting .sp-working__pic > * { animation: none; }
+@keyframes sp-chat-hop { 0%, 55%, 100% { transform: translateY(0); } 25% { transform: translateY(-2px); } 40% { transform: translateY(0.5px); } }
+.sp-working__text { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.sp-working--waiting .sp-working__text { color: var(--ink-2); }
+.sp-working__stop { margin-left: auto; color: var(--ink); }
+.sp-jump { position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%); z-index: 6; display: inline-flex; align-items: center; gap: 6px; height: 28px; padding: 0 12px; border: 1px solid rgba(255, 255, 255, 0.12); border-radius: var(--r-l); background: var(--card-2); color: var(--ink-2); font: inherit; font-size: var(--t-meta); white-space: nowrap; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45); cursor: pointer; }
+.sp-jump:hover { color: var(--ink); }
+.sp-jump:focus-visible { outline: 2px solid var(--ink-2); outline-offset: 1px; }
+.sp-jump__dot { width: 6px; height: 6px; border-radius: 50%; background: var(--amber); }
+@media (prefers-reduced-motion: reduce) { .sp-working__pic > * { animation: none; } }
