@@ -6,6 +6,7 @@
 import { render, screen } from '@testing-library/react'
 import { Gear } from '@phosphor-icons/react'
 import postcss, { type Rule } from 'postcss'
+import { css, rule } from './css'
 import { readFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -14,18 +15,6 @@ import { describe, expect, it } from 'vitest'
 import { Button, Checkbox, IconButton, Meter, Pill, RadioGroup, SegmentedControl, Switch } from '../src'
 
 const here = dirname(fileURLToPath(import.meta.url))
-const css = (d: string, f: string) => readFileSync(join(here, '..', 'src', d, f), 'utf8')
-/** The declarations of every rule whose selector list holds `sel` (later rules win, as in the browser) */
-function rule(text: string, sel: string): Record<string, string> {
-  const out: Record<string, string> = {}
-  postcss.parse(text).walkRules((r: Rule) => {
-    // (as the page is with motion on: a reduced-motion rule is not the normal look)
-    if (r.parent?.type === 'atrule' && /prefers-reduced-motion/.test((r.parent as postcss.AtRule).params)) return
-    if (r.selectors.map(x => x.trim()).includes(sel)) r.walkDecls(d => { out[d.prop] = d.value })
-  })
-  return out
-}
-
 describe('the focus ring reaches every interactive control, and each is reachable by Tab', () => {
   const ringSel = () => {
     let s = ''
