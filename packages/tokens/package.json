@@ -1,0 +1,20 @@
+{
+  "name": "@spawn-ui/tokens",
+  "version": "0.0.0",
+  "description": "spawn's design tokens: colour, type, size, radius and motion",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" },
+    "./tokens.css": "./dist/tokens.css"
+  },
+  "files": ["dist"],
+  "sideEffects": ["*.css"],
+  "scripts": {
+    "build": "tsx scripts/build-css.ts && tsc -p tsconfig.build.json",
+    "test": "npm run build && vitest run",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  }
+}
