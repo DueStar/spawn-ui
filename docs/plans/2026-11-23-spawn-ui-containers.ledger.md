@@ -1,0 +1,36 @@
+# SDD ledger — plan: docs/plans/2026-11-23-spawn-ui-containers.md
+Pre-flight: Task5 produces PortalProvider/usePortalContainer → Task6,7,8 consume (names match); Task1 produces test/css.ts rule()/css() → Tasks 2-7 consume (ok); Task4 FindBar and Task7 Tabs consume plan-1 IconButton (sizes xs and md exist; FindBar's 24px buttons = IconButton md 24×22 — ruled in Task 4).
+Setup: Ruling: Task 8 docs pages kept minimal (one line, demo, props table, merged classes) — the owner on 2026-11-23 called the Starlight site "너무 구려", unlike spawn; the docs are redesigned after all components exist, so effort now goes to the components — cost if wrong: thinner pages for a while.
+Task 1: complete (commits dd20a5f..8a7d67a, tests: npm test -w @spawn-ui/react → 55/55; red seen: 4 css tests with no scroll.css, 1 with build-styles unchanged)
+Task 2: Ruling: Card pad system also stacks its children in an 8px-gap column (spawn .sys-spec has flex column gap 8) — cost: none if a system card holds one block. Ruling: the docs test 'every exported component has a page' goes red from here and turns green in Task 8 (its owner), as in plan 1.
+Task 2: complete (commits 8a7d67a..bc7196f, tests: npm test -w @spawn-ui/react → 73/73; red seen: Containers.test.tsx failed with undefined components)
+Task 3: Ruling: Toolbar pads named dex / box / rank with spawn's real values (dex-top 14px 20px 12px, box-toolbar 8px 20px, rank-top 12px 20px); the plan's 'filter' was .dex-filterbar, which has no padding of its own (it sits inside dex-top) — cost: none. Ruling: ListRow item puts its click on an inner button with trailing buttons beside it (never a button inside a button) — cost: the row's outer box is not itself focusable.
+Task 3: complete (commits bc7196f..a539933, tests: npm test -w @spawn-ui/react → 85/85; red seen: undefined Banner/ListRow/Toolbar)
+Task 4: Ruling: fields show focus by their border (spawn's way) and carry 'outline: 1px solid transparent' on the base rule instead of spawn's 'outline: none' — the guard forbids removing the ring, and a transparent outline is still drawn in forced-colours mode — cost: none visible. Ruling: FindBar's buttons are IconButton md resized to spawn's 24×24 with --ink-2 (find buttons), glyphs Phosphor CaretUp/CaretDown/X instead of spawn's text arrows — cost: glyph shape differs from spawn's ↑↓ until adoption decides. Ruling: shared isComposing() in src/composing.ts (Tasks 4 and later).
+Task 4: complete (commits a539933..d696dd2, tests: npm test -w @spawn-ui/react → 101/101; red seen: undefined components, then the guard's ':focus outline' and the rename background)
+Task 5: Ruling: the dialog centres its panel with Base UI's Viewport over a separate Backdrop (spawn centres the panel inside its backdrop) — the same picture; the backdrop keeps spawn's colours and z-index per kind — cost: none visible. Ruling: the close × is IconButton head (26px, --ink-3) in the head; kinds without a head (hideTitle, not lightbox) get it at the top right corner; the lightbox has none (Esc / backdrop, as spawn's) — cost: popover head is the fb-pop head minus its own × style (17px glyph), refined on adoption.
+Task 5: complete (commits d696dd2..333b193, tests: npm test -w @spawn-ui/react → 112/112; red seen: 11 failing with no Dialog, then trap (focus guard) and media padding)
+Task 6: Ruling: a disabled item is reachable by the arrows (Base UI follows ARIA's menu pattern) but Enter or a click on it chooses nothing — the plan said 'skipped'; reaching it lets a screen reader say why it is off — cost: one more arrow press. Ruling: when any item has 'checked', all items are radio items (the check column), else plain items with an optional icon.
+Task 6: complete (commits 333b193..9657c72, tests: npm test -w @spawn-ui/react → 121/121; red seen: 9 failing with no Menu, then the duplicate-text and disabled-item cases)
+Task 7: Ruling: Tooltip gains 'delay' (ms before it shows on hover, default 600) beside the plan's props — a test needs 0 and spawn's notes are timed, not hovered — cost: one prop. Ruling: the tab × is shown always on the chosen tab, else on hover / focus-within (spawn .w-sess-tab.on shows it) — cost: none. Ruling: tab status dot is a slot (dot: ReactNode) to take StatusDot; picture 18 → 20 when chosen kept.
+Task 7: complete (commits 9657c72..3faea00, tests: npm test -w @spawn-ui/react → 131/131; red seen: 10 failing with no Tooltip/Tabs, then the vertical font-size)
+Task 8: Ruling: PortalProvider and TabPanel need no page of their own (the build test skips them like VisuallyHidden); they are explained on the Dialog and Tabs pages. Ruling: pages are minimal (line, demo, props, accessibility, merged classes) per the setup ruling; examples are spawn's own words.
+Task 8: complete (commits 3faea00..4014577, tests: npm run build && npm test -w @spawn-ui/docs → 5/5, 79 pages; red seen: 2 failing before the pages; screenshots dialog/menu/tabs/banner/findbar at 100 and 130 % looked at)
+Task 9: complete (commits 4014577..0f97be2, tests: npm run build && npm run typecheck && npm test → react 131/131, tokens 7/7, docs 5/5; the releases test reads 0.2.0)
+Final review: opus reviewer — Critical 1, Important 7, Minor 7. Re-graded as given (each Important is a keyboard failure or a pixel move against the binding constraint).
+Final: fixed C1 menu/tooltip z-index on a popup Base UI never positions — review-fixes-2 'C1' RED→GREEN, suite 145/145
+Final: fixed I2 Esc in TextInput/FindBar also closed the dialog around it (stopPropagation) — 'I2' RED→GREEN, suite 145/145
+Final: fixed I3 dialog first focus always on × — initialFocus / finalFocus props — 'I3' RED→GREEN
+Final: fixed I4 dialog kinds — scope pane (absolute), lightbox × 32×32 at 14/14, settings without head and its × at 12/12, backdrop radius, vertical Tabs list = the settings column — 'I4' RED→GREEN
+Final: fixed I5 menu items gap 8 and no line-height; 'described' menus (dens) gap 10 and 1.35 — 'I5' RED→GREEN
+Final: fixed I6 session tab padding on the whole tab — 'I6' RED→GREEN (the earlier Tabs test moved its padding assertion to the item)
+Final: fixed I7 banner compact/row and toolbar dex are columns — 'I7' RED→GREEN
+Final: fixed I8 guard checks every :focus-visible outline in every file — 'I8' RED→GREEN
+Final: Ruling: Dialog kind popover stays modal and centred; spawn's FeedbackPin popover (non-modal, placed at a point) does not adopt Dialog — it is a one-off tool (inventory §3.2) — cost: FeedbackPin keeps its own .fb-pop CSS.
+Final: minor (deferred): tab × buttons are tabbable inside role=tablist (axe aria-required-children; extra Tab stops)
+Final: minor (deferred): Menu title is a div inside role=menu (use Group + GroupLabel)
+Final: minor (deferred): Tooltip content is not announced (Base UI 1.9 sets no aria-describedby) — say so on the docs page
+Final: minor (deferred): Tooltip timeout restarts when the parent passes a new onOpenChange each render
+Final: minor (deferred): ListRow item trailing at right 11 / gap 8 vs spawn's trash absolute at right 8 (padding-right 40); hover shows on a disabled item
+Final: minor (deferred): SearchField magnifier 12 vs spawn's 13 (Phosphor 12/14/16 rule) — record in inventory §4
+Final: minor (deferred): PortalProvider with a null container falls back to body (document the state-callback pattern)
