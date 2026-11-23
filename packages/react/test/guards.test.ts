@@ -96,6 +96,8 @@ describe('the calm look, on every stylesheet', () => {
       expect(r.value).toBe('2px solid var(--ink-2)')
       for (const s of sels(r.sel)) expect(s, 'a bare :focus-visible restyles everything in the host app').toMatch(/\.sp-[\w-]+.*:focus-visible|:where\(.*\.sp-/)
     }
+    // every :focus-visible outline in any file is the one ring (components may only move its offset)
+    for (const d of all) if (d.sel.includes(':focus-visible') && d.prop === 'outline') expect(d.value, `${d.file} ${d.sel}: every :focus-visible outline is 2px solid var(--ink-2)`).toBe('2px solid var(--ink-2)')
     for (const d of all) {
       if (d.prop === 'outline' || d.prop === 'outline-style' || d.prop === 'outline-width') {
         expect(/^(none|0)(\s|$)/.test(d.value), `${d.file} ${d.sel}: ${d.prop} ${d.value} removes the ring`).toBe(false)

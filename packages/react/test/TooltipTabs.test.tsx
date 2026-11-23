@@ -74,7 +74,9 @@ describe('Tabs', () => {
     expect(off).toHaveBeenCalledWith('b')
   })
   it('top (w-sess-tab, we:669): rounded on top only, 0 4px 0 8px; on: --hover with a 2px --ink-2 underline; the × shows on hover or focus', () => {
-    expect(rule(c(), '.sp-tabs--top .sp-tabs__tab')).toMatchObject({ 'border-radius': 'var(--r-s) var(--r-s) 0 0', padding: '0 4px 0 8px', color: 'var(--ink-3)' })
+    // (the padding sits on the whole tab, the × inside it: review I6)
+    expect(rule(c(), '.sp-tabs--top .sp-tabs__tab')).toMatchObject({ 'border-radius': 'var(--r-s) var(--r-s) 0 0', color: 'var(--ink-3)' })
+    expect(rule(c(), '.sp-tabs--top .sp-tabs__item').padding).toBe('0 4px 0 8px')
     expect(rule(c(), '.sp-tabs--top .sp-tabs__item[data-on]')).toMatchObject({ background: 'var(--hover)', 'box-shadow': 'inset 0 -2px 0 var(--ink-2)' })
     expect(rule(c(), '.sp-tabs__close').opacity).toBe('0')
     expect(rule(c(), '.sp-tabs__item:hover .sp-tabs__close').opacity).toBe('1')

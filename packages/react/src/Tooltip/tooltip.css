@@ -1,3 +1,5 @@
 /* spawn's notes merged: .w-lens-note (note), .w-tab-note (tab) */
-.sp-tooltip { z-index: 80; box-sizing: border-box; width: max-content; max-width: 300px; padding: 6px 10px; background: var(--card); border: 1px solid var(--line-hover); border-radius: var(--r-m); font-size: var(--t-meta); line-height: 1.5; color: var(--ink-2); white-space: normal; overflow-wrap: anywhere; }
+/* Base UI positions the positioner: the stacking sits there, above every dialog and menu */
+.sp-tooltip-positioner { z-index: 9200; }
+.sp-tooltip { box-sizing: border-box; width: max-content; max-width: 300px; padding: 6px 10px; background: var(--card); border: 1px solid var(--line-hover); border-radius: var(--r-m); font-size: var(--t-meta); line-height: 1.5; color: var(--ink-2); white-space: normal; overflow-wrap: anywhere; }
 .sp-tooltip--tab { padding: 7px 12px; font-size: var(--t-ui); }

@@ -29,7 +29,7 @@ export function Tooltip({ content, children, look = 'note', placement = 'bottom'
     <Base.Root open={open} onOpenChange={o => onOpenChange?.(o)}>
       <Base.Trigger render={children} delay={delay} />
       <Base.Portal container={container}>
-        <Base.Positioner side={placement} sideOffset={6}>
+        <Base.Positioner className="sp-tooltip-positioner" side={placement} sideOffset={6}>
           <Base.Popup className={`sp-tooltip sp-tooltip--${look}`}>{content}</Base.Popup>
         </Base.Positioner>
       </Base.Portal>

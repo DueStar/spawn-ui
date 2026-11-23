@@ -33,7 +33,8 @@ export const TextInput = forwardRef<HTMLInputElement | HTMLTextAreaElement, Text
   const keys = (e: React.KeyboardEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     onKeyDown?.(e as never)
     if (e.defaultPrevented || isComposing(e)) return
-    if (e.key === 'Escape' && onCancel) { e.preventDefault(); onCancel(); return }
+    // (stopped here: a dialog around the field would close on the same Esc)
+    if (e.key === 'Escape' && onCancel) { e.preventDefault(); e.stopPropagation(); e.nativeEvent.stopImmediatePropagation(); onCancel(); return }
     if (e.key === 'Enter' && onSubmit && (!area || e.ctrlKey || e.metaKey)) { e.preventDefault(); onSubmit((e.currentTarget as HTMLInputElement).value) }
   }
   const common = { 'aria-label': label, className: cls.join(' '), style: width ? { ...style, width } : style, onKeyDown: keys }

@@ -54,8 +54,8 @@ export function Menu({ trigger, label, items, onSelect, title, look = 'popover',
     <Base.Root open={open} onOpenChange={o => onOpenChange?.(o)}>
       <Base.Trigger render={trigger} />
       <Base.Portal container={container}>
-        <Base.Positioner side={placement === 'up' ? 'top' : 'bottom'} align={align} sideOffset={look === 'control' ? 4 : 6}>
-          <Base.Popup aria-label={label} className={`sp-menu sp-menu--${look}`} style={width ? { width } : undefined}>
+        <Base.Positioner className="sp-menu-positioner" side={placement === 'up' ? 'top' : 'bottom'} align={align} sideOffset={look === 'control' ? 4 : 6}>
+          <Base.Popup aria-label={label} className={`sp-menu sp-menu--${look}${items.some(i => i.desc) ? ' sp-menu--described' : ''}`} style={width ? { width } : undefined}>
             {title && <div className="sp-menu__title">{title}</div>}
             {radio
               ? <Base.RadioGroup value={items.find(i => i.checked)?.value ?? null}>

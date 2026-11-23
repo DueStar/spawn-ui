@@ -26,7 +26,7 @@ export interface FindBarProps {
 export function FindBar({ label, value, onChange, count, onNext, onPrev, onClose, note, size = 'chat', labels = { next: 'Next', prev: 'Previous', close: 'Close' }, className }: FindBarProps) {
   const keys = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (isComposing(e)) return
-    if (e.key === 'Escape') { e.preventDefault(); onClose() }
+    if (e.key === 'Escape') { e.preventDefault(); e.stopPropagation(); e.nativeEvent.stopImmediatePropagation(); onClose() }
     else if (e.key === 'Enter') { e.preventDefault(); if (e.shiftKey) onPrev(); else onNext() }
   }
   return (

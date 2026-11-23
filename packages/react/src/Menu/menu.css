@@ -1,8 +1,10 @@
 /* spawn's menus merged: .w-dens-menu (250), .w-textsize-menu (140), .chat-menu (300) — the popover look — and
    .chat-ctrl-menu (min 168) — the control look, with its own border, radius and shadow */
-.sp-menu { box-sizing: border-box; min-width: 140px; max-width: calc(100vw - 16px); padding: 4px; background: var(--card); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: var(--r-l); box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45); color: var(--ink-2); z-index: 70; outline: 1px solid transparent; }
+.sp-menu { box-sizing: border-box; min-width: 140px; max-width: calc(100vw - 16px); padding: 4px; background: var(--card); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: var(--r-l); box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45); color: var(--ink-2); outline: 1px solid transparent; }
+/* Base UI positions the positioner (not the popup): the stacking sits there, above every dialog kind (the highest, 9020) */
+.sp-menu-positioner { z-index: 9100; }
 .sp-menu__title { padding: 6px 8px 4px; font-size: var(--t-meta); color: var(--ink-3); }
-.sp-menu__item { display: grid; grid-template-columns: 16px minmax(0, 1fr); align-items: center; gap: 10px; width: 100%; box-sizing: border-box; padding: 6px 8px; font: inherit; font-size: var(--t-ui); line-height: 1.35; text-align: left; color: var(--ink-2); background: none; border: 0; border-radius: var(--r-s); cursor: pointer; }
+.sp-menu__item { display: grid; grid-template-columns: 16px minmax(0, 1fr); align-items: center; gap: 8px; width: 100%; box-sizing: border-box; padding: 6px 8px; font: inherit; font-size: var(--t-ui); text-align: left; color: var(--ink-2); background: none; border: 0; border-radius: var(--r-s); cursor: pointer; }
 .sp-menu__item[data-highlighted] { background: var(--sel-bg); }
 .sp-menu__item[data-checked] { color: var(--ink); }
 .sp-menu__item[data-disabled] { color: var(--ink-3); cursor: default; }
@@ -10,6 +12,8 @@
 .sp-menu__mark { display: inline-grid; place-items: center; color: var(--ink); }
 .sp-menu__item[data-unchecked] .sp-menu__mark { opacity: 0; }
 .sp-menu__text { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+/* items with a second line (the density menu, .w-dens-item): wider gap, tighter lines */
+.sp-menu--described .sp-menu__item { gap: 10px; line-height: 1.35; }
 .sp-menu__desc { font-size: var(--t-meta); color: var(--ink-3); white-space: normal; }
 
 .sp-menu--control { min-width: 168px; border: 1px solid var(--line); border-radius: var(--r-m); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45); }
