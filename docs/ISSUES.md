@@ -26,6 +26,8 @@
 - [ ] ListRow item: 뒤쪽 버튼이 오른쪽 11px·간격 8. spawn의 휴지통은 absolute 오른쪽 8, 줄의 오른쪽 여백 40 → 휴지통 3px, 제목 폭 5px 차이. 쓸 수 없는 줄에도 hover가 보여요(spawn은 `:hover:not(:disabled)`). (plan 2 review)
 - [ ] SegmentedControl md(5px 10px)는 아직 spawn에 같은 것이 없어요. 적용할 때 맞출 것. (plan 1, Task 6)
 
+- [ ] 도감 카드 이름 옆 등급 글자: spawn은 11px 고정, spawn-ui는 TierLabel(`--t-meta`)이라 1~2px 커요. (plan 3, Task 8)
+- [ ] 걸음 수(StepCount)의 발바닥, 런처의 폴더·이어하기 아이콘은 Phosphor로 그렸어요. spawn은 자체 그림 — 적용할 때 맞출지. (plan 3)
 - [ ] UsageBars의 레일용 세로 막대 두 개(`.w-rail-usage`)는 아직 없어요. 레일을 옮길 때 추가. (plan 3, Task 6)
 
 ## 문서 사이트
