@@ -1,5 +1,11 @@
 # @spawn-ui/react
 
+## 0.4.0
+
+### Minor Changes
+
+- spawn · chat: Prose, CodeBlock, MdDoc, UserMessage, TurnHead and TurnFoot, ThinkingRow and LiveBubble, WorkingLine and JumpPill, ToolRow, ShellRow, DiffBlock, AnswerCard with PermissionBody, QuestionBody and PlanBody, Composer, ControlRow (ControlItem, ControlSep), FileChip, ImageChip, SuggestionList, LinkCard, AgentChip, SidePanel, Lightbox.
+
 ## 0.3.0
 
 ### Minor Changes
