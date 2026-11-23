@@ -1,0 +1,7 @@
+/* spawn's .chat-card-mark (.multi: square) and the row it sits in */
+.sp-choice { display: inline-flex; align-items: center; gap: 8px; min-width: 0; color: var(--ink-2); font-size: var(--t-ui); cursor: pointer; }
+.sp-choice.is-disabled { opacity: 0.45; cursor: default; }
+.sp-mark { flex: none; width: 12px; height: 12px; padding: 0; box-sizing: border-box; border: 1.5px solid var(--ink-3); border-radius: 50%; background: none; cursor: inherit; }
+.sp-mark--box { border-radius: var(--r-xs); }
+.sp-mark[data-checked] { border-color: var(--ink); background: var(--ink); box-shadow: inset 0 0 0 2px var(--card); }
+.sp-choice:has(.sp-mark[data-checked]) .sp-choice__label { color: var(--ink); }

@@ -1,0 +1,7 @@
+/* spawn's .set-switch */
+.sp-switch { position: relative; flex: none; width: 32px; height: 18px; padding: 0; border: 0; border-radius: 999px; background: #2c303b; cursor: pointer; transition: background 0.15s; }
+.sp-switch__knob { position: absolute; top: 2px; left: 2px; width: 14px; height: 14px; border-radius: 50%; background: #c9cdd6; transition: transform 0.15s, background 0.15s; }
+.sp-switch[data-checked] { background: var(--accent); }
+.sp-switch[data-checked] .sp-switch__knob { transform: translateX(14px); background: var(--accent-ink); }
+.sp-switch[data-disabled] { cursor: default; opacity: 0.45; }
+@media (prefers-reduced-motion: reduce) { .sp-switch, .sp-switch__knob { transition: none; } }

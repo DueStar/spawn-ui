@@ -1,0 +1,2 @@
+/* the marks live in checkbox.css (.sp-mark: a 12px ring, width: 12px; height: 12px); the list */
+.sp-radio-group { display: flex; flex-direction: column; gap: 6px; }
