@@ -9,7 +9,7 @@
     "node": ">=20"
   },
   "scripts": {
-    "build": "npm run build --workspaces --if-present",
+    "build": "npm run build -w @spawn-ui/tokens && npm run build -w @spawn-ui/react && npm run build -w @spawn-ui/docs",
     "test": "npm run test --workspaces --if-present",
     "typecheck": "npm run typecheck --workspaces --if-present",
     "docs:dev": "npm run dev -w @spawn-ui/docs",
