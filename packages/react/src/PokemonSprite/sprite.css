@@ -1,0 +1,7 @@
+/* spawn's Pokémon pictures (13 img rules): smooth and contained; pixelated only in the wild row (chat-game.css) */
+.sp-sprite { object-fit: contain; flex-shrink: 0; image-rendering: auto; }
+.sp-sprite--pixelated { image-rendering: pixelated; }
+/* not caught yet (.dex-cell.seen img, .dex-card-art img.silhouette, the flee toast): one class for the three */
+.sp-silhouette { filter: brightness(0) invert(0.32); }
+/* the log's older entries */
+.sp-sprite--faded { opacity: 0.4; filter: grayscale(0.6); }

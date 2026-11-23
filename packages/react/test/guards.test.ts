@@ -39,6 +39,8 @@ function fontParts(v: string): { size?: string; weight?: string } {
   const weight = /(^|\s)(\d{3}|bold|bolder|lighter)(\s|$)/.exec(v)?.[2]
   return { size: m[2], weight }
 }
+/** spawn's few fixed type sizes (they never take the text step), by file: session-picture.css 10px (.w-row-shell's >_) */
+const FIXED_PX_OK: Record<string, string[]> = { 'session-picture.css': ['10px'] }
 const fontSizeOk = (v: string) => /^var\(--t-[\w-]+\)$/.test(v) || /^calc\(.*var\(--t-[\w-]+\).*\)$/.test(v) || v === 'inherit'
 const weightOk = (v: string) => /^(380|400|500|600|inherit)$/.test(v) || /^var\(--w-[\w-]+\)$/.test(v)
 
@@ -49,7 +51,7 @@ describe('the calm look, on every stylesheet', () => {
 
   it('no px font-size (font-size or the font shorthand): only var(--t-*) or calc() of one', () => {
     for (const d of decls()) {
-      if (d.prop === 'font-size') expect(fontSizeOk(d.value), `${d.file} ${d.sel}: font-size ${d.value}`).toBe(true)
+      if (d.prop === 'font-size') expect(fontSizeOk(d.value) || (FIXED_PX_OK[d.file] ?? []).includes(d.value), `${d.file} ${d.sel}: font-size ${d.value}`).toBe(true)
       if (d.prop === 'font') { const p = fontParts(d.value); if (p.size) expect(fontSizeOk(p.size), `${d.file} ${d.sel}: font ${d.value}`).toBe(true) }
     }
   })

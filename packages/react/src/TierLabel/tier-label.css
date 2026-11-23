@@ -1,0 +1,3 @@
+/* spawn's tier words merged: .dex-tier, .w-toast-tier, .chat-wild-tier, .dex-tiercol span (dot + word, --tier) */
+.sp-tier-label { display: inline-flex; align-items: center; gap: 5px; color: var(--tier); font-size: var(--t-meta); font-weight: var(--w-name); white-space: nowrap; }
+.sp-tier-label--gap-4 { gap: 4px; }

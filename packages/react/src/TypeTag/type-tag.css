@@ -1,0 +1,19 @@
+/* spawn's .dex-type and .type-* (pokedex.css): the words in the type's colour, a --line hairline */
+.sp-type-tag { display: inline-block; padding: 0 6px; border: 1px solid var(--line); border-radius: var(--r-xs); background: none; color: var(--ink); font-size: var(--t-meta); font-weight: var(--w-name); white-space: nowrap; }
+.sp-type--fire { color: #ffb08a; }
+.sp-type--water { color: #9ec2ff; }
+.sp-type--grass { color: #a6e39a; }
+.sp-type--electric { color: #ffe27a; }
+.sp-type--psychic { color: #ffa6c9; }
+.sp-type--ice { color: #aef0f5; }
+.sp-type--dragon { color: #b8a8ff; }
+.sp-type--dark { color: #d0c0b4; }
+.sp-type--fairy { color: #ffc2ec; }
+.sp-type--fighting { color: #ff9b90; }
+.sp-type--poison { color: #dca6f0; }
+.sp-type--ground { color: #ecd29a; }
+.sp-type--flying { color: #c2ccff; }
+.sp-type--bug { color: #d4e07a; }
+.sp-type--rock { color: #ddd0a0; }
+.sp-type--ghost { color: #c4b4f0; }
+.sp-type--steel { color: #d6dde9; }

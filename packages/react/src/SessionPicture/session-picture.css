@@ -1,0 +1,12 @@
+/* spawn's session pictures merged: .w-row-mon / .w-row-glyph / .w-row-shell, .w-sess-head-pic / -glyph / -shell,
+   .w-rail-glyph, .chat-pic, .resume-mon, the drag card's img */
+.sp-session-picture { flex: none; box-sizing: border-box; }
+.sp-session-picture--picture { object-fit: contain; image-rendering: auto; }
+.sp-session-picture--glyph, .sp-session-picture--shell { display: inline-grid; place-items: center; border: 1px solid var(--line); border-radius: var(--r-s); background: none; color: var(--ink-3); }
+.sp-session-picture--glyph.sp-session-picture--64, .sp-session-picture--glyph.sp-session-picture--96 { border-radius: var(--r-l); }
+/* the shell's >_ is spawn's one fixed type size (10px, it never scales: it is a mark, not words) */
+.sp-session-picture--shell { font-family: 'Monaspace Neon Var', Consolas, monospace; font-size: 10px; font-weight: var(--w-mono); line-height: 1; }
+/* waiting on you (.w-row.mood-needs-you .w-row-mon): a hop, then a squash */
+.sp-session-picture--hop { animation: sp-mon-hop 1.2s cubic-bezier(.3, .7, .4, 1) infinite; transform-origin: 50% 100%; }
+@keyframes sp-mon-hop { 0%, 60%, 100% { transform: none; } 20% { transform: translateY(-4px); } 40% { transform: translateY(0) scale(1.04, 0.96); } }
+@media (prefers-reduced-motion: reduce) { .sp-session-picture--hop { animation: none; } }
