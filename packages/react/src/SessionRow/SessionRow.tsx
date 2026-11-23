@@ -47,6 +47,8 @@ export interface SessionRowProps {
   onClose?(): void
   closeLabel?: string
   closeConfirmLabel?: string
+  /** The ×'s hover words while it asks (one more press closes) */
+  closeConfirmHint?: string
   /** More buttons beside ✎ and × on hover (the swap) */
   tools?: React.ReactNode
   title?: string
@@ -72,13 +74,13 @@ export function SessionRow(p: SessionRowProps) {
   if (p.className) cls.push(p.className)
   const pill = mood === 'ended' ? <Pill mood="idle">{moodLabel}</Pill> : <Pill mood={mood}>{moodLabel}</Pill>
   const close = onClose && (
-    <button type="button" className={`sp-session-row__close${confirm ? ' sp-session-row__close--confirm' : ''}`} aria-label={p.closeLabel ?? 'Close'} title={p.closeLabel} onClick={pressClose} onKeyDown={e => e.stopPropagation()}>
+    <button type="button" className={`sp-session-row__close${confirm ? ' sp-session-row__close--confirm' : ''}`} aria-label={confirm ? (p.closeConfirmLabel ?? 'Close?') : (p.closeLabel ?? 'Close')} title={confirm ? (p.closeConfirmHint ?? p.closeConfirmLabel) : p.closeLabel} onClick={pressClose} onKeyDown={e => e.stopPropagation()}>
       {confirm ? (p.closeConfirmLabel ?? 'Close?') : '×'}
     </button>
   )
   const tone = p.hp === undefined ? null : meterTone('hp', p.hp)
   return (
-    <div role="button" tabIndex={0} aria-label={`${name}, ${moodLabel}`} aria-current={chosen ? 'true' : undefined} title={p.title}
+    <div role="button" tabIndex={0} aria-label={`${name}, ${moodLabel}${p.hpTitle ? `, ${p.hpTitle}` : ''}`} aria-current={chosen ? 'true' : undefined} title={p.title}
       className={cls.join(' ')} onClick={onOpen} onKeyDown={keys}>
       <div className="sp-session-row__head">
         <span className="sp-session-row__picture">{picture}</span>

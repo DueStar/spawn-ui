@@ -1,6 +1,7 @@
 /* spawn's .w-toast (toast.css 27–110). The toast window fixes the type at the 100 % step, so its title (15px) and
    × (14px) are fixed sizes, as spawn's */
-.sp-toast { position: relative; width: 100%; box-sizing: border-box; display: grid; grid-template-columns: 64px minmax(0, 1fr); align-items: center; gap: 14px; padding: 14px 18px 14px 14px; border-radius: var(--r-toast); border: 1px solid var(--line); background: var(--toast-bg); cursor: pointer; animation: sp-toast-in 0.3s cubic-bezier(.2, .8, .2, 1) both; }
+/* the type at the 100 % step on the card itself: shown inside a page at 130 %, it stays the same (spawn's toast window) */
+.sp-toast { --t-micro: 10px; --t-meta: 11px; --t-ui: 12px; --t-name: 12px; --t-prose: 13px; --t-num: 12px; --t-head: 14px; --t-big: 15px; --t-code: 12px; position: relative; width: 100%; box-sizing: border-box; display: grid; grid-template-columns: 64px minmax(0, 1fr); align-items: center; gap: 14px; padding: 14px 18px 14px 14px; border-radius: var(--r-toast); border: 1px solid var(--line); background: var(--toast-bg); cursor: pointer; animation: sp-toast-in 0.3s cubic-bezier(.2, .8, .2, 1) both; }
 .sp-toast:hover { border-color: var(--line-hover); }
 .sp-toast--leaving { animation: sp-toast-out 0.35s ease-in both; }
 .sp-toast__art { width: 64px; height: 64px; border-radius: var(--r-l); display: grid; place-items: center; background: var(--toast-art-bg); }

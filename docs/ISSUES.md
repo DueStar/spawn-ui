@@ -16,6 +16,15 @@
 
 - [ ] SessionRow는 spawn처럼 `role="button"` 줄 안에 ✎·× 버튼이 들어 있어요(버튼 안의 버튼, axe `nested-interactive`). 줄을 목록 항목 + 안쪽 열기 버튼으로 바꾸면 spawn 구조와 하네스가 바뀌어요. (plan 3, Task 3)
 
+- [ ] SessionHeader 이름 바꾸기가 더블클릭뿐이에요(키보드 길 없음). F2나 버튼 추가. (plan 3 review)
+- [ ] MonCell: 고를 수 있는 칸이면 안 고른 칸도 `aria-pressed=false`로. 작업 중 초록 점은 글이 없으니 `label`에 넣어야 한다고 문서에. (plan 3 review)
+- [ ] DropZone: 안내가 글과 함께 새로 붙어서 화면 읽기가 못 읽을 수 있어요. 빈 live region을 먼저 두기. (plan 3 review)
+- [ ] LogDay가 `<h3>` 고정 — 쓰는 곳의 제목 순서를 깨요. `as` 속성. (plan 3 review)
+- [ ] Account: 로그인했는데 `onOpen`이 없으면 아무것도 안 하는 버튼. (plan 3 review)
+- [ ] 받는 중인 업데이트 버튼은 `disabled`라 키보드로 %를 못 들어요(spawn도 같음). (plan 3 review)
+- [ ] 간략 줄: 다음 줄에서 Shift+Tab으로 돌아오면 ×를 건너뛰어요(spawn도 같음). (plan 3 review)
+- [ ] UsageBars 불러오는 중: 빛 .12 vs spawn .10, spawn은 %·초기화를 숨기고 막대를 넓혀요. (plan 3 review)
+
 ## 동작
 
 - [ ] 툴팁의 자동 닫힘 타이머가, 바깥이 `onOpenChange`를 매번 새로 넘기면 처음부터 다시 세요. ref로 바꾸기. (plan 2 review)
@@ -26,7 +35,6 @@
 - [ ] ListRow item: 뒤쪽 버튼이 오른쪽 11px·간격 8. spawn의 휴지통은 absolute 오른쪽 8, 줄의 오른쪽 여백 40 → 휴지통 3px, 제목 폭 5px 차이. 쓸 수 없는 줄에도 hover가 보여요(spawn은 `:hover:not(:disabled)`). (plan 2 review)
 - [ ] SegmentedControl md(5px 10px)는 아직 spawn에 같은 것이 없어요. 적용할 때 맞출 것. (plan 1, Task 6)
 
-- [ ] 도감 카드 이름 옆 등급 글자: spawn은 11px 고정, spawn-ui는 TierLabel(`--t-meta`)이라 1~2px 커요. (plan 3, Task 8)
 - [ ] 걸음 수(StepCount)의 발바닥, 런처의 폴더·이어하기 아이콘은 Phosphor로 그렸어요. spawn은 자체 그림 — 적용할 때 맞출지. (plan 3)
 - [ ] UsageBars의 레일용 세로 막대 두 개(`.w-rail-usage`)는 아직 없어요. 레일을 옮길 때 추가. (plan 3, Task 6)
 

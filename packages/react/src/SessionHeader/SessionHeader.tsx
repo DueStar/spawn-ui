@@ -19,11 +19,12 @@ export interface SessionHeaderProps {
   onClose?(): void
   closeLabel?: string
   closeConfirmLabel?: string
+  closeConfirmHint?: string
   className?: string
 }
 
 /** The bar over a session: who it is, where it works, its tools, and its × */
-export function SessionHeader({ picture, name, project, branch, tools, lens, onRename, renaming, onClose, closeLabel, closeConfirmLabel, className }: SessionHeaderProps) {
+export function SessionHeader({ picture, name, project, branch, tools, lens, onRename, renaming, onClose, closeLabel, closeConfirmLabel, closeConfirmHint, className }: SessionHeaderProps) {
   const close = useConfirm(onClose)
   return (
     <div className={`sp-session-header${className ? ` ${className}` : ''}`}>
@@ -36,7 +37,7 @@ export function SessionHeader({ picture, name, project, branch, tools, lens, onR
         {tools && <span className="sp-session-header__tools">{tools}</span>}
         {lens}
         {onClose && (
-          <button type="button" className={`sp-session-header__close${close.asking ? ' sp-session-header__close--confirm' : ''}`} aria-label={closeLabel ?? 'Close'} title={closeLabel} onClick={close.press}>
+          <button type="button" className={`sp-session-header__close${close.asking ? ' sp-session-header__close--confirm' : ''}`} aria-label={close.asking ? (closeConfirmLabel ?? 'Close?') : (closeLabel ?? 'Close')} title={close.asking ? (closeConfirmHint ?? closeConfirmLabel) : closeLabel} onClick={close.press}>
             {close.asking ? (closeConfirmLabel ?? 'Close?') : '×'}
           </button>
         )}

@@ -1722,6 +1722,27 @@
       "description": "Home, or a double-click"
     },
     {
+      "name": "onDragging",
+      "type": "((on: boolean) => void)",
+      "required": false,
+      "default": null,
+      "description": "A drag starts (true) and ends (false): the app sets its resizing cursor"
+    },
+    {
+      "name": "onResizeEnd",
+      "type": "((value: number) => void)",
+      "required": false,
+      "default": null,
+      "description": "A drag ended at this value (save it once)"
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
       "name": "className",
       "type": "string",
       "required": false,
@@ -1897,6 +1918,13 @@
     },
     {
       "name": "closeConfirmLabel",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "closeConfirmHint",
       "type": "string",
       "required": false,
       "default": null,
@@ -2136,6 +2164,13 @@
       "required": false,
       "default": null,
       "description": ""
+    },
+    {
+      "name": "closeConfirmHint",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "description": "The ×'s hover words while it asks (one more press closes)"
     },
     {
       "name": "tools",

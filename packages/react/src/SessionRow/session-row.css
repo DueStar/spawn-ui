@@ -21,7 +21,8 @@
 .sp-session-row__lv { flex: none; font-size: var(--t-meta); font-weight: var(--w-body); color: var(--ink-3); white-space: nowrap; font-variant-numeric: tabular-nums; }
 .sp-session-row__meta { flex: 1; min-width: 0; display: flex; align-items: center; gap: 5px; overflow: hidden; }
 .sp-session-row__project { flex: 0 1 auto; min-width: 44px; color: var(--ink-3); font-size: var(--t-meta); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.sp-session-row__tool { flex: none; color: var(--ink-3); white-space: nowrap; }
+/* the AI tool, when not the default (.w-row-tool): a small hairline chip */
+.sp-session-row__tool { flex: none; font-size: var(--t-micro); color: var(--ink-3); padding: 1px 6px; border-radius: var(--r-s); border: 1px solid var(--line); white-space: nowrap; }
 /* the git branch: quiet, no chip, the first to give way */
 .sp-session-row__branch { flex: 0 1 auto; min-width: 0; max-width: 120px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: calc(var(--t-meta) - 0.5px); font-weight: var(--w-mono); color: var(--ink-3); font-family: 'Monaspace Neon Var', Consolas, 'SF Mono', Menlo, monospace; }
 .sp-session-row__branch::before { content: '⎇ '; opacity: 0.7; }
@@ -37,7 +38,9 @@
 
 .sp-session-row__bottom { display: flex; align-items: center; gap: 8px; padding-left: 34px; }
 .sp-session-row__hp-label { flex: none; font-size: var(--t-micro); font-weight: var(--w-body); color: var(--ink-3); }
-.sp-session-row__model { flex: none; font-size: var(--t-meta); color: var(--ink-2); white-space: nowrap; }
+/* the model and the number are fixed columns: every row's HP bar the same length (.w-row-model) */
+.sp-session-row__model { flex: none; width: 5.5em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; text-align: right; font-size: var(--t-meta); color: var(--ink-3); }
+.sp-session-row__model + .sp-session-row__num { margin-left: -3px; }
 .sp-session-row__num { flex: none; width: 3em; font-size: var(--t-meta); color: var(--ink-3); font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }
 /* waiting on you: its Pokémon hops (only then, so the hop is the signal) */
 .sp-session-row--needs-you .sp-session-row__picture > * { animation: sp-mon-hop 1.2s cubic-bezier(.3, .7, .4, 1) infinite; transform-origin: 50% 100%; }
@@ -56,6 +59,9 @@
 .sp-session-row--compact .sp-pill .sp-truncate { display: none; }
 .sp-session-row--compact .sp-pill__dot { width: 7px; height: 7px; }
 .sp-session-row__state > .sp-session-row__close { display: none; }
+/* the × a 22px target; the negative margins keep the line as it was (the dot's 14px slot, the 20px line) */
+.sp-session-row--compact .sp-session-row__close { padding: 0 4px; min-width: 22px; height: 22px; margin: -2px -4px; }
+.sp-session-row--compact .sp-session-row__close--confirm { padding: 0 6px; }
 .sp-session-row--compact:hover .sp-session-row__state > .sp-pill, .sp-session-row--compact:focus-visible .sp-session-row__state > .sp-pill, .sp-session-row__state:focus-within > .sp-pill, .sp-session-row__state:has(> .sp-session-row__close--confirm) > .sp-pill { display: none; }
 .sp-session-row--compact:hover .sp-session-row__state > .sp-session-row__close, .sp-session-row--compact:focus-visible .sp-session-row__state > .sp-session-row__close, .sp-session-row__state:focus-within > .sp-session-row__close, .sp-session-row__state > .sp-session-row__close--confirm { display: inline-grid; place-items: center; }
 /* an ended session, dimmed as the rail does (its dot alone would read as idle) */
