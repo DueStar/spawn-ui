@@ -1,0 +1,14 @@
+/* spawn's .dex-stat and .dex-tiercol (pokedex.css 133–160): numbers read by brightness, not weight */
+.sp-stat { display: grid; grid-template-columns: 1fr auto; align-content: space-between; row-gap: 2px; min-width: 0; padding: 0 20px; border-left: 1px solid var(--line); }
+.sp-stat:first-child { border-left: 0; padding-left: 0; }
+.sp-stat__label { grid-column: 1 / -1; font-size: var(--t-meta); color: var(--ink-3); font-weight: var(--w-body); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.sp-stat__value { grid-column: 1; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.sp-stat__value b { font-size: calc(var(--t-num) + 8px); font-weight: var(--w-strong); color: var(--num-ink); letter-spacing: -0.02em; }
+.sp-stat__value small { font-size: var(--t-meta); color: var(--ink-3); }
+.sp-stat__pct { grid-column: 2; grid-row: 2; align-self: end; font-size: var(--t-meta); color: var(--ink-3); font-weight: var(--w-body); font-variant-numeric: tabular-nums; }
+.sp-stat__bar.sp-meter { grid-column: 1 / -1; height: 2px; margin-top: 4px; border-radius: 1px; }
+.sp-stat__bar .sp-meter__fill { border-radius: 1px; background: var(--ink-3); }
+.sp-stat--tier { border-left: 0; padding: 0; gap: 4px; }
+.sp-stat--tier .sp-stat__label { color: var(--tier); }
+.sp-stat--tier .sp-stat__value b { font-size: calc(var(--t-num) + 3px); }
+.sp-stat--tier .sp-meter__fill { background: var(--tier); }

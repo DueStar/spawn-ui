@@ -1,0 +1,29 @@
+/* spawn's Pokémon cells merged: .dex-cell, .box-cell (+ .look-icon), .w-swap-cell (picker), .rank-partners button (partner).
+   Picked: the 1px yellow ring (.dex-cell.picked, .box-cell.picked) — yellow is the chosen thing */
+.sp-mon-cell { position: relative; display: grid; place-items: center; padding: 0; border: 0; border-radius: var(--r-m); background: var(--mon-bg); color: var(--ink-3); font: inherit; cursor: pointer; transition: background 0.12s ease; }
+.sp-mon-cell:hover { background: var(--mon-bg-hover); }
+.sp-mon-cell:focus-visible { outline: 2px solid var(--ink-2); outline-offset: 1px; }
+.sp-mon-cell img { object-fit: contain; -webkit-user-drag: none; }
+.sp-mon-cell--picked { box-shadow: inset 0 0 0 1px var(--accent); }
+.sp-mon-cell--dragging { opacity: 0.4; }
+.sp-mon-cell--dex { aspect-ratio: 1; content-visibility: auto; contain-intrinsic-size: auto 92px; }
+.sp-mon-cell--dex img { width: 62px; height: 62px; }
+.sp-mon-cell--unknown { background: var(--unknown-bg); }
+/* the ? of a Pokémon not met yet: spawn's fixed mark (14px) */
+.sp-mon-cell__q { color: var(--q-ink); font-weight: var(--w-name); font-size: 14px; }
+.sp-mon-cell__no { position: absolute; left: 6px; top: 4px; font-size: var(--t-micro); color: var(--ink-3); opacity: 0.8; font-variant-numeric: tabular-nums; }
+.sp-mon-cell__shiny { position: absolute; left: 6px; bottom: 4px; font-size: var(--t-micro); color: var(--shiny); }
+.sp-mon-cell__count { position: absolute; right: 6px; bottom: 4px; font-size: var(--t-micro); color: var(--ink-3); font-weight: var(--w-body); font-variant-numeric: tabular-nums; }
+.sp-mon-cell--box { width: 96px; height: 96px; padding: 16px; touch-action: none; }
+.sp-mon-cell--box img { width: 50px; height: 50px; }
+.sp-mon-cell--box-icon { aspect-ratio: 1; padding: 14px; touch-action: none; contain-intrinsic-size: auto 76px; }
+.sp-mon-cell--box-icon img { width: auto; height: auto; max-width: 48px; max-height: 48px; }
+.sp-mon-cell__working { position: absolute; left: 6px; bottom: 6px; width: 5px; height: 5px; border-radius: 50%; background: var(--green); }
+.sp-mon-cell--picker { gap: 2px; padding: 8px 4px 6px; border: 1px solid transparent; font-size: var(--t-micro); }
+.sp-mon-cell--picker:hover { border-color: var(--line-hover); }
+.sp-mon-cell--picker img { width: auto; height: auto; max-width: 40px; max-height: 40px; }
+.sp-mon-cell__caption { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.sp-mon-cell--partner { width: 44px; height: 44px; border: 1px solid transparent; }
+.sp-mon-cell--partner img { width: 36px; height: 36px; }
+.sp-mon-cell--partner.sp-mon-cell--picked { box-shadow: none; border-color: var(--ink-3); background: var(--sel-bg); }
+@media (prefers-reduced-motion: reduce) { .sp-mon-cell { transition: none; } }
