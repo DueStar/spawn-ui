@@ -1,0 +1,25 @@
+/* spawn's answer cards (chat.css .chat-card-*, 360–416): the chat card, amber while it waits */
+.sp-answer__head { display: flex; align-items: baseline; gap: 8px; min-width: 0; font-size: var(--t-ui); font-weight: var(--w-name); color: var(--ink); line-height: 1.5; }
+.sp-answer__dot { align-self: center; flex: none; width: 6px; height: 6px; border-radius: 50%; background: var(--amber); }
+.sp-answer__title { min-width: 0; overflow-wrap: anywhere; unicode-bidi: isolate; }
+.sp-answer__kind { margin-left: auto; flex: none; font-size: var(--t-meta); font-weight: 400; color: var(--ink-3); white-space: nowrap; }
+.sp-answer__cmd { margin: 0; max-height: 160px; overflow: auto; padding: 8px 10px; border: 1px solid var(--line); border-radius: var(--r-s); background: var(--term-bg); font-family: 'Monaspace Neon Var', Consolas, 'SF Mono', Menlo, monospace; font-weight: var(--w-mono); font-size: var(--t-code); line-height: 1.6; color: var(--ink); white-space: pre-wrap; overflow-wrap: anywhere; }
+/* the request's own text, in logical order as the terminal shows it */
+.sp-exact { direction: ltr; unicode-bidi: bidi-override; }
+.sp-answer__fact { display: flex; align-items: baseline; gap: 6px; margin-top: -4px; font-size: var(--t-meta); line-height: 1.5; color: var(--ink-3); overflow-wrap: anywhere; min-width: 0; }
+.sp-answer__fact > span { min-width: 0; }
+.sp-answer__fact--warn { color: var(--ink); font-weight: var(--w-name); }
+.sp-answer__rule { margin-top: -4px; font-size: var(--t-meta); line-height: 1.5; color: var(--ink-3); overflow-wrap: anywhere; }
+.sp-answer__rule code { font-family: 'Monaspace Neon Var', Consolas, 'SF Mono', Menlo, monospace; font-weight: var(--w-mono); font-size: var(--t-meta); color: var(--ink-2); }
+.sp-answer__actions { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; min-height: 28px; }
+.sp-answer__hint { margin-left: auto; font-size: var(--t-meta); color: var(--ink-3); }
+.sp-answer__state { min-width: 0; font-size: var(--t-ui); color: var(--ink-3); }
+.sp-answer__opts, .sp-answer__optgroup { display: flex; flex-direction: column; gap: 6px; }
+.sp-answer__opt { display: flex; align-items: flex-start; gap: 10px; min-height: 30px; box-sizing: border-box; padding: 5px 12px; border: 1px solid var(--line); border-radius: var(--r-s); font-size: var(--t-ui); cursor: pointer; }
+.sp-answer__opt:hover { border-color: var(--line-hover); background: var(--hover); }
+.sp-answer__opt .sp-mark { margin-top: 3px; }
+.sp-answer__opttext { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.sp-answer__optlabel { color: var(--ink); font-weight: var(--w-name); overflow-wrap: anywhere; }
+.sp-answer__optdesc { font-size: var(--t-meta); font-weight: 400; color: var(--ink-3); overflow-wrap: anywhere; }
+.sp-answer__optpre { display: block; width: fit-content; max-width: 100%; box-sizing: border-box; margin: 6px 0 0; padding: 8px 10px; max-height: 260px; overflow: auto; border-radius: var(--r-s); background: var(--term-bg); font-family: 'Monaspace Neon Var', Consolas, 'SF Mono', Menlo, monospace; font-weight: var(--w-mono); font-size: calc(var(--t-code) - 1px); white-space: pre; }
+.sp-answer__plan { color: var(--ink-2); max-height: 320px; overflow: auto; }
