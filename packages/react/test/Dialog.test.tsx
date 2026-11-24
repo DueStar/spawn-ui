@@ -54,7 +54,8 @@ describe('Dialog', () => {
     await user.click(opener)
     const dlg = await screen.findByRole('dialog')
     // (Base UI's focus guards — spans with data-type — pass the focus back inside; never the page behind)
-    for (let i = 0; i < 6; i++) { await user.tab(); const el = document.activeElement as HTMLElement; expect(dlg.contains(el) || el.hasAttribute('data-type'), `tab ${i}: ${el.outerHTML.slice(0, 60)}`).toBe(true); expect(el).not.toBe(opener) }
+    // (the guard hands the focus on a beat later on some machines — the Linux CI caught it on body — so each step waits for it to land)
+    for (let i = 0; i < 6; i++) { await user.tab(); await waitFor(() => { const el = document.activeElement as HTMLElement; expect(dlg.contains(el) || el.hasAttribute('data-type'), `tab ${i}: ${el.outerHTML.slice(0, 60)}`).toBe(true); expect(el).not.toBe(opener) }) }
     await user.keyboard('{Escape}')
     await waitFor(() => expect(document.activeElement).toBe(opener))
   })
