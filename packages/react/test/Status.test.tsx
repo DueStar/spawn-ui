@@ -64,3 +64,15 @@ describe('StatusDot, Tag, Pill, Badge', () => {
     expect(css('Badge', 'badge.css')).toMatch(/border-radius:\s*999px/)
   })
 })
+
+describe('Tag whole (spawn 5b: 이어하기 badges)', () => {
+  it('whole: the word as plain text, no truncating span (a clipped edge pixel of the last glyph, as spawn draws it whole)', () => {
+    const { container } = render(<Tag tone="run" whole>실행 중</Tag>)
+    expect(container.querySelector('.sp-truncate')).toBeNull()
+    expect(container.querySelector('.sp-tag')?.textContent).toBe('실행 중')
+  })
+  it('by default it still truncates', () => {
+    const { container } = render(<Tag>새로 등록</Tag>)
+    expect(container.querySelector('.sp-tag .sp-truncate')).not.toBeNull()
+  })
+})

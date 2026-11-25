@@ -9,16 +9,18 @@ export interface TagProps {
   tone?: 'plain' | 'badge' | 'run'
   /** The whole text on hover (a string child is used when left out) */
   title?: string
+  /** The word drawn whole, never cut to …: for a short fixed word that must not lose an edge pixel (spawn's 이어하기 badges) */
+  whole?: boolean
   className?: string
 }
 
 /** A hairline label (spawn's 새로 등록, 색이 다른, a tier's word, 실행 중, a tool's name) */
-export function Tag({ children, tier, tone = 'plain', title, className }: TagProps) {
+export function Tag({ children, tier, tone = 'plain', title, whole, className }: TagProps) {
   const t = title ?? (typeof children === 'string' ? children : undefined)
   return (
     <span className={`sp-tag${tier ? ` sp-tag--tier tier-${tier}` : tone !== 'plain' ? ` sp-tag--${tone}` : ''}${className ? ` ${className}` : ''}`} title={t}>
       {tier && <i className="tdot" aria-hidden="true" />}
-      <span className="sp-truncate">{children}</span>
+      {whole ? children : <span className="sp-truncate">{children}</span>}
     </span>
   )
 }

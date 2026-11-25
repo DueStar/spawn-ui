@@ -1,5 +1,11 @@
 # @spawn-ui/react
 
+## 0.4.1
+
+### Patch Changes
+
+- Tag: `whole` draws the word whole, with no truncating span (spawn's 이어하기 badges kept every edge pixel).
+
 ## 0.4.0
 
 ### Minor Changes

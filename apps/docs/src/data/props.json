@@ -3366,6 +3366,13 @@
       "description": "The whole text on hover (a string child is used when left out)"
     },
     {
+      "name": "whole",
+      "type": "boolean",
+      "required": false,
+      "default": null,
+      "description": "The word drawn whole, never cut to …: for a short fixed word that must not lose an edge pixel (spawn's 이어하기 badges)"
+    },
+    {
       "name": "className",
       "type": "string",
       "required": false,
