@@ -50,6 +50,13 @@
 - [ ] 걸음 수(StepCount)의 발바닥, 런처의 폴더·이어하기 아이콘은 Phosphor로 그렸어요. spawn은 자체 그림 — 적용할 때 맞출지. (plan 3)
 - [ ] UsageBars의 레일용 세로 막대 두 개(`.w-rail-usage`)는 아직 없어요. 레일을 옮길 때 추가. (plan 3, Task 6)
 
+## spawn에 적용 (5a에서 미룬 것)
+
+- [ ] 1.10.14에 이미 있는 것: 창 560px에서 창 버튼이 위 막대 밖으로 9px, 채팅 아래 모델·생각·권한 버튼 높이 20px(22 미만), 링크 미리보기를 꺼도 blob: 주소 하나가 안 풀림. 하네스 흐름 11개가 1.10.14에서 이미 실패(요즘 바뀐 동작을 못 따라감). (plan 5a)
+- [ ] regress.mjs: 다시 찍은 사진이 크기만 달라도 통과로 셀 수 있음, `--skip-flows`·흐름 기록 없는 `--no-run` 비교는 흐름을 안 보고 통과, checks.json 키에 side·text·lang이 없어 겹칠 수 있음. (plan 5a review)
+- [ ] spawn-ui-css 테스트: `:is(.sp-a, button)`·`.sp-a ~ div` 같은 선택자를 통과시킴, `@property`·`@layer`·`@font-face` 본문을 안 봄, "잡아내는지" 테스트가 실제 검사를 돌리지 않음, 빌드된 CSS 순서는 안 지킴(지금은 맞음). (plan 5a review)
+- [ ] 작은 것: Widget.tsx 9행 주석이 낡음, `.gitattributes`에 `*.tgz binary`, 사진이 가라앉길 기다리는 반복이 하네스 사진마다 150ms+1장 더함. (plan 5a review)
+
 ## 문서 사이트
 
 - [ ] Starlight 기본 모양이 spawn과 너무 달라요(사장님: "너무 구려"). 컴포넌트를 다 만든 뒤 spawn(paseo 느낌) 모양과 인터랙션으로 다시 만들기.
